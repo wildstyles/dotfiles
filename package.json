@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "tsm rules.ts",
+    "replace": "cp karabiner.json ~/.config/karabiner/karabiner.json",
     "watch": "nodemon --exec yarn build -e ts"
   }
 }

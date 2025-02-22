@@ -209,5 +209,8 @@ export function rectangle(name: string): LayerCommand {
  * Shortcut for "Open an app" command (of which there are a bunch)
  */
 export function app(name: string): LayerCommand {
+  // return open(
+  //   `-a '${name}.app' && open -g '/Applications/MoveCursorToCenterOfActiveWindow.app'`
+  // );
   return open(`-a '${name}.app'`);
 }

@@ -98,6 +98,26 @@ export function createHyperSubLayer(
   ];
 }
 
+export const createAltLayer = (subLayers: {
+  [key_code in KeyCode]?: HyperKeySublayer | LayerCommand;
+}): KarabinerRules[] => {
+  return Object.entries(subLayers).map(([key, value]) => ({
+    description: `Alt + ${key}`,
+    manipulators: [
+      {
+        ...value,
+        type: "basic" as const,
+        from: {
+          key_code: key as KeyCode,
+          modifiers: {
+            mandatory: ["left_alt"],
+          },
+        },
+      },
+    ],
+  }));
+};
+
 /**
  * Create all hyper sublayers. This needs to be a single function, as well need to
  * have all the hyper variable names in order to filter them and make sure only one

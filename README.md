@@ -6,6 +6,8 @@ https://www.youtube.com/watch?v=DzNmUNvnB04&t=413s&ab_channel=DreamsofCode
 https://www.youtube.com/watch?v=o7-HhJjdeVY&list=PL7Fw8i26mdG-xX2oFaXQhlra6ZUSA7-Sq&index=1&ab_channel=SuboptimalEngineer
 https://www.youtube.com/watch?v=ra23stuszAo&list=PL7Fw8i26mdG-xX2oFaXQhlra6ZUSA7-Sq&index=2&ab_channel=10xprogrammer
 
+https://www.youtube.com/watch?v=iKb3cHDD9hw&ab_channel=JoseanMartinez - yazi
+
 # @mxstbr's Karabiner Elements configuration
 
 If you like TypeScript and want your Karabiner configuration maintainable & type-safe, you probably want to use the custom configuration DSL / generator I created in `rules.ts` and `utils.ts`!

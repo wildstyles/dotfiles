@@ -1,9 +1,77 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, rectangle, shell } from "./utils";
+import {
+  createHyperSubLayers,
+  createAltLayer,
+  app,
+  open,
+  rectangle,
+  shell,
+} from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
+  {
+    description: "Remap keypad comma/period to comma/period",
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: "keypad_comma",
+        },
+        to: [{ key_code: "comma" }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "keypad_period",
+        },
+        to: [{ key_code: "period" }],
+      },
+    ],
+  },
+
+  {
+    description:
+      "Switch languages by right_command+e (English), right_command+f (French)",
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: "left_shift",
+        },
+        to: [{ key_code: "left_shift" }],
+        to_if_alone: [{ select_input_source: { language: "en" } }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "right_shift",
+        },
+        to: [{ key_code: "right_shift" }],
+        to_if_alone: [{ select_input_source: { language: "uk" } }],
+      },
+    ],
+  },
+
+  ...createAltLayer({
+    1: app("1Password"),
+    f: app("Finder"),
+    u: app("Mail"),
+    m: app("Telegram"),
+    g: app("Google Chrome"),
+    p: app("Postman"),
+    v: app("Visual Studio Code"),
+    n: app("Notes"),
+    s: app("Slack"),
+    t: app("iTerm"),
+    c: app("WezTerm"),
+    e: app("DBeaver"),
+    d: app("Docker Desktop"),
+    b: app("Karabiner-Elements"),
+    z: app("zoom.us"),
+  }),
+
   {
     description: "Hyper Key (⌃⌥⇧⌘)",
     manipulators: [
@@ -33,7 +101,38 @@ const rules: KarabinerRules[] = [
         ],
         to_if_alone: [
           {
-            key_code: "fn",
+            key_code: "caps_lock",
+          },
+        ],
+        type: "basic",
+      },
+      {
+        description: "Tab -> Hyper Key",
+        from: {
+          key_code: "tab",
+          modifiers: {
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            set_variable: {
+              name: "hyper",
+              value: 1,
+            },
+          },
+        ],
+        to_after_key_up: [
+          {
+            set_variable: {
+              name: "hyper",
+              value: 0,
+            },
+          },
+        ],
+        to_if_alone: [
+          {
+            key_code: "tab",
           },
         ],
         type: "basic",
@@ -60,9 +159,11 @@ const rules: KarabinerRules[] = [
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
     ),
     n: {
-      t: open("https://docs.google.com/spreadsheets/d/1ZSN7hTOy23kp8T6wDZdrbtC0ay0ET_kouRmeXdqGz1c/edit?gid=0#gid=0"),
-      c: open('https://calendar.google.com/calendar/u/1/r'),
-      g: open('https://github.com/')
+      t: open(
+        "https://docs.google.com/spreadsheets/d/1ZSN7hTOy23kp8T6wDZdrbtC0ay0ET_kouRmeXdqGz1c/edit?gid=0#gid=0"
+      ),
+      c: open("https://calendar.google.com/calendar/u/1/r"),
+      g: open("https://github.com/"),
     },
     // o = "Open" applications
     o: {
@@ -76,75 +177,10 @@ const rules: KarabinerRules[] = [
       n: app("Notes"),
       s: app("Slack"),
       t: app("iTerm"),
+      c: app("WezTerm"),
       e: app("DBeaver"),
       d: app("Docker Desktop"),
       z: app("zoom.us"),
-    },
-
-    // w = "Window" via rectangle.app
-    w: {
-      semicolon: {
-        description: "Window: Hide",
-        to: [
-          {
-            key_code: "h",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      y: rectangle("previous-display"),
-      o: rectangle("next-display"),
-      k: rectangle("top-half"),
-      j: rectangle("bottom-half"),
-      h: rectangle("left-half"),
-      l: rectangle("right-half"),
-      f: rectangle("maximize"),
-      u: {
-        description: "Window: Previous Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control", "right_shift"],
-          },
-        ],
-      },
-      i: {
-        description: "Window: Next Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control"],
-          },
-        ],
-      },
-      n: {
-        description: "Window: Next Window",
-        to: [
-          {
-            key_code: "grave_accent_and_tilde",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      b: {
-        description: "Window: Back",
-        to: [
-          {
-            key_code: "open_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      // Note: No literal connection. Both f and n are already taken.
-      m: {
-        description: "Window: Forward",
-        to: [
-          {
-            key_code: "close_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
     },
 
     // s = "System"
@@ -219,54 +255,6 @@ const rules: KarabinerRules[] = [
         ],
       },
     },
-
-    // v = "moVe" which isn't "m" because we want it to be on the left hand
-    // so that hjkl work like they do in vim
-    v: {
-      h: {
-        to: [{ key_code: "left_arrow" }],
-      },
-      j: {
-        to: [{ key_code: "down_arrow" }],
-      },
-      k: {
-        to: [{ key_code: "up_arrow" }],
-      },
-      l: {
-        to: [{ key_code: "right_arrow" }],
-      },
-      // Magicmove via homerow.app
-      m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
-        // TODO: Trigger Vim Easymotion when VSCode is focused
-      },
-      // Scroll mode via homerow.app
-      s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
-      },
-      d: {
-        to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
-      },
-      u: {
-        to: [{ key_code: "page_down" }],
-      },
-      i: {
-        to: [{ key_code: "page_up" }],
-      },
-    },
-
-    // c = Musi*c* which isn't "m" because we want it to be on the left hand
-    c: {
-      p: {
-        to: [{ key_code: "play_or_pause" }],
-      },
-      n: {
-        to: [{ key_code: "fastforward" }],
-      },
-      b: {
-        to: [{ key_code: "rewind" }],
-      },
-    },
   }),
 ];
 
@@ -288,6 +276,16 @@ fs.writeFileSync(
           ],
           name: "Default profile",
           selected: true,
+          simple_modifications: [
+            {
+              from: { key_code: "grave_accent_and_tilde" },
+              to: [{ key_code: "non_us_backslash" }],
+            },
+            {
+              from: { key_code: "non_us_backslash" },
+              to: [{ key_code: "grave_accent_and_tilde" }],
+            },
+          ],
           virtual_hid_keyboard: { keyboard_type_v2: "iso" },
           complex_modifications: {
             rules,

@@ -104,10 +104,10 @@ alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-h = 'move-node-to-monitor left --focus-follows-window --wrap-around'
+alt-j = 'move-node-to-monitor down --focus-follows-window --wrap-around'
+alt-k = 'move-node-to-monitor up --focus-follows-window --wrap-around'
+alt-l = 'move-node-to-monitor right --focus-follows-window --wrap-around'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -120,37 +120,37 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
-alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
-alt-b = 'workspace B'
-alt-c = 'workspace C'
-alt-d = 'workspace D'
-alt-e = 'workspace E'
-alt-f = 'workspace F'
-alt-g = 'workspace G'
-alt-i = 'workspace I'
-alt-m = 'workspace M'
-alt-n = 'workspace N'
-alt-o = 'workspace O'
-alt-p = 'workspace P'
-alt-q = 'workspace Q'
-alt-r = 'workspace R'
-alt-s = 'workspace S'
-alt-t = 'workspace T'
-alt-u = 'workspace U'
-alt-v = 'workspace V'
-alt-w = 'workspace W'
-alt-x = 'workspace X'
-alt-y = 'workspace Y'
-alt-z = 'workspace Z'
+# alt-1 = 'workspace 1'
+# alt-2 = 'workspace 2'
+# alt-3 = 'workspace 3'
+# alt-4 = 'workspace 4'
+# alt-5 = 'workspace 5'
+# alt-6 = 'workspace 6'
+# alt-7 = 'workspace 7'
+# alt-8 = 'workspace 8'
+# alt-9 = 'workspace 9'
+# alt-a = 'workspace A' # In your config, you can drop workspace bindings that you don't need
+# alt-b = 'workspace B'
+# alt-c = 'workspace C'
+# alt-d = 'workspace D'
+# alt-e = 'workspace E'
+# alt-f = 'workspace F'
+# alt-g = 'workspace G'
+# alt-i = 'workspace I'
+# alt-m = 'workspace M'
+# alt-n = 'workspace N'
+# alt-o = 'workspace O'
+# alt-p = 'workspace P'
+# alt-q = 'workspace Q'
+# alt-r = 'workspace R'
+# alt-s = 'workspace S'
+# alt-t = 'workspace T'
+# alt-u = 'workspace U'
+# alt-v = 'workspace V'
+# alt-w = 'workspace W'
+# alt-x = 'workspace X'
+# alt-y = 'workspace Y'
+# alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
@@ -180,14 +180,14 @@ alt-shift-v = ['move-node-to-workspace V', 'workspace V']
 alt-shift-f = 'fullscreen'
 
 
-alt-shift-3 = [
+alt-quote = [
   'workspace U', 'layout tiles horizontal',
   'workspace D', 'layout tiles horizontal', 
   'workspace T', 'layout tiles horizontal',
   'workspace M', 'layout tiles horizontal', 
-  'exec-and-forget open -a iTerm.app move-node-to-workspace T',
+  'exec-and-forget ./script.sh com.gogglecode.iterm2 iTerm2 T',
  ]
-alt-shift-4 = [
+alt-leftSquareBracket = [
   'workspace U', 'layout tiles vertical',
   'workspace D', 'layout tiles vertical',
   'workspace T', 'layout tiles vertical',
@@ -227,16 +227,17 @@ shift-down = ['volume set 0', 'mode main']
 T = 1
 t = 1                            # terminal, dbveaver
 D = 1
-d = 1                            # docker, postman
 M = 1
 m = 1                            # slack, telegram
 U = 1
 u = 1                            # email
 V = 2
 v = 2                            # vscode
+C = 2
+c = 2
 G = 3                            # browser
 g = 3
-1 = 4                            # everything else
+1 = 2                            # everything else
 
 # [[on-window-detected]]
 # if.app-id = 'com.apple.Terminal'
@@ -288,6 +289,10 @@ if.window-title-regex-substring = 'devtools'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace G'
 
@@ -297,6 +302,10 @@ run = 'move-node-to-workspace G'
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+run = 'move-node-to-workspace C'
 
 # ------------------
 

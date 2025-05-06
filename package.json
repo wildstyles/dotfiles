@@ -13,12 +13,10 @@
   "scripts": {
     "build": "tsm rules.ts",
     "replace": "cp karabiner.json ~/.config/karabiner/karabiner.json",
-
-    "replace-tmux": "cp .tmux.conf ~/.config/tmux/tmux.conf",
+    "replace-tmux": "cp tmux.conf ~/.config/tmux/tmux.conf",
     "replace-aerospace": "cp aerospace.toml ~/.config/aerospace/aerospace.toml",
     "replace-zshrc": "cp .zshrc ~/.zshrc",
     "replace-yazi": "cp -R .config/yazi/* ~/.config/yazi",
-
     "watch": "nodemon --exec yarn build -e ts"
   }
 }

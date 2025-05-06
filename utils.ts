@@ -97,6 +97,51 @@ export function createHyperSubLayer(
     ),
   ];
 }
+export const createColemakRemapp = (
+  to: KeyCode,
+  from: KeyCode
+): KarabinerRules => ({
+  description: `Remap ${from} to ${to}`,
+  manipulators: [
+    {
+      type: "basic",
+      from: {
+        key_code: from,
+        modifiers: {
+          optional: ["any"],
+        },
+      },
+      to: [{ key_code: to }],
+      conditions: [
+        {
+          input_sources: [
+            { language: "uk" },
+            // {
+            //   input_source_id:
+            //     "io.github.colemakmods.keyboardlayout.colemakdh.colemakdhmatrix",
+            // },
+          ],
+          type: "input_source_if",
+        },
+      ],
+    },
+  ],
+});
+
+export const createColemakRemap = (from: KeyCode, to: KeyCode) => ({
+  // conditions: [
+  //   {
+  //     input_sources: [
+  //       {
+  //         language: "^en$",
+  //       },
+  //     ],
+  //     type: "input_source_if",
+  //   },
+  // ],
+  from: { key_code: from },
+  to: [{ key_code: to }],
+});
 
 export const createAltLayer = (subLayers: {
   [key_code in KeyCode]?: HyperKeySublayer | LayerCommand;
@@ -110,7 +155,7 @@ export const createAltLayer = (subLayers: {
         from: {
           key_code: key as KeyCode,
           modifiers: {
-            mandatory: ["left_alt"],
+            mandatory: ["left_command", "left_option"],
           },
         },
       },

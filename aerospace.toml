@@ -100,24 +100,24 @@ outer.right =      5
 # '''
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+alt-cmd-slash = 'layout tiles horizontal vertical'
+alt-cmd-comma = 'layout accordion horizontal vertical'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
+alt-cmd-shift-h = 'move-node-to-monitor left --focus-follows-window --wrap-around'
+alt-cmd-shift-j = 'move-node-to-monitor down --focus-follows-window --wrap-around'
+alt-cmd-shift-k = 'move-node-to-monitor up --focus-follows-window --wrap-around'
+alt-cmd-shift-l = 'move-node-to-monitor right --focus-follows-window --wrap-around'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'move-node-to-monitor left --focus-follows-window --wrap-around'
-alt-j = 'move-node-to-monitor down --focus-follows-window --wrap-around'
-alt-k = 'move-node-to-monitor up --focus-follows-window --wrap-around'
-alt-l = 'move-node-to-monitor right --focus-follows-window --wrap-around'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#move
-alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+alt-cmd-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-cmd-j = 'focus down --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-cmd-k = 'focus up --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
+alt-cmd-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
+alt-cmd-minus = 'resize smart -50'
+alt-cmd-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 # alt-1 = 'workspace 1'
@@ -177,17 +177,17 @@ alt-shift-t = ['move-node-to-workspace T', 'workspace T']
 alt-shift-u = ['move-node-to-workspace U', 'workspace U']
 alt-shift-v = ['move-node-to-workspace V', 'workspace V']
 
-alt-shift-f = 'fullscreen'
+alt-cmd-shift-f = 'fullscreen'
 
 
-alt-quote = [
+alt-cmd-quote = [
   'workspace U', 'layout tiles horizontal',
   'workspace D', 'layout tiles horizontal', 
   'workspace T', 'layout tiles horizontal',
   'workspace M', 'layout tiles horizontal', 
   'exec-and-forget ./script.sh com.gogglecode.iterm2 iTerm2 T',
  ]
-alt-leftSquareBracket = [
+alt-cmd-leftSquareBracket = [
   'workspace U', 'layout tiles vertical',
   'workspace D', 'layout tiles vertical',
   'workspace T', 'layout tiles vertical',
@@ -235,6 +235,8 @@ V = 2
 v = 2                            # vscode
 C = 2
 c = 2
+b = 2
+B = 2
 G = 3                            # browser
 g = 3
 1 = 2                            # everything else
@@ -307,6 +309,13 @@ run = 'move-node-to-workspace V'
 if.app-id = 'com.github.wez.wezterm'
 run = 'move-node-to-workspace C'
 
+[[on-window-detected]]
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'org.pqrs.Karabiner-EventViewer'
+run = 'move-node-to-workspace B'
 # ------------------
 
 [[on-window-detected]]

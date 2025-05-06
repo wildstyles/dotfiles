@@ -2,14 +2,62 @@ import fs from "fs";
 import { KarabinerRules } from "./types";
 import {
   createHyperSubLayers,
+  createColemakRemapp,
   createAltLayer,
+  createColemakRemap,
   app,
   open,
-  rectangle,
-  shell,
 } from "./utils";
 
+const complexColemakRemaps = [
+  createColemakRemapp("s", "r"),
+  createColemakRemapp("d", "s"),
+  createColemakRemapp("f", "t"),
+  createColemakRemapp("e", "f"),
+  createColemakRemapp("r", "p"),
+  createColemakRemapp("t", "b"),
+  createColemakRemapp("v", "d"),
+  createColemakRemapp("b", "v"),
+
+  createColemakRemapp("y", "j"),
+  createColemakRemapp("u", "l"),
+  createColemakRemapp("i", "u"),
+  createColemakRemapp("o", "y"),
+  createColemakRemapp("p", "semicolon"),
+  createColemakRemapp("h", "m"),
+  createColemakRemapp("j", "n"),
+  createColemakRemapp("k", "e"),
+  createColemakRemapp("l", "i"),
+  createColemakRemapp("semicolon", "o"),
+  createColemakRemapp("n", "k"),
+  createColemakRemapp("m", "h"),
+];
+const colemakRemaps = [
+  createColemakRemap("s", "r"),
+  createColemakRemap("d", "s"),
+  createColemakRemap("f", "t"),
+  createColemakRemap("e", "f"),
+  createColemakRemap("r", "p"),
+  createColemakRemap("t", "b"),
+  createColemakRemap("v", "d"),
+  createColemakRemap("b", "v"),
+
+  createColemakRemap("y", "j"),
+  createColemakRemap("u", "l"),
+  createColemakRemap("i", "u"),
+  createColemakRemap("o", "y"),
+  createColemakRemap("p", "semicolon"),
+  createColemakRemap("h", "m"),
+  createColemakRemap("j", "n"),
+  createColemakRemap("k", "e"),
+  createColemakRemap("l", "i"),
+  createColemakRemap("semicolon", "o"),
+  createColemakRemap("n", "k"),
+  createColemakRemap("m", "h"),
+];
+
 const rules: KarabinerRules[] = [
+  // ...complexColemakRemaps,
   // Define the Hyper key itself
   {
     description: "Remap keypad comma/period to comma/period",
@@ -24,6 +72,19 @@ const rules: KarabinerRules[] = [
       {
         type: "basic",
         from: {
+          key_code: "left_option",
+          modifiers: { optional: ["any"] },
+        },
+        to: [
+          {
+            key_code: "left_option",
+            modifiers: ["left_option", "left_command"],
+          },
+        ],
+      },
+      {
+        type: "basic",
+        from: {
           key_code: "keypad_period",
         },
         to: [{ key_code: "period" }],
@@ -32,24 +93,71 @@ const rules: KarabinerRules[] = [
   },
 
   {
-    description:
-      "Switch languages by right_command+e (English), right_command+f (French)",
+    description: "Language switch by double shift",
     manipulators: [
       {
         type: "basic",
         from: {
-          key_code: "left_shift",
+          simultaneous: [
+            { key_code: "left_shift" },
+            { key_code: "right_shift" },
+          ],
+          modifiers: { optional: ["any"] },
         },
-        to: [{ key_code: "left_shift" }],
-        to_if_alone: [{ select_input_source: { language: "en" } }],
+        to: [
+          { set_variable: { name: "double shift pressed", value: false } },
+          {
+            select_input_source: {
+              language: "uk",
+            },
+          },
+        ],
+        conditions: [
+          { type: "variable_if", name: "double shift pressed", value: true },
+        ],
       },
       {
         type: "basic",
         from: {
-          key_code: "right_shift",
+          simultaneous: [
+            { key_code: "left_shift" },
+            { key_code: "right_shift" },
+          ],
+          modifiers: { optional: ["any"] },
         },
-        to: [{ key_code: "right_shift" }],
-        to_if_alone: [{ select_input_source: { language: "uk" } }],
+        to: [{ set_variable: { name: "double shift pressed", value: true } }],
+        to_delayed_action: {
+          to_if_invoked: [
+            {
+              select_input_source: {
+                language: "en",
+              },
+              conditions: [
+                {
+                  type: "variable_if",
+                  name: "double shift pressed",
+                  value: true,
+                },
+              ],
+            },
+            { set_variable: { name: "double shift pressed", value: false } },
+          ],
+          to_if_canceled: [
+            {
+              select_input_source: {
+                language: "en",
+              },
+              conditions: [
+                {
+                  type: "variable_if",
+                  name: "double shift pressed",
+                  value: true,
+                },
+              ],
+            },
+            { set_variable: { name: "double shift pressed", value: false } },
+          ],
+        },
       },
     ],
   },
@@ -159,6 +267,10 @@ const rules: KarabinerRules[] = [
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
     ),
     n: {
+      s: open("https://github.com/scoutgg"),
+      j: open(
+        "https://scoutgaming.atlassian.net/jira/software/c/projects/GAP/boards/17?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0"
+      ),
       t: open(
         "https://docs.google.com/spreadsheets/d/1ZSN7hTOy23kp8T6wDZdrbtC0ay0ET_kouRmeXdqGz1c/edit?gid=0#gid=0"
       ),
@@ -268,6 +380,35 @@ fs.writeFileSync(
             {
               identifiers: {
                 is_keyboard: true,
+                product_id: 24926,
+                vendor_id: 7504,
+              },
+              manipulate_caps_lock_led: false,
+            },
+          ],
+          name: "Charibdis profile",
+          selected: true,
+          simple_modifications: [
+            ...colemakRemaps,
+            {
+              from: { key_code: "grave_accent_and_tilde" },
+              to: [{ key_code: "non_us_backslash" }],
+            },
+            {
+              from: { key_code: "non_us_backslash" },
+              to: [{ key_code: "grave_accent_and_tilde" }],
+            },
+          ],
+          virtual_hid_keyboard: { keyboard_type_v2: "iso" },
+          complex_modifications: {
+            rules: [...complexColemakRemaps, ...rules],
+          },
+        },
+        {
+          devices: [
+            {
+              identifiers: {
+                is_keyboard: true,
                 product_id: 835,
                 vendor_id: 1452,
               },
@@ -275,8 +416,9 @@ fs.writeFileSync(
             },
           ],
           name: "Default profile",
-          selected: true,
+          selected: false,
           simple_modifications: [
+            // ...colemakRemaps,
             {
               from: { key_code: "grave_accent_and_tilde" },
               to: [{ key_code: "non_us_backslash" }],

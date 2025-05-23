@@ -2,37 +2,14 @@ import fs from "fs";
 import { KarabinerRules } from "./types";
 import {
   createHyperSubLayers,
-  createColemakRemapp,
-  createAltLayer,
   createColemakRemap,
+  createAltLayer,
   app,
   open,
+  createChromeRemap,
 } from "./utils";
 
-const complexColemakRemaps = [
-  createColemakRemapp("s", "r"),
-  createColemakRemapp("d", "s"),
-  createColemakRemapp("f", "t"),
-  createColemakRemapp("e", "f"),
-  createColemakRemapp("r", "p"),
-  createColemakRemapp("t", "b"),
-  createColemakRemapp("v", "d"),
-  createColemakRemapp("b", "v"),
-
-  createColemakRemapp("y", "j"),
-  createColemakRemapp("u", "l"),
-  createColemakRemapp("i", "u"),
-  createColemakRemapp("o", "y"),
-  createColemakRemapp("p", "semicolon"),
-  createColemakRemapp("h", "m"),
-  createColemakRemapp("j", "n"),
-  createColemakRemapp("k", "e"),
-  createColemakRemapp("l", "i"),
-  createColemakRemapp("semicolon", "o"),
-  createColemakRemapp("n", "k"),
-  createColemakRemapp("m", "h"),
-];
-const colemakRemaps = [
+const colemakToQwertyRemap = [
   createColemakRemap("s", "r"),
   createColemakRemap("d", "s"),
   createColemakRemap("f", "t"),
@@ -55,10 +32,168 @@ const colemakRemaps = [
   createColemakRemap("n", "k"),
   createColemakRemap("m", "h"),
 ];
+// you can try to remap vimium keybindings to native chrome ones :)
+
+const chromeRemaps = [
+  // open bookmarks
+  createChromeRemap(
+    { key_code: "b", modifiers: { mandatory: ["shift", "command"] } },
+    [{ key_code: "b", modifiers: ["command", "option"] }]
+  ),
+  // add bookmark
+  createChromeRemap({ key_code: "b", modifiers: { mandatory: ["command"] } }, [
+    { key_code: "d", modifiers: ["command"] },
+  ]),
+  // open history
+  createChromeRemap({ key_code: "h", modifiers: { mandatory: ["command"] } }, [
+    { key_code: "y", modifiers: ["command"] },
+  ]),
+  // open devtools
+  createChromeRemap({ key_code: "d", modifiers: { mandatory: ["command"] } }, [
+    { key_code: "i", modifiers: ["option", "command"] },
+  ]),
+];
 
 const rules: KarabinerRules[] = [
-  // ...complexColemakRemaps,
-  // Define the Hyper key itself
+  ...chromeRemaps,
+  ...colemakToQwertyRemap,
+  {
+    description: "Change double press of a to tab",
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: "a",
+          modifiers: { optional: ["any"] },
+        },
+        to: [
+          { set_variable: { name: "a pressed", value: false } },
+          { key_code: "tab" },
+        ],
+        conditions: [{ type: "variable_if", name: "a pressed", value: true }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "a",
+          modifiers: { optional: ["any"] },
+        },
+        to: [{ set_variable: { name: "a pressed", value: true } }],
+        conditions: [
+          {
+            identifiers: [
+              {
+                product_id: 24926,
+                vendor_id: 7504,
+              },
+            ],
+            type: "device_if",
+          },
+          {
+            input_sources: [{ language: "en" }],
+            type: "input_source_if",
+          },
+        ],
+        to_delayed_action: {
+          to_if_invoked: [
+            {
+              key_code: "a",
+              conditions: [
+                {
+                  type: "variable_if",
+                  name: "a pressed",
+                  value: true,
+                },
+              ],
+            },
+            { set_variable: { name: "a pressed", value: false } },
+          ],
+          to_if_canceled: [
+            {
+              key_code: "a",
+              conditions: [
+                {
+                  type: "variable_if",
+                  name: "a pressed",
+                  value: true,
+                },
+              ],
+            },
+            { set_variable: { name: "a pressed", value: false } },
+          ],
+        },
+      },
+    ],
+  },
+  {
+    description: "Change double press of q to escape",
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: "q",
+          modifiers: { optional: ["any"] },
+        },
+        to: [
+          { set_variable: { name: "q pressed", value: false } },
+          { key_code: "escape" },
+        ],
+        conditions: [{ type: "variable_if", name: "q pressed", value: true }],
+      },
+      {
+        type: "basic",
+        from: {
+          key_code: "q",
+          modifiers: { optional: ["any"] },
+        },
+        to: [{ set_variable: { name: "q pressed", value: true } }],
+        conditions: [
+          {
+            identifiers: [
+              {
+                product_id: 24926,
+                vendor_id: 7504,
+              },
+            ],
+            type: "device_if",
+          },
+          {
+            input_sources: [{ language: "en" }],
+            type: "input_source_if",
+          },
+        ],
+        to_delayed_action: {
+          to_if_invoked: [
+            {
+              key_code: "q",
+              conditions: [
+                {
+                  type: "variable_if",
+                  name: "q pressed",
+                  value: true,
+                },
+              ],
+            },
+            { set_variable: { name: "q pressed", value: false } },
+          ],
+          to_if_canceled: [
+            {
+              key_code: "q",
+              conditions: [
+                {
+                  type: "variable_if",
+                  name: "q pressed",
+                  value: true,
+                },
+              ],
+            },
+            { set_variable: { name: "q pressed", value: false } },
+          ],
+        },
+      },
+    ],
+  },
+
   {
     description: "Remap keypad comma/period to comma/period",
     manipulators: [
@@ -72,92 +207,9 @@ const rules: KarabinerRules[] = [
       {
         type: "basic",
         from: {
-          key_code: "left_option",
-          modifiers: { optional: ["any"] },
-        },
-        to: [
-          {
-            key_code: "left_option",
-            modifiers: ["left_option", "left_command"],
-          },
-        ],
-      },
-      {
-        type: "basic",
-        from: {
           key_code: "keypad_period",
         },
         to: [{ key_code: "period" }],
-      },
-    ],
-  },
-
-  {
-    description: "Language switch by double shift",
-    manipulators: [
-      {
-        type: "basic",
-        from: {
-          simultaneous: [
-            { key_code: "left_shift" },
-            { key_code: "right_shift" },
-          ],
-          modifiers: { optional: ["any"] },
-        },
-        to: [
-          { set_variable: { name: "double shift pressed", value: false } },
-          {
-            select_input_source: {
-              language: "uk",
-            },
-          },
-        ],
-        conditions: [
-          { type: "variable_if", name: "double shift pressed", value: true },
-        ],
-      },
-      {
-        type: "basic",
-        from: {
-          simultaneous: [
-            { key_code: "left_shift" },
-            { key_code: "right_shift" },
-          ],
-          modifiers: { optional: ["any"] },
-        },
-        to: [{ set_variable: { name: "double shift pressed", value: true } }],
-        to_delayed_action: {
-          to_if_invoked: [
-            {
-              select_input_source: {
-                language: "en",
-              },
-              conditions: [
-                {
-                  type: "variable_if",
-                  name: "double shift pressed",
-                  value: true,
-                },
-              ],
-            },
-            { set_variable: { name: "double shift pressed", value: false } },
-          ],
-          to_if_canceled: [
-            {
-              select_input_source: {
-                language: "en",
-              },
-              conditions: [
-                {
-                  type: "variable_if",
-                  name: "double shift pressed",
-                  value: true,
-                },
-              ],
-            },
-            { set_variable: { name: "double shift pressed", value: false } },
-          ],
-        },
       },
     ],
   },
@@ -176,6 +228,7 @@ const rules: KarabinerRules[] = [
     c: app("WezTerm"),
     e: app("DBeaver"),
     d: app("Docker Desktop"),
+    y: app("System Settings"),
     b: app("Karabiner-Elements"),
     z: app("zoom.us"),
   }),
@@ -214,52 +267,89 @@ const rules: KarabinerRules[] = [
         ],
         type: "basic",
       },
+    ],
+  },
+
+  {
+    description: `To dot`,
+    manipulators: [
       {
-        description: "Tab -> Hyper Key",
+        type: "basic" as const,
         from: {
-          key_code: "tab",
+          key_code: "f2",
           modifiers: {
-            optional: ["any"],
+            mandatory: ["shift", "control", "option"],
           },
         },
         to: [
           {
-            set_variable: {
-              name: "hyper",
-              value: 1,
-            },
+            modifiers: ["shift"],
+            key_code: "7",
           },
         ],
-        to_after_key_up: [
-          {
-            set_variable: {
-              name: "hyper",
-              value: 0,
-            },
-          },
-        ],
-        to_if_alone: [
-          {
-            key_code: "tab",
-          },
-        ],
-        type: "basic",
       },
-      //      {
-      //        type: "basic",
-      //        description: "Disable CMD + Tab to force Hyper Key usage",
-      //        from: {
-      //          key_code: "tab",
-      //          modifiers: {
-      //            mandatory: ["left_command"],
-      //          },
-      //        },
-      //        to: [
-      //          {
-      //            key_code: "tab",
-      //          },
-      //        ],
-      //      },
+    ],
+  },
+  {
+    description: `To comma`,
+    manipulators: [
+      {
+        type: "basic" as const,
+        from: {
+          key_code: "f1",
+          modifiers: {
+            mandatory: ["shift", "control", "option"],
+          },
+        },
+        to: [
+          {
+            modifiers: ["shift"],
+            key_code: "6",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    description: `To UK`,
+    manipulators: [
+      {
+        type: "basic" as const,
+        from: {
+          key_code: "x",
+          modifiers: {
+            mandatory: ["shift", "control", "option"],
+          },
+        },
+        to: [
+          {
+            select_input_source: {
+              language: "uk",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    description: `To EN`,
+    manipulators: [
+      {
+        type: "basic" as const,
+        from: {
+          key_code: "z",
+          modifiers: {
+            mandatory: ["shift", "control", "option"],
+          },
+        },
+        to: [
+          {
+            select_input_source: {
+              language: "en",
+            },
+          },
+        ],
+      },
     ],
   },
   ...createHyperSubLayers({
@@ -294,79 +384,6 @@ const rules: KarabinerRules[] = [
       d: app("Docker Desktop"),
       z: app("zoom.us"),
     },
-
-    // s = "System"
-    s: {
-      u: {
-        to: [
-          {
-            key_code: "volume_increment",
-          },
-        ],
-      },
-      j: {
-        to: [
-          {
-            key_code: "volume_decrement",
-          },
-        ],
-      },
-      i: {
-        to: [
-          {
-            key_code: "display_brightness_increment",
-          },
-        ],
-      },
-      k: {
-        to: [
-          {
-            key_code: "display_brightness_decrement",
-          },
-        ],
-      },
-      l: {
-        to: [
-          {
-            key_code: "q",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
-      p: {
-        to: [
-          {
-            key_code: "play_or_pause",
-          },
-        ],
-      },
-      semicolon: {
-        to: [
-          {
-            key_code: "fastforward",
-          },
-        ],
-      },
-      e: open(
-        `raycast://extensions/thomas/elgato-key-light/toggle?launchType=background`
-      ),
-      // "D"o not disturb toggle
-      d: open(
-        `raycast://extensions/yakitrak/do-not-disturb/toggle?launchType=background`
-      ),
-      // "T"heme
-      t: open(`raycast://extensions/raycast/system/toggle-system-appearance`),
-      c: open("raycast://extensions/raycast/system/open-camera"),
-      // 'v'oice
-      v: {
-        to: [
-          {
-            key_code: "spacebar",
-            modifiers: ["left_option"],
-          },
-        ],
-      },
-    },
   }),
 ];
 
@@ -385,27 +402,7 @@ fs.writeFileSync(
               },
               manipulate_caps_lock_led: false,
             },
-          ],
-          name: "Charibdis profile",
-          selected: true,
-          simple_modifications: [
-            ...colemakRemaps,
-            {
-              from: { key_code: "grave_accent_and_tilde" },
-              to: [{ key_code: "non_us_backslash" }],
-            },
-            {
-              from: { key_code: "non_us_backslash" },
-              to: [{ key_code: "grave_accent_and_tilde" }],
-            },
-          ],
-          virtual_hid_keyboard: { keyboard_type_v2: "iso" },
-          complex_modifications: {
-            rules: [...complexColemakRemaps, ...rules],
-          },
-        },
-        {
-          devices: [
+
             {
               identifiers: {
                 is_keyboard: true,
@@ -416,9 +413,8 @@ fs.writeFileSync(
             },
           ],
           name: "Default profile",
-          selected: false,
+          selected: true,
           simple_modifications: [
-            // ...colemakRemaps,
             {
               from: { key_code: "grave_accent_and_tilde" },
               to: [{ key_code: "non_us_backslash" }],

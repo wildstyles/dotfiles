@@ -1,4 +1,4 @@
-import { To, KeyCode, Manipulator, KarabinerRules } from "./types";
+import { To, KeyCode, Manipulator, KarabinerRules, From } from "./types";
 
 /**
  * Custom way to describe a command in a layer
@@ -97,7 +97,34 @@ export function createHyperSubLayer(
     ),
   ];
 }
-export const createColemakRemapp = (
+
+export const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
+  description: `Remap ${from} to ${to}`,
+  manipulators: [
+    {
+      type: "basic",
+      from,
+      to,
+      conditions: [
+        {
+          type: "frontmost_application_if",
+          bundle_identifiers: ["com.google.Chrome"],
+        },
+        {
+          identifiers: [
+            {
+              product_id: 24926,
+              vendor_id: 7504,
+            },
+          ],
+          type: "device_if",
+        },
+      ],
+    },
+  ],
+});
+
+export const createColemakRemap = (
   to: KeyCode,
   from: KeyCode
 ): KarabinerRules => ({
@@ -114,33 +141,21 @@ export const createColemakRemapp = (
       to: [{ key_code: to }],
       conditions: [
         {
-          input_sources: [
-            { language: "uk" },
-            // {
-            //   input_source_id:
-            //     "io.github.colemakmods.keyboardlayout.colemakdh.colemakdhmatrix",
-            // },
+          identifiers: [
+            {
+              product_id: 24926,
+              vendor_id: 7504,
+            },
           ],
+          type: "device_if",
+        },
+        {
+          input_sources: [{ language: "uk" }],
           type: "input_source_if",
         },
       ],
     },
   ],
-});
-
-export const createColemakRemap = (from: KeyCode, to: KeyCode) => ({
-  // conditions: [
-  //   {
-  //     input_sources: [
-  //       {
-  //         language: "^en$",
-  //       },
-  //     ],
-  //     type: "input_source_if",
-  //   },
-  // ],
-  from: { key_code: from },
-  to: [{ key_code: to }],
 });
 
 export const createAltLayer = (subLayers: {
@@ -155,7 +170,7 @@ export const createAltLayer = (subLayers: {
         from: {
           key_code: key as KeyCode,
           modifiers: {
-            mandatory: ["left_command", "left_option"],
+            mandatory: ["left_option"],
           },
         },
       },

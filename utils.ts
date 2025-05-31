@@ -124,6 +124,20 @@ export const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
   ],
 });
 
+export const createRectangleRemap = (key: KeyCode) => ({
+  description: "",
+  manipulators: [
+    {
+      type: "basic",
+      from: {
+        key_code: key,
+        modifiers: { mandatory: ["option"] },
+      },
+      to: [{ key_code: key, modifiers: ["option", "control"] }],
+    },
+  ],
+});
+
 export const createColemakRemap = (
   to: KeyCode,
   from: KeyCode

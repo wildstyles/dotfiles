@@ -1016,112 +1016,127 @@
                         ]
                     },
                     {
-                        "description": "Change double press of a to tab",
+                        "description": "",
                         "manipulators": [
                             {
                                 "type": "basic",
                                 "from": {
-                                    "key_code": "a",
+                                    "key_code": "left_arrow",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
+                                        "mandatory": [
+                                            "option"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "set_variable": {
-                                            "name": "a pressed",
-                                            "value": false
-                                        }
-                                    },
-                                    {
-                                        "key_code": "tab"
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "a pressed",
-                                        "value": true
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "option",
+                                            "control"
+                                        ]
                                     }
                                 ]
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "",
+                        "manipulators": [
                             {
                                 "type": "basic",
                                 "from": {
-                                    "key_code": "a",
+                                    "key_code": "right_arrow",
                                     "modifiers": {
-                                        "optional": [
-                                            "any"
+                                        "mandatory": [
+                                            "option"
                                         ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "set_variable": {
-                                            "name": "a pressed",
-                                            "value": true
-                                        }
+                                        "key_code": "right_arrow",
+                                        "modifiers": [
+                                            "option",
+                                            "control"
+                                        ]
                                     }
-                                ],
-                                "conditions": [
-                                    {
-                                        "identifiers": [
-                                            {
-                                                "product_id": 24926,
-                                                "vendor_id": 7504
-                                            }
-                                        ],
-                                        "type": "device_if"
-                                    },
-                                    {
-                                        "input_sources": [
-                                            {
-                                                "language": "en"
-                                            }
-                                        ],
-                                        "type": "input_source_if"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ]
                                     }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_invoked": [
-                                        {
-                                            "key_code": "a",
-                                            "conditions": [
-                                                {
-                                                    "type": "variable_if",
-                                                    "name": "a pressed",
-                                                    "value": true
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "a pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_canceled": [
-                                        {
-                                            "key_code": "a",
-                                            "conditions": [
-                                                {
-                                                    "type": "variable_if",
-                                                    "name": "a pressed",
-                                                    "value": true
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "a pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": [
+                                            "option",
+                                            "control"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "keypad_plus",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "keypad_plus",
+                                        "modifiers": [
+                                            "option",
+                                            "control"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "keypad_hyphen",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "option"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "keypad_hyphen",
+                                        "modifiers": [
+                                            "option",
+                                            "control"
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -1275,28 +1290,6 @@
                                 "type": "basic",
                                 "from": {
                                     "key_code": "1",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_option"
-                                        ]
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Alt + f",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Finder.app'"
-                                    }
-                                ],
-                                "description": "Open -a 'Finder.app'",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "f",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
@@ -1633,6 +1626,14 @@
                                             "name": "hyper",
                                             "value": 1
                                         }
+                                    },
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": [
+                                            "control",
+                                            "command",
+                                            "option"
+                                        ]
                                     }
                                 ],
                                 "to_after_key_up": [
@@ -1952,6 +1953,30 @@
                                 "type": "basic",
                                 "from": {
                                     "key_code": "g",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_n",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open https://youtube.com/"
+                                    }
+                                ],
+                                "description": "Open https://youtube.com/",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "y",
                                     "modifiers": {
                                         "optional": [
                                             "any"

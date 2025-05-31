@@ -3,6 +3,7 @@ import { KarabinerRules } from "./types";
 import {
   createHyperSubLayers,
   createColemakRemap,
+  createRectangleRemap,
   createAltLayer,
   app,
   open,
@@ -57,74 +58,12 @@ const chromeRemaps = [
 const rules: KarabinerRules[] = [
   ...chromeRemaps,
   ...colemakToQwertyRemap,
-  {
-    description: "Change double press of a to tab",
-    manipulators: [
-      {
-        type: "basic",
-        from: {
-          key_code: "a",
-          modifiers: { optional: ["any"] },
-        },
-        to: [
-          { set_variable: { name: "a pressed", value: false } },
-          { key_code: "tab" },
-        ],
-        conditions: [{ type: "variable_if", name: "a pressed", value: true }],
-      },
-      {
-        type: "basic",
-        from: {
-          key_code: "a",
-          modifiers: { optional: ["any"] },
-        },
-        to: [{ set_variable: { name: "a pressed", value: true } }],
-        conditions: [
-          {
-            identifiers: [
-              {
-                product_id: 24926,
-                vendor_id: 7504,
-              },
-            ],
-            type: "device_if",
-          },
-          {
-            input_sources: [{ language: "en" }],
-            type: "input_source_if",
-          },
-        ],
-        to_delayed_action: {
-          to_if_invoked: [
-            {
-              key_code: "a",
-              conditions: [
-                {
-                  type: "variable_if",
-                  name: "a pressed",
-                  value: true,
-                },
-              ],
-            },
-            { set_variable: { name: "a pressed", value: false } },
-          ],
-          to_if_canceled: [
-            {
-              key_code: "a",
-              conditions: [
-                {
-                  type: "variable_if",
-                  name: "a pressed",
-                  value: true,
-                },
-              ],
-            },
-            { set_variable: { name: "a pressed", value: false } },
-          ],
-        },
-      },
-    ],
-  },
+
+  createRectangleRemap("left_arrow"),
+  createRectangleRemap("right_arrow"),
+  createRectangleRemap("f"),
+  createRectangleRemap("keypad_plus"),
+  createRectangleRemap("keypad_hyphen"),
   {
     description: "Change double press of q to escape",
     manipulators: [
@@ -216,7 +155,7 @@ const rules: KarabinerRules[] = [
 
   ...createAltLayer({
     1: app("1Password"),
-    f: app("Finder"),
+    // f: app("Finder"),
     u: app("Mail"),
     m: app("Telegram"),
     g: app("Google Chrome"),
@@ -250,6 +189,10 @@ const rules: KarabinerRules[] = [
               name: "hyper",
               value: 1,
             },
+          },
+          {
+            key_code: "left_shift",
+            modifiers: ["control", "command", "option"],
           },
         ],
         to_after_key_up: [
@@ -366,6 +309,7 @@ const rules: KarabinerRules[] = [
       ),
       c: open("https://calendar.google.com/calendar/u/1/r"),
       g: open("https://github.com/"),
+      y: open("https://youtube.com/"),
     },
     // o = "Open" applications
     o: {

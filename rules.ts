@@ -1,9 +1,11 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
 import {
+  tmuxSession,
+  tmuxWindow,
   createHyperSubLayers,
   createColemakRemap,
-  createRectangleRemap,
+  rectangle,
   createAltLayer,
   app,
   open,
@@ -58,12 +60,6 @@ const chromeRemaps = [
 const rules: KarabinerRules[] = [
   ...chromeRemaps,
   ...colemakToQwertyRemap,
-
-  createRectangleRemap("left_arrow"),
-  createRectangleRemap("right_arrow"),
-  createRectangleRemap("f"),
-  createRectangleRemap("keypad_plus"),
-  createRectangleRemap("keypad_hyphen"),
   {
     description: "Change double press of q to escape",
     manipulators: [
@@ -310,7 +306,22 @@ const rules: KarabinerRules[] = [
       c: open("https://calendar.google.com/calendar/u/1/r"),
       g: open("https://github.com/"),
       y: open("https://youtube.com/"),
+      o: open("https://olx.ua"),
     },
+    w: {
+      f: rectangle('maximize'),
+      m: rectangle('left-half'), // same key where I got left arrow but without layer
+      i: rectangle('right-half')
+    },
+    t: {
+      c: tmuxSession('config'),
+      s: tmuxSession('scout'),
+    },
+    1: tmuxWindow('1'), 
+    2: tmuxWindow('2'), 
+    3: tmuxWindow('3'), 
+    4: tmuxWindow('4'), 
+    5: tmuxWindow('5'), 
     // o = "Open" applications
     o: {
       1: app("1Password"),

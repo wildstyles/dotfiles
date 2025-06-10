@@ -124,20 +124,6 @@ export const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
   ],
 });
 
-export const createRectangleRemap = (key: KeyCode) => ({
-  description: "",
-  manipulators: [
-    {
-      type: "basic",
-      from: {
-        key_code: key,
-        modifiers: { mandatory: ["option"] },
-      },
-      to: [{ key_code: key, modifiers: ["option", "control"] }],
-    },
-  ],
-});
-
 export const createColemakRemap = (
   to: KeyCode,
   from: KeyCode
@@ -296,6 +282,27 @@ export function rectangle(name: string): LayerCommand {
       },
     ],
     description: `Window: ${name}`,
+  };
+}
+
+export function tmuxWindow(index: string): LayerCommand {
+  return {
+    to: [
+      {
+        shell_command: `/opt/homebrew/bin/tmux select-window -t ${index}`,
+      },
+    ],
+    description: `Tmux window: ${index}`,
+  };
+}
+export function tmuxSession(name: string): LayerCommand {
+  return {
+    to: [
+      {
+        shell_command: `open -a WezTerm.app && ~/Desktop/karabiner/tmux-switch-session.sh ${name}`,
+      },
+    ],
+    description: `Tmux session: ${name}`,
   };
 }
 

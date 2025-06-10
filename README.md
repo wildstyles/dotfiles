@@ -1,5 +1,7 @@
 # Links to configure env
 
+aliento helps to close notifications with cmd + esc https://inchman.gumroad.com/l/Aliento
+
 https://www.youtube.com/watch?v=CF1tMjvHDRA&ab_channel=JoseanMartinez
 https://www.youtube.com/watch?v=DzNmUNvnB04&t=413s&ab_channel=DreamsofCode
 

@@ -11,6 +11,7 @@
     "tsm": "^2.2.2"
   },
   "scripts": {
+    "link-nvim": "ln -s ~/Desktop/karabiner/nvim ~/.config/nvim",
     "build": "tsm rules.ts",
     "replace": "cp karabiner.json ~/.config/karabiner/karabiner.json",
     "replace-tmux": "cp tmux.conf ~/.config/tmux/tmux.conf",

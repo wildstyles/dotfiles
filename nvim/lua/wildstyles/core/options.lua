@@ -1,11 +1,12 @@
-vim.cmd("let g:netrw_liststyle = 3")
+-- vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt -- for conciseness
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
 opt.number = true -- shows absolute line number on cursor line (when relative number is on)
-
+vim.opt.signcolumn = "no"
+-- opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} %s" -- moves git line status after linenumber
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width

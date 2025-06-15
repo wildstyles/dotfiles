@@ -1,14 +1,13 @@
 vim.g.mapleader = ","
-vim.g.maplocalleader = '.'
+vim.g.maplocalleader = "."
 local keymap = vim.keymap -- for conciseness
 
 vim.opt.clipboard = "" -- disables automatic clipboard sync
 
 -- Yank to system clipboard by default
-keymap.set({'n', 'v'}, 'y', '"+y', { noremap = true })
-keymap.set('n', 'p', '"+p', { noremap = true })
-keymap.set('n', 'P', '"+P', { noremap = true })
-
+keymap.set({ "n", "v" }, "y", '"+y', { noremap = true })
+keymap.set("n", "p", '"+p', { noremap = true })
+keymap.set("n", "P", '"+P', { noremap = true })
 
 keymap.set("n", "<CR>", "<Esc>o<Esc>", { desc = "Insert blank line below" })
 keymap.set("n", "<Space>", "a <Esc>", { desc = "Insert space at cursor" })
@@ -36,10 +35,10 @@ keymap.set("n", "<leader>N", "<cmd>bprevious<CR>", { desc = "Go to previous buff
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 keymap.set(
-	"n",
-	"<S-h>",
-	"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
-	{ desc = "[P]Open telescope buffers" }
+  "n",
+  "<S-h>",
+  "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
+  { desc = "[P]Open telescope buffers" }
 )
 
 -- keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center cursor after moving down half-page" })

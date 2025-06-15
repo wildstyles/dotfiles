@@ -7,7 +7,10 @@ return {
     -- symbol = '╎',
     symbol = "│",
     draw = {
-      delay = 50
+      predicate = function(scope)
+        return scope.reference.indent > 2
+      end,
+      delay = 50,
     },
     options = { try_as_border = true },
   },
@@ -30,5 +33,14 @@ return {
         vim.b.miniindentscope_disable = true
       end,
     })
+  end,
+  config = function(_, opts)
+    require("mini.indentscope").setup(opts)
+
+    -- Use a dim color for non-current scope
+    vim.api.nvim_set_hl(0, "MiniIndentscopeSymbolOff", { link = "Comment" })
+
+    -- Bright for current scope
+    vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { link = "Keyword" })
   end,
 }

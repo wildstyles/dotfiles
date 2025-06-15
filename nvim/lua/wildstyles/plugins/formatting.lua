@@ -1,17 +1,21 @@
 return {
   "stevearc/conform.nvim",
 
-  -- enabled = false,
+  enabled = true,
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
+        -- javascript = { "prettier" },
+        -- typescript = { "prettier" },
+        -- javascriptreact = { "prettier" },
+        -- typescriptreact = { "prettier" },
+        javascript = { "eslint_d" }, -- <— switched from prettier
+        typescript = { "eslint_d" }, -- <— ditto
+        javascriptreact = { "eslint_d" }, -- <— ditto
+        typescriptreact = { "eslint_d" }, -- <— ditto
         svelte = { "prettier" },
         css = { "prettier" },
         html = { "prettier" },
@@ -24,6 +28,16 @@ return {
         python = { "isort", "black" },
       },
       formatters = {
+        eslint_d = { -- <— new formatter block
+          cmd = "eslint_d", -- use the daemon (or "eslint")
+          args = {
+            "--fix-to-stdout",
+            "--stdin-filename",
+            vim.fn.expand("%:p"),
+            "--stdin",
+          },
+          stdin = true,
+        },
         stylua = {
           -- specify the CLI binary (optional if it's on your $PATH)
           cmd = "stylua",

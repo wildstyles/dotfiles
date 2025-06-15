@@ -165,6 +165,7 @@ const rules: KarabinerRules[] = [
     d: app("Docker Desktop"),
     y: app("System Settings"),
     b: app("Karabiner-Elements"),
+    i: app("Discord"),
     z: app("zoom.us"),
   }),
 
@@ -309,19 +310,19 @@ const rules: KarabinerRules[] = [
       o: open("https://olx.ua"),
     },
     w: {
-      f: rectangle('maximize'),
-      m: rectangle('left-half'), // same key where I got left arrow but without layer
-      i: rectangle('right-half')
+      f: rectangle("maximize"),
+      m: rectangle("left-half"), // same key where I got left arrow but without layer
+      i: rectangle("right-half"),
     },
     t: {
-      c: tmuxSession('config'),
-      s: tmuxSession('scout'),
+      c: tmuxSession("config"),
+      s: tmuxSession("scout"),
     },
-    1: tmuxWindow('1'), 
-    2: tmuxWindow('2'), 
-    3: tmuxWindow('3'), 
-    4: tmuxWindow('4'), 
-    5: tmuxWindow('5'), 
+    1: tmuxWindow("1"),
+    2: tmuxWindow("2"),
+    3: tmuxWindow("3"),
+    4: tmuxWindow("4"),
+    5: tmuxWindow("5"),
     // o = "Open" applications
     o: {
       1: app("1Password"),

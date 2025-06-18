@@ -45,3 +45,5 @@ keymap.set(
 -- keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center cursor after moving up half-page" })
 
 keymap.set("n", "<leader>p", '"_dP', { desc = "Paste without register change" })
+
+vim.keymap.set("v", "<leader>cc", "y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>", { noremap = true, silent = true })

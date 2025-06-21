@@ -21,23 +21,14 @@ return {
         find_files = {
           hidden = true, -- show dotfiles
           no_ignore = true, -- bypass .gitignore/etc
-          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-          -- find_command = {
-          --   "rg",
-          --   "--files",
-          --   "--hidden",
-          --   "--no-ignore",
-          --   "--glob",
-          --   "!**/.git/*",
-          --   "--glob",
-          --   "!**/node_modules/*",
-          -- },
         },
         live_grep = {
+          disable_coordinates = true,
           mappings = {
             i = {
-              ["<c-f>"] = custom_pickers.actions.set_extension,
-              ["<c-d>"] = custom_pickers.actions.set_folders,
+              -- I want c-r mapping here to restore last search string
+              ["<c-e>"] = custom_pickers.actions.set_extension,
+              ["<c-f>"] = custom_pickers.actions.set_folders,
             },
           },
           additional_args = function()
@@ -49,34 +40,20 @@ return {
         file_ignore_patterns = { "^.git/", "node_modules/" },
         layout_config = {
           preview_width = 0.5,
-          width = 0.9, -- Set width to 90% of the editor
-          -- You can also set the height dimensionally
-          height = 0.85, -- Set height to 85% of the editor
+          width = 0.9,
+          height = 0.85,
         },
         path_display = { "truncate" },
         mappings = {
           n = {
-            -- I'm used to closing buffers with "d" from bufexplorer
             ["d"] = actions.delete_buffer,
-            -- I'm also used to quitting bufexplorer with q instead of escape
             ["<esc>"] = actions.close,
-            -- I probably should use ctrl+key but since I use these already in
-            -- lazygit they'll stay like this for now
-            ["J"] = actions.preview_scrolling_down,
-            ["K"] = actions.preview_scrolling_up,
-            -- available only on telescope night
-            -- ["H"] = require("telescope.actions").preview_scrolling_left,
-            -- ["L"] = require("telescope.actions").preview_scrolling_right,
           },
           i = {
             ["<C-Down>"] = actions.cycle_history_next,
             ["<C-Up>"] = actions.cycle_history_prev,
             ["<esc>"] = actions.close,
-            ["<C-k>"] = actions.move_selection_previous, -- move to prev result
-            ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-            ["J"] = actions.preview_scrolling_down,
-            ["K"] = actions.preview_scrolling_up,
           },
         },
         extensions = {

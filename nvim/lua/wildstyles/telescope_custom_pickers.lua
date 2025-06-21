@@ -63,7 +63,9 @@ M.actions = transform_mod({
       only_dirs = true,
       respect_gitignore = true,
       on_insert = function(entry)
-        table.insert(data, entry .. os_sep)
+        if not entry:find(os_sep .. ".git") then
+          table.insert(data, entry .. os_sep)
+        end
       end,
     })
     table.insert(data, 1, "." .. os_sep)

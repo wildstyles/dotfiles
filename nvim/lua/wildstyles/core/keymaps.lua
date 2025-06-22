@@ -9,7 +9,28 @@ keymap.set({ "n", "v" }, "y", '"+y', { noremap = true })
 keymap.set("n", "p", '"+p', { noremap = true })
 keymap.set("n", "P", '"+P', { noremap = true })
 
-keymap.set("n", "<CR>", "<Esc>o<Esc>", { desc = "Insert blank line below" })
+-- in init.lua
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  callback = function(args)
+    local bufnr = args.buf
+    local bt = vim.bo[bufnr].buftype
+    -- only in regular buffers (no quickfix, no terminal, no help, etc.)
+    if bt == "" then
+      vim.keymap.set("n", "<CR>", "<Esc>o<Esc>", { buffer = bufnr, desc = "Insert blank line below" })
+    end
+  end,
+})
+-- Remove the blank‐line <CR> mapping in quickfix windows
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    -- delete the buffer-local <CR> mapping in normal mode
+    vim.keymap.del("n", "<CR>", { buffer = true })
+    -- (optional) restore default: jump to entry
+    vim.keymap.set("n", "<CR>", "<CR>", { buffer = true })
+  end,
+})
+
 keymap.set("n", "<Space>", "a <Esc>", { desc = "Insert space at cursor" })
 
 keymap.set("i", "nn", "<ESC>", { desc = "Exit insert mode with nn" })
@@ -47,12 +68,3 @@ keymap.set(
 keymap.set("n", "<leader>p", '"_dP', { desc = "Paste without register change" })
 
 vim.keymap.set("v", "<leader>cc", "y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>", { noremap = true, silent = true })
-
--- in your init.lua or a plugin file
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    -- make sure <CR> in quickfix just jumps, instead of trying to enter edit
-    vim.keymap.set("n", "<CR>", "<CR>", { buffer = true, silent = true })
-  end,
-})

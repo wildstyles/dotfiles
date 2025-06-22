@@ -47,3 +47,12 @@ keymap.set(
 keymap.set("n", "<leader>p", '"_dP', { desc = "Paste without register change" })
 
 vim.keymap.set("v", "<leader>cc", "y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>", { noremap = true, silent = true })
+
+-- in your init.lua or a plugin file
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    -- make sure <CR> in quickfix just jumps, instead of trying to enter edit
+    vim.keymap.set("n", "<CR>", "<CR>", { buffer = true, silent = true })
+  end,
+})

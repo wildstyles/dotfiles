@@ -39,7 +39,7 @@ return {
   -- initial options for the plugin
   opts = {
     mode = "cursor",
-    max_lines = 3,
+    max_lines = 5,
     separator = "─",
   },
 

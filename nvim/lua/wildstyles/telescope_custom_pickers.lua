@@ -20,14 +20,55 @@ local live_grep_filters = {
   directories = nil,
 }
 
+local live_grep_history = {
+  entries = {}, -- list of { query = string, extension = string?, directories = {string}? }
+  idx = 0, -- 1-based pointer into entries
+}
+
+local function record_live_grep(query)
+  live_grep_history.idx = live_grep_history.idx + 1
+  live_grep_history.entries[live_grep_history.idx] = {
+    query = query,
+    extension = live_grep_filters.extension,
+    directories = live_grep_filters.directories,
+  }
+end
+
+local function peek_prev()
+  print(vim.inspect(live_grep_history), "history")
+  if live_grep_history.idx > 1 then
+    return live_grep_history.entries[live_grep_history.idx - 1]
+  end
+end
+
 ---Run `live_grep` with the active filters (extension and folders)
 ---@param current_input ?string
 local function run_live_grep(current_input)
-  -- TODO: Resume old one with same options somehow
-  -- TODO: Use path_display with default live_grep if possible here
+  local cwd = vim.loop.cwd() .. os_sep
+  local dir_list = live_grep_filters.directories
+  local title_dirs = ""
+
+  if dir_list then
+    -- build a list of relative paths
+    local rels = {}
+    for _, abs in ipairs(dir_list) do
+      -- remove the cwd prefix
+      local rel = abs:gsub("^" .. vim.pesc(cwd), "")
+      -- also strip any trailing sep
+      rel = rel:gsub(os_sep .. "$", "")
+      table.insert(rels, rel)
+    end
+    title_dirs = " (" .. table.concat(rels, ", ") .. ")"
+  end
+
+  if current_input ~= nil then
+    record_live_grep(current_input)
+  end
+
   require("wildstyles.telescope_pretty_pickers").pretty_grep_picker({
     picker = "live_grep",
     options = {
+      prompt_title = "Live Grep" .. title_dirs,
       additional_args = live_grep_filters.extension and function()
         return { "-g", "*." .. live_grep_filters.extension }
       end,
@@ -47,6 +88,7 @@ M.actions = transform_mod({
         return
       end
 
+      --I want to restore it as well on 'C-Down'
       live_grep_filters.extension = input
 
       actions.close(prompt_bufnr)
@@ -71,13 +113,43 @@ M.actions = transform_mod({
     table.insert(data, 1, "." .. os_sep)
 
     actions.close(prompt_bufnr)
+    local startup_complete = false
     pickers
       .new({}, {
         prompt_title = "Folders for Live Grep",
         finder = finders.new_table({ results = data, entry_maker = make_entry.gen_from_file({}) }),
         previewer = conf.file_previewer({}),
         sorter = conf.file_sorter({}),
-        attach_mappings = function(prompt_bufnr)
+        on_complete = {
+          function(picker)
+            if startup_complete then
+              return
+            end
+
+            local dirs = live_grep_filters.directories or {}
+            local i = 1
+
+            for entry in picker.manager:iter() do
+              local path = (entry.value or entry[1]):gsub(os_sep .. "$", "")
+
+              if vim.tbl_contains(dirs, path) then
+                picker:add_selection(picker:get_row(i))
+              end
+
+              i = i + 1
+            end
+
+            startup_complete = true
+          end,
+        },
+        attach_mappings = function(prompt_bufnr, map)
+          map("i", "<Esc>", function()
+            live_grep_filters.directories = nil
+            actions.close(prompt_bufnr)
+            run_live_grep(current_input)
+            return true
+          end)
+
           action_set.select:replace(function()
             local current_picker = action_state.get_current_picker(prompt_bufnr)
 
@@ -109,5 +181,9 @@ M.live_grep = function()
 
   run_live_grep()
 end
+
+M.run_live_grep = run_live_grep
+M.filters = live_grep_filters
+M.peek_prev = peek_prev
 
 return M

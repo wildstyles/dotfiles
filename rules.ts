@@ -306,6 +306,7 @@ const rules: KarabinerRules[] = [
       ),
       c: open("https://calendar.google.com/calendar/u/1/r"),
       g: open("https://github.com/"),
+      l: open("https://gitlab.com/scout-gg/api"),
       y: open("https://youtube.com/"),
       o: open("https://olx.ua"),
     },

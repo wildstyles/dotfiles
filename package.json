@@ -12,11 +12,13 @@
   },
   "scripts": {
     "link-nvim": "ln -s ~/Desktop/karabiner/nvim ~/.config/nvim",
+    "link-tmux": "ln -s ~/Desktop/karabiner/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf",
     "build": "tsm rules.ts",
     "replace": "cp karabiner.json ~/.config/karabiner/karabiner.json",
     "replace-tmux": "cp tmux.conf ~/.config/tmux/tmux.conf",
     "replace-aerospace": "cp aerospace.toml ~/.config/aerospace/aerospace.toml",
     "replace-zshrc": "cp .zshrc ~/.zshrc",
+    "replace-wezterm": "cp .wezterm.lua ~/.wezterm.lua",
     "replace-yazi": "cp -R .config/yazi/* ~/.config/yazi",
     "watch": "nodemon --exec yarn build -e ts"
   }

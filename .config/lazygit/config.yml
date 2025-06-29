@@ -1,0 +1,8 @@
+os:
+  editPreset: "nvim"
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never --line-numbers
+gui:
+  showIcons: true

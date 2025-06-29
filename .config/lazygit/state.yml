@@ -1,0 +1,41 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/ruslanvanzula/Desktop/karabiner
+    - /Users/ruslanvanzula/Desktop/scout/scott
+    - /Users/ruslanvanzula/Desktop/scout/globpay
+    - /Users/ruslanvanzula/desktop/zmk-for-charybdis
+    - /Users/ruslanvanzula/desktop/scout/globpay
+    - /Users/ruslanvanzula/Desktop/scout/wall-e
+    - /Users/ruslanvanzula/Desktop/scout/sgg-frontend
+    - /Users/ruslanvanzula/Desktop/scout/scoutgg-clients/okbet-client
+    - /Users/ruslanvanzula/Desktop/scout/game-server
+    - /Users/ruslanvanzula/Desktop/scout/scoutgg-clients
+    - /Users/ruslanvanzula/Desktop/zmk-for-charybdis
+    - /Users/ruslanvanzula/Desktop/scout/scoutgg-clients/widgets-routes
+    - /Users/ruslanvanzula/Desktop/scout/scoutgg-clients/ftw
+    - /Users/ruslanvanzula/Desktop/scout/scoutgg-clients/paf-beta-client
+    - /Users/ruslanvanzula/desktop/scout/scott
+    - /Users/ruslanvanzula/desktop/scout/scoutgg-clients/sgg-services
+    - /Users/ruslanvanzula/Desktop/scout/glue-server
+    - /Users/ruslanvanzula/desktop/scout/scoutgg-clients/widgets-routes
+    - /Users/ruslanvanzula/desktop/scout/scoutgg-clients/ftw
+    - /Users/ruslanvanzula/Desktop/globpay-monorepo-example
+    - /Users/ruslanvanzula/Desktop/scout/scoutgg-clients/sportyman
+startuppopupversion: 5
+lastversion: 0.48.0
+customcommandshistory:
+    - git push origin HEAD
+    - nvm use
+    - git pull --rebase
+    - git checkout qa
+    - git pull
+    - git push
+    - ls
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+renamesimilaritythreshold: 70
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

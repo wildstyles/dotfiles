@@ -1,34 +1,32 @@
 return {
-    "saghen/blink.cmp",
-    dependencies = { "rafamadriz/friendly-snippets" },
+  "saghen/blink.cmp",
+  dependencies = { "rafamadriz/friendly-snippets" },
 
-    version = "1.*",
-    opts = {
-        keymap = {
-            preset = "default",
-            ["<CR>"] = { "accept", "fallback" },
-            ["<C><leader>"] = { "show" },
-        },
-        appearance = {
-            nerd_font_variant = "mono",
-        },
+  version = "1.*",
 
-        cmdline = {
-            keymap = { preset = "inherit" },
-            completion = { menu = { auto_show = true } },
-        },
-        completion = { documentation = { auto_show = true } },
-        sources = {
-            providers = {
-                -- enable the built-in cmdline source
-                cmdline = {},
-                -- enable the built-in path source for file-path completion
-                path = {},
-            },
-            default = { "lsp", "path", "snippets", "buffer" },
-        },
+  ---@module 'blink.cmp'
+  ---@type blink.cmp.Config
+  opts = {
+    -- See :h blink-cmp-config-keymap for defining your own keymap
+    keymap = { preset = "default" },
 
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+    appearance = {
+      nerd_font_variant = "mono",
     },
-    opts_extend = { "sources.default" },
+
+    -- (Default) Only show the documentation popup when manually triggered
+    completion = { documentation = { auto_show = false } },
+
+    cmdline = {
+      keymap = { preset = "default" },
+      completion = { menu = { auto_show = true } },
+    },
+
+    sources = {
+      -- default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "buffer" },
+    },
+    fuzzy = { implementation = "prefer_rust_with_warning" },
+  },
+  opts_extend = { "sources.default" },
 }

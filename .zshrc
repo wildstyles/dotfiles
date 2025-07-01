@@ -157,3 +157,6 @@ function y() {
 }
 
 alias lg="lazygit"
+
+# clear screen + scrollback, but keep your command history
+alias cls='clear && printf "\e[3J"'

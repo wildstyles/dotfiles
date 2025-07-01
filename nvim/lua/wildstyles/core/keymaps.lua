@@ -2,14 +2,23 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = "."
 local keymap = vim.keymap -- for conciseness
 
-vim.opt.clipboard = "" -- disables automatic clipboard sync
+keymap.set("x", "p", [["_dP]], {
+  noremap = true,
+  silent = true,
+  desc = "Paste without overwriting clipboard",
+})
 
--- Yank to system clipboard by default
-keymap.set({ "n", "v" }, "y", '"+y', { noremap = true })
-keymap.set("n", "p", '"+p', { noremap = true })
-keymap.set("n", "P", '"+P', { noremap = true })
+local opts = { noremap = true, silent = true }
 
--- in init.lua
+keymap.set("n", "c", '"dc', opts)
+keymap.set("x", "c", '"dc', opts)
+
+keymap.set("n", "d", '"dd', opts)
+keymap.set("x", "d", '"dd', opts)
+
+-- 5) paste from register d
+keymap.set("n", "<leader>p", '"dp', opts)
+
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   callback = function(args)
     local bufnr = args.buf
@@ -62,9 +71,18 @@ keymap.set(
   { desc = "[P]Open telescope buffers" }
 )
 
--- keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Center cursor after moving down half-page" })
--- keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Center cursor after moving up half-page" })
-
-keymap.set("n", "<leader>p", '"_dP', { desc = "Paste without register change" })
-
 vim.keymap.set("v", "<leader>cc", "y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>", { noremap = true, silent = true })
+
+-- clears all a–z, 0–9 and common special registers, plus search & cmdline
+local function clear_all_registers()
+  local regs = vim.fn.split('abcdefghijklmnopqrstuvwxyz0123456789*+-/#"=', "\\zs")
+  for _, r in ipairs(regs) do
+    vim.fn.setreg(r, {})
+  end
+  -- clear search and command‐line registers
+  vim.fn.setreg("/", "")
+  print("» All registers cleared")
+end
+
+-- bind <leader>cr to that function
+vim.keymap.set("n", "<leader>cr", clear_all_registers, { desc = "Clear all registers" })

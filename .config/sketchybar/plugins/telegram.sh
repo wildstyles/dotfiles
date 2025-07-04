@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 
 STATUS_LABEL=$(lsappinfo info -only StatusLabel "Telegram")
 if [[ $STATUS_LABEL =~ \"label\"=([^[:space:]{}]+) ]]; then
@@ -7,12 +8,12 @@ if [[ $STATUS_LABEL =~ \"label\"=([^[:space:]{}]+) ]]; then
     LABEL=${LABEL//\"/}
 
     if [[ $LABEL == kCFNULL ]]; then
-        ICON_COLOR="0xffa6da95"
+        ICON_COLOR=$WHITE
         LABEL=""
     elif [[ $LABEL == "•" ]]; then
-        ICON_COLOR="0xffeed49f"
+        ICON_COLOR=$YELLOW
     elif [[ $LABEL =~ ^[0-9]+$ ]]; then
-        ICON_COLOR="0xffed8796"
+        ICON_COLOR=$GREEN
     else
         exit 0
     fi

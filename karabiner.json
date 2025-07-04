@@ -2352,6 +2352,30 @@
                                         "value": 1
                                     }
                                 ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "~/Desktop/karabiner/.config/sketchybar/plugins/mic_click.sh"
+                                    }
+                                ],
+                                "description": "~/Desktop/karabiner/.config/sketchybar/plugins/mic_click.sh",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 1
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -2525,6 +2549,30 @@
                                 "type": "basic",
                                 "from": {
                                     "key_code": "c",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_n",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open https://meet.google.com/landing?hs=197&authuser=1"
+                                    }
+                                ],
+                                "description": "Open https://meet.google.com/landing?hs=197&authuser=1",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "m",
                                     "modifiers": {
                                         "optional": [
                                             "any"

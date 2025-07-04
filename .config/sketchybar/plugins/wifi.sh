@@ -16,11 +16,11 @@ fi
 
 # AUTH, CONNECTED, EXITING
 if [[ $VPN_STATUS == "CONNECTED" ]]; then
-  ICON_COLOR="0xffa6da95"
+  ICON_COLOR=$GREEN
 elif [[ $VPN_STATUS == "EXITING" ]]; then
   ICON_COLOR=$WHITE
 else
-  ICON_COLOR="0xffeed49f"
+  ICON_COLOR=$YELLOW
 fi
 
 sketchybar --set $NAME icon="$ICON" icon.color="$ICON_COLOR"

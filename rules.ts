@@ -306,7 +306,8 @@ const rules: KarabinerRules[] = [
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
     ),
     s: {
-      v: shell(['~/Desktop/karabiner/tunnelblick-connect.sh'])
+      v: shell(['~/Desktop/karabiner/tunnelblick-connect.sh']),
+      x: shell(['~/Desktop/karabiner/.config/sketchybar/plugins/mic_click.sh'])
     },
     n: {
       s: open("https://github.com/scoutgg"),
@@ -317,6 +318,7 @@ const rules: KarabinerRules[] = [
         "https://docs.google.com/spreadsheets/d/1ZSN7hTOy23kp8T6wDZdrbtC0ay0ET_kouRmeXdqGz1c/edit?gid=0#gid=0"
       ),
       c: open("https://calendar.google.com/calendar/u/1/r"),
+      m: open("https://meet.google.com/landing?hs=197&authuser=1"),
       g: open("https://github.com/"),
       l: open("https://gitlab.com/scout-gg/api"),
       y: open("https://youtube.com/"),

@@ -8,6 +8,7 @@ import {
   rectangle,
   createAltLayer,
   app,
+  shell,
   open,
   createChromeRemap,
 } from "./utils";
@@ -304,6 +305,9 @@ const rules: KarabinerRules[] = [
     spacebar: open(
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
     ),
+    s: {
+      v: shell(['~/Desktop/karabiner/tunnelblick-connect.sh'])
+    },
     n: {
       s: open("https://github.com/scoutgg"),
       j: open(

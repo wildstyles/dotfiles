@@ -66,7 +66,7 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 keymap.set(
   "n",
-  "<S-h>",
+  "h",
   "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
   { desc = "[P]Open telescope buffers" }
 )

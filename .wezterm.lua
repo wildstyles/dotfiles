@@ -14,7 +14,9 @@ config.window_padding = {
 
 config.color_scheme = "Batman"
 
-config.font = wezterm.font("MesloLGS Nerd Font Mono")
+-- config.font = wezterm.font("MesloLGS Nerd Font Mono")
+-- config.font = wezterm.font("Comic Code")
+config.font = wezterm.font("mononoki")
 config.font_size = 16
 
 config.enable_tab_bar = false

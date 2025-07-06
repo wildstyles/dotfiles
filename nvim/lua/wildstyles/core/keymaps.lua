@@ -59,6 +59,11 @@ keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- 
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
+keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "Navigate to next tab" })
+keymap.set("n", "<leader>tt", "<cmd>tabnext<CR>", { desc = "Navigate to next tab" })
+keymap.set("n", "<leader>tN", "<cmd>tabprevious<CR>", { desc = "Navigate to prev tab" })
+keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
+
 keymap.set("n", "X", "<cmd>bd<CR>", { desc = "Close current buffer" }) -- close current buffer
 keymap.set("n", "<leader>n", "<cmd>bnext<CR>", { desc = "Go to next buffer" }) --  go to next buffer
 keymap.set("n", "<leader>N", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" }) --  go to previous buffer

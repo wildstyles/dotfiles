@@ -14,6 +14,15 @@ return {
     init = function()
       -- Your DBUI configuration
       vim.g.db_ui_use_nerd_fonts = 1
+      vim.g.db_ui_save_location = "~/Desktop/karabiner/nvim/lua/db_ui_queries"
+
+      local ok, dbs = pcall(require, "private.dbs")
+      if not ok then
+        vim.notify("Could not load private DB creds", vim.log.levels.WARN)
+        dbs = {}
+      end
+
+      vim.g.dbs = dbs
 
       vim.keymap.set("n", "<leader>db", "<cmd>tab DBUI<CR>", { desc = "Open DB" })
     end,

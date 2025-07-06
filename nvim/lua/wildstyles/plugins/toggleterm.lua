@@ -19,6 +19,6 @@ return {
         end, { buffer = term.bufnr, noremap = true, silent = true })
       end,
     })
-    vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm name=default<CR>", { desc = "Open float terminal" })
+    -- vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm name=default<CR>", { desc = "Open float terminal" })
   end,
 }

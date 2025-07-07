@@ -325,6 +325,7 @@ const rules: KarabinerRules[] = [
       o: open("https://olx.ua"),
     },
     w: {
+      t: shell(['~/Desktop/karabiner/adjust-rectangle-padding.sh']),
       f: rectangle("maximize"),
       m: rectangle("left-half"), // same key where I got left arrow but without layer
       i: rectangle("right-half"),

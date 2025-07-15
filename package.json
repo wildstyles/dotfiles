@@ -11,10 +11,10 @@
     "tsm": "^2.2.2"
   },
   "scripts": {
-    "link-nvim": "ln -s ~/Desktop/karabiner/nvim ~/.config/nvim",
-    "link-tmux": "ln -s ~/Desktop/karabiner/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf",
-    "link-lazygit": "ln -s ~/Desktop/karabiner/.config/lazygit ~/.config/lazygit",
-    "link-sketchybar": "ln -s ~/Desktop/karabiner/.config/sketchybar ~/.config/sketchybar",
+    "link-nvim": "ln -s ~/Projects/karabiner/nvim ~/.config/nvim",
+    "link-tmux": "ln -s ~/Projects/karabiner/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf",
+    "link-lazygit": "ln -s ~/Projects/karabiner/.config/lazygit ~/.config/lazygit",
+    "link-sketchybar": "ln -s ~/Projects/karabiner/.config/sketchybar ~/.config/sketchybar",
     "build": "tsm rules.ts",
     "replace": "cp karabiner.json ~/.config/karabiner/karabiner.json",
     "replace-tmux": "cp tmux.conf ~/.config/tmux/tmux.conf",

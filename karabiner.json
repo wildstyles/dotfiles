@@ -2332,10 +2332,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Desktop/karabiner/tunnelblick-connect.sh"
+                                        "shell_command": "~/Projects/karabiner/tunnelblick-connect.sh"
                                     }
                                 ],
-                                "description": "~/Desktop/karabiner/tunnelblick-connect.sh",
+                                "description": "~/Projects/karabiner/tunnelblick-connect.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "v",
@@ -2356,10 +2356,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Desktop/karabiner/.config/sketchybar/plugins/mic_click.sh"
+                                        "shell_command": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh"
                                     }
                                 ],
-                                "description": "~/Desktop/karabiner/.config/sketchybar/plugins/mic_click.sh",
+                                "description": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "x",
@@ -2776,10 +2776,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Desktop/karabiner/adjust-rectangle-padding.sh"
+                                        "shell_command": "~/Projects/karabiner/adjust-rectangle-padding.sh"
                                     }
                                 ],
-                                "description": "~/Desktop/karabiner/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/karabiner/adjust-rectangle-padding.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "t",
@@ -2962,7 +2962,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Desktop/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -2986,7 +2986,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Desktop/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",

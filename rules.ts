@@ -306,8 +306,8 @@ const rules: KarabinerRules[] = [
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
     ),
     s: {
-      v: shell(['~/Desktop/karabiner/tunnelblick-connect.sh']),
-      x: shell(['~/Desktop/karabiner/.config/sketchybar/plugins/mic_click.sh'])
+      v: shell(['~/Projects/karabiner/tunnelblick-connect.sh']),
+      x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh'])
     },
     n: {
       s: open("https://github.com/scoutgg"),
@@ -325,7 +325,7 @@ const rules: KarabinerRules[] = [
       o: open("https://olx.ua"),
     },
     w: {
-      t: shell(['~/Desktop/karabiner/adjust-rectangle-padding.sh']),
+      t: shell(['~/Projects/karabiner/adjust-rectangle-padding.sh']),
       f: rectangle("maximize"),
       m: rectangle("left-half"), // same key where I got left arrow but without layer
       i: rectangle("right-half"),

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 source "$CONFIG_DIR/colors.sh" # Loads all defined colors
 

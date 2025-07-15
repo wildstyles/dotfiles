@@ -17,7 +17,7 @@ return {
 		},
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
-			vim.g.db_ui_save_location = "~/Desktop/karabiner/nvim/lua/db_ui_queries"
+			vim.g.db_ui_save_location = "~/Projects/karabiner/nvim/lua/db_ui_queries"
 
 			local ok, dbs = pcall(require, "private.dbs")
 			if not ok then

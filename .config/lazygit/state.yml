@@ -1,10 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
     - /Users/ruslanvanzula/projects/karabiner
-    - /Users/ruslanvanzula/Desktop/scout/globpay
     - /Users/ruslanvanzula/Desktop/scout/game-server
-    - /Users/ruslanvanzula/Projects/zmk-for-charybdis
+    - /Users/ruslanvanzula/Desktop/scout/globpay
     - /Users/ruslanvanzula/Desktop/scout/sgg-frontend
+    - /Users/ruslanvanzula/Desktop/scout/scott
+    - /Users/ruslanvanzula/Projects/zmk-for-charybdis
     - /Users/ruslanvanzula/Projects/karabiner
 startuppopupversion: 5
 lastversion: 0.48.0

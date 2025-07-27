@@ -3,9 +3,9 @@ vim.g.maplocalleader = "."
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("x", "p", [["_dP]], {
-  noremap = true,
-  silent = true,
-  desc = "Paste without overwriting clipboard",
+	noremap = true,
+	silent = true,
+	desc = "Paste without overwriting clipboard",
 })
 
 local opts = { noremap = true, silent = true }
@@ -20,24 +20,24 @@ keymap.set("x", "d", '"dd', opts)
 keymap.set("n", "<leader>p", '"dp', opts)
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-  callback = function(args)
-    local bufnr = args.buf
-    local bt = vim.bo[bufnr].buftype
-    -- only in regular buffers (no quickfix, no terminal, no help, etc.)
-    if bt == "" then
-      vim.keymap.set("n", "<CR>", "<Esc>o<Esc>", { buffer = bufnr, desc = "Insert blank line below" })
-    end
-  end,
+	callback = function(args)
+		local bufnr = args.buf
+		local bt = vim.bo[bufnr].buftype
+		-- only in regular buffers (no quickfix, no terminal, no help, etc.)
+		if bt == "" then
+			vim.keymap.set("n", "<CR>", "<Esc>o<Esc>", { buffer = bufnr, desc = "Insert blank line below" })
+		end
+	end,
 })
 -- Remove the blank‐line <CR> mapping in quickfix windows
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    -- delete the buffer-local <CR> mapping in normal mode
-    vim.keymap.del("n", "<CR>", { buffer = true })
-    -- (optional) restore default: jump to entry
-    vim.keymap.set("n", "<CR>", "<CR>", { buffer = true })
-  end,
+	pattern = "qf",
+	callback = function()
+		-- delete the buffer-local <CR> mapping in normal mode
+		vim.keymap.del("n", "<CR>", { buffer = true })
+		-- (optional) restore default: jump to entry
+		vim.keymap.set("n", "<CR>", "<CR>", { buffer = true })
+	end,
 })
 
 keymap.set("n", "<Space>", "a <Esc>", { desc = "Insert space at cursor" })
@@ -70,23 +70,23 @@ keymap.set("n", "<leader>N", "<cmd>bprevious<CR>", { desc = "Go to previous buff
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 keymap.set(
-  "n",
-  "h",
-  "<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
-  { desc = "[P]Open telescope buffers" }
+	"n",
+	"h",
+	"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
+	{ desc = "[P]Open telescope buffers" }
 )
 
 vim.keymap.set("v", "<leader>cc", "y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>", { noremap = true, silent = true })
 
 -- clears all a–z, 0–9 and common special registers, plus search & cmdline
 local function clear_all_registers()
-  local regs = vim.fn.split('abcdefghijklmnopqrstuvwxyz0123456789*+-/#"=', "\\zs")
-  for _, r in ipairs(regs) do
-    vim.fn.setreg(r, {})
-  end
-  -- clear search and command‐line registers
-  vim.fn.setreg("/", "")
-  print("» All registers cleared")
+	local regs = vim.fn.split('abcdefghijklmnopqrstuvwxyz0123456789*+-/#"=', "\\zs")
+	for _, r in ipairs(regs) do
+		vim.fn.setreg(r, {})
+	end
+	-- clear search and command‐line registers
+	vim.fn.setreg("/", "")
+	print("» All registers cleared")
 end
 
 -- bind <leader>cr to that function

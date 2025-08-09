@@ -1,0 +1,98 @@
+-- select * from fantasy_teams ff
+-- where ff.user_id = '441354' 
+-- order by ff.created_at desc
+--
+-- select * from fantasy_create_logs 
+-- where user_id = 441354
+-- order by submitted_at desc
+-- limit 10
+
+-- select * from tournaments t
+-- where t.id = 89388
+
+-- select * from tournament_tallies tt
+-- where tt.id = 89388
+
+-- SELECT
+--   tournaments.id,
+--   tournaments.game_id,
+--   tournaments.spawn_uid,
+--   1 AS required,
+--   2
+-- FROM tournaments
+-- JOIN tournaments
+--   AS existing
+--   USING(game_id) -- because of spawn_uid tournament is not quieried
+-- JOIN tournament_tallies
+--   ON tournament_tallies.id = existing.id
+--   AND tournament_tallies.fantasy_teams_count < existing.max_fantasy_teams
+-- WHERE tournaments.id = 89388 
+--   AND tournaments.max_fantasy_teams > 0
+--   AND tournaments.user_id IS NULL
+--   AND (tournaments.details ->> 'autospawn')::BOOLEAN
+--   AND (tournaments.details ->> 'autospawnWhenFull')::BOOLEAN IS NOT TRUE
+-- GROUP BY tournaments.id, tournaments.copies
+-- HAVING COUNT(existing.id) FILTER(
+--   WHERE tournament_tallies.fantasy_teams_count = 0
+-- ) = 11
+
+
+
+
+
+    SELECT
+      tournaments.id,
+      tournaments.game_id,
+      tournaments.spawn_uid,
+      1 AS required,
+      2
+    FROM tournaments
+    JOIN tournaments
+      AS existing
+      USING(game_id, spawn_uid) -- because of spawn_uid tournament is not quieried
+    JOIN tournament_tallies
+      ON tournament_tallies.id = existing.id
+      AND tournament_tallies.fantasy_teams_count < existing.max_fantasy_teams
+    WHERE tournaments.id = 89388
+      AND tournaments.max_fantasy_teams > 0
+      AND tournaments.user_id IS NULL
+      AND (tournaments.details ->> 'autospawn')::BOOLEAN
+      AND (tournaments.details ->> 'autospawnWhenFull')::BOOLEAN IS NOT TRUE
+    GROUP BY tournaments.id, tournaments.copies
+    -- HAVING COUNT(existing.id) FILTER(
+    --   WHERE tournament_tallies.fantasy_teams_count = 0
+    -- ) = 0
+
+-- SELECT
+--   tournaments.id AS tournament_id,
+--   tournaments.game_id,
+--   tournaments.spawn_uid,
+--   1 AS required,
+--   2 AS some_constant_value,
+--   COUNT(existing.id) FILTER(
+--     WHERE tournament_tallies.fantasy_teams_count = 0
+--   ) AS count_zero_fantasy_teams -- Get the count that is being used in the HAVING condition
+-- FROM tournaments
+-- JOIN tournaments AS existing USING(game_id, spawn_uid)
+-- JOIN tournament_tallies ON tournament_tallies.id = existing.id
+-- AND tournament_tallies.fantasy_teams_count < existing.max_fantasy_teams
+-- WHERE tournaments.id = 89388
+--   AND tournaments.max_fantasy_teams > 0
+--   AND tournaments.user_id IS NULL
+--   AND (tournaments.details ->> 'autospawn')::BOOLEAN
+--   AND (tournaments.details ->> 'autospawnWhenFull')::BOOLEAN IS NOT TRUE
+-- GROUP BY tournaments.id, tournaments.copies
+
+
+
+-- select * from tournaments t
+-- order by t.created_at desc
+-- limit 50
+
+-- where t.user_id = 441354
+-- where t.user_id = 598063
+-- where t.id = 598063  
+--
+--
+-- select * from users u
+-- where u."name" ='kohut111'

@@ -2470,34 +2470,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open https://github.com/scoutgg"
+                                        "shell_command": "open https://scoutgaming.atlassian.net/jira/software/c/projects/SGG/boards/359?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0"
                                     }
                                 ],
-                                "description": "Open https://github.com/scoutgg",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 1
-                                    }
-                                ]
-                            },
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "open https://scoutgaming.atlassian.net/jira/software/c/projects/GAP/boards/17?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0"
-                                    }
-                                ],
-                                "description": "Open https://scoutgaming.atlassian.net/jira/software/c/projects/GAP/boards/17?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0",
+                                "description": "Open https://scoutgaming.atlassian.net/jira/software/c/projects/SGG/boards/359?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "j",
@@ -2614,10 +2590,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open https://gitlab.com/scout-gg/api"
+                                        "shell_command": "open https://gitlab.com/scout-gg"
                                     }
                                 ],
-                                "description": "Open https://gitlab.com/scout-gg/api",
+                                "description": "Open https://gitlab.com/scout-gg",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "l",
@@ -2783,6 +2759,30 @@
                                 "type": "basic",
                                 "from": {
                                     "key_code": "t",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "~/Projects/karabiner/switch-interface-scaling.sh"
+                                    }
+                                ],
+                                "description": "~/Projects/karabiner/switch-interface-scaling.sh",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "s",
                                     "modifiers": {
                                         "optional": [
                                             "any"
@@ -2969,6 +2969,30 @@
                                 "type": "basic",
                                 "from": {
                                     "key_code": "c",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_t",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout-process"
+                                    }
+                                ],
+                                "description": "Tmux session: scout-process",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
                                     "modifiers": {
                                         "optional": [
                                             "any"

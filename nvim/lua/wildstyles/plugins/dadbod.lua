@@ -1,3 +1,4 @@
+-- Plugin to conect and query databases within nvim
 return {
 	{
 		"kristijanhusak/vim-dadbod-ui",

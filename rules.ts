@@ -310,9 +310,8 @@ const rules: KarabinerRules[] = [
       x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh'])
     },
     n: {
-      s: open("https://github.com/scoutgg"),
       j: open(
-        "https://scoutgaming.atlassian.net/jira/software/c/projects/GAP/boards/17?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0"
+        "https://scoutgaming.atlassian.net/jira/software/c/projects/SGG/boards/359?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0"
       ),
       t: open(
         "https://docs.google.com/spreadsheets/d/1ZSN7hTOy23kp8T6wDZdrbtC0ay0ET_kouRmeXdqGz1c/edit?gid=0#gid=0"
@@ -320,18 +319,20 @@ const rules: KarabinerRules[] = [
       c: open("https://calendar.google.com/calendar/u/1/r"),
       m: open("https://meet.google.com/landing?hs=197&authuser=1"),
       g: open("https://github.com/"),
-      l: open("https://gitlab.com/scout-gg/api"),
+      l: open("https://gitlab.com/scout-gg"),
       y: open("https://youtube.com/"),
       o: open("https://olx.ua"),
     },
     w: {
       t: shell(['~/Projects/karabiner/adjust-rectangle-padding.sh']),
+      s: shell(['~/Projects/karabiner/switch-interface-scaling.sh']),
       f: rectangle("maximize"),
       m: rectangle("left-half"), // same key where I got left arrow but without layer
       i: rectangle("right-half"),
     },
     t: {
       c: tmuxSession("config"),
+      l: tmuxSession("scout-process"),
       s: tmuxSession("scout"),
     },
     1: tmuxWindow("1"),

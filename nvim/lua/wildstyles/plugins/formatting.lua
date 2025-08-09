@@ -10,12 +10,12 @@ return {
 			formatters_by_ft = {
 				-- javascript = { "prettier" },
 				-- typescript = { "prettier" },
-				-- javascriptreact = { "prettier" },
-				-- typescriptreact = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
 				javascript = { "eslint_d" }, -- <— switched from prettier
 				typescript = { "eslint_d" }, -- <— ditto
-				javascriptreact = { "eslint_d" }, -- <— ditto
-				typescriptreact = { "eslint_d" }, -- <— ditto
+				-- javascriptreact = { "eslint_d" }, -- <— ditto
+				-- typescriptreact = { "eslint_d" }, -- <— ditto
 				svelte = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },

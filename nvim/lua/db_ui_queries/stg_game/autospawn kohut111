@@ -7,8 +7,13 @@
 -- order by submitted_at desc
 -- limit 10
 
--- select * from tournaments t
--- where t.id = 89388
+select * from tournaments t
+where t.id = 89378
+
+
+UPDATE tournaments
+SET spawn_uid = fantasy.uuid()
+WHERE id = 89378;
 
 -- select * from tournament_tallies tt
 -- where tt.id = 89388
@@ -37,9 +42,21 @@
 -- ) = 11
 
 
+-- select * from tournaments t
+-- where t.id = 89377
+--
+--
 
+-- select * from tournament_tallies tt
+-- where tt.id = 89377
+select * from tournaments t
+order by t.created_at desc
+limit 10
 
-
+SELECT t.id, t.user_id, t.name, t.spawn_uid, t.created_at, t.details FROM tournaments t 
+WHERE (t.details ->> 'autospawn')::BOOLEAN IS TRUE
+order by t.created_at desc
+--
     SELECT
       tournaments.id,
       tournaments.game_id,
@@ -53,15 +70,15 @@
     JOIN tournament_tallies
       ON tournament_tallies.id = existing.id
       AND tournament_tallies.fantasy_teams_count < existing.max_fantasy_teams
-    WHERE tournaments.id = 89388
+    WHERE tournaments.id =87135  
       AND tournaments.max_fantasy_teams > 0
       AND tournaments.user_id IS NULL
       AND (tournaments.details ->> 'autospawn')::BOOLEAN
       AND (tournaments.details ->> 'autospawnWhenFull')::BOOLEAN IS NOT TRUE
     GROUP BY tournaments.id, tournaments.copies
-    -- HAVING COUNT(existing.id) FILTER(
-    --   WHERE tournament_tallies.fantasy_teams_count = 0
-    -- ) = 0
+    HAVING COUNT(existing.id) FILTER(
+      WHERE tournament_tallies.fantasy_teams_count = 0
+    ) = 0
 
 -- SELECT
 --   tournaments.id AS tournament_id,

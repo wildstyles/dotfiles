@@ -99,6 +99,7 @@ return {
 					dim_context = false,
 					alt_background = false,
 				},
+				flash = true,
 				cmp = true,
 				gitsigns = true,
 				hop = true,
@@ -115,6 +116,23 @@ return {
 			highlight_overrides = {
 				all = function(colors)
 					return {
+						-- FlashLabel = { },
+						-- FlashBackdrop = {},
+						FlashCurrent = {
+							bold = true,
+							fg = colors.rosewater,
+						},
+						FlashMatch = {
+							fg = colors.yellow,
+						},
+						FlashBackdrop = {
+							fg = "#545c7e",
+						},
+						FlashLabel = {
+							bg = "#ff007c",
+							bold = true,
+							fg = "#c8d3f5",
+						},
 						CmpItemMenu = { fg = colors.surface2 },
 						CursorLineNr = { fg = colors.text },
 						FloatBorder = { bg = colors.base, fg = colors.subtext1 }, -- colors.surface0 }, difficult to see

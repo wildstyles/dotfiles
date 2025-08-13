@@ -1,22 +1,23 @@
+-- Plugin to jump between lines of code
 return {
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  --- @type Flash.Config
-  opts = {
-    labels = 'arstgmneiodhfpluc',
-    -- jump = {
-    --   nohlsearch = false
-    -- },
-    modes = {
-      char = {
-        autohide = true
-      }
-    },
-    label = {
-      uppercase = false,
-      current = false
-    }
-  },
+	"folke/flash.nvim",
+	event = "VeryLazy",
+	--- @type Flash.Config
+	opts = {
+		labels = "arstgmneiodhfpluc",
+		-- jump = {
+		--   nohlsearch = false
+		-- },
+		modes = {
+			char = {
+				autohide = true,
+			},
+		},
+		label = {
+			uppercase = false,
+			current = false,
+		},
+	},
   -- stylua: ignore
   keys = {
     { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },

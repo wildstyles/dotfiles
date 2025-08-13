@@ -168,7 +168,7 @@ const rules: KarabinerRules[] = [
     v: app("Visual Studio Code"),
     n: app("Notes"),
     s: app("Slack"),
-    t: app("iTerm"),
+    t: tmuxSession("scout-process"),
     c: app("WezTerm"),
     e: app("DBeaver"),
     d: app("Docker Desktop"),

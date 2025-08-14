@@ -2,10 +2,13 @@
 -- where ff.user_id = '441354' 
 -- order by ff.created_at desc
 --
--- select * from fantasy_create_logs 
--- where user_id = 441354
--- order by submitted_at desc
--- limit 10
+select * from fantasy_create_logs 
+order by submitted_at desc
+limit 10
+
+select t.name, t.created_at, t.details, t.spawn_uid, t.white_label_id from tournaments t
+order by t.created_at desc
+limit 100
 
 select * from tournaments t
 where t.id = 89378
@@ -50,6 +53,7 @@ WHERE id = 89378;
 -- select * from tournament_tallies tt
 -- where tt.id = 89377
 select * from tournaments t
+where t.id = 89461 
 order by t.created_at desc
 limit 10
 
@@ -70,7 +74,7 @@ order by t.created_at desc
     JOIN tournament_tallies
       ON tournament_tallies.id = existing.id
       AND tournament_tallies.fantasy_teams_count < existing.max_fantasy_teams
-    WHERE tournaments.id =87135  
+    WHERE tournaments.id = 89461   
       AND tournaments.max_fantasy_teams > 0
       AND tournaments.user_id IS NULL
       AND (tournaments.details ->> 'autospawn')::BOOLEAN

@@ -2,7 +2,6 @@ import fs from "fs";
 import { KarabinerRules } from "./types";
 import {
   tmuxSession,
-  tmuxWindow,
   createHyperSubLayers,
   createColemakRemap,
   rectangle,
@@ -302,9 +301,6 @@ const rules: KarabinerRules[] = [
     ],
   },
   ...createHyperSubLayers({
-    spacebar: open(
-      "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
-    ),
     s: {
       v: shell(['~/Projects/karabiner/tunnelblick-connect.sh']),
       x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh'])
@@ -335,11 +331,12 @@ const rules: KarabinerRules[] = [
       l: tmuxSession("scout-process"),
       s: tmuxSession("scout"),
     },
-    1: tmuxWindow("1"),
-    2: tmuxWindow("2"),
-    3: tmuxWindow("3"),
-    4: tmuxWindow("4"),
-    5: tmuxWindow("5"),
+    e: {
+      l: shell(['~/Projects/karabiner/run-scout.sh local']),  
+      s: shell(['~/Projects/karabiner/run-scout.sh stage']),  
+      a: shell(['~/Projects/karabiner/run-scout.sh qa']),  
+      x: shell(['~/Projects/karabiner/run-scout.sh stop']),  
+    },
     // o = "Open" applications
     o: {
       1: app("1Password"),

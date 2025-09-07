@@ -1,5 +1,5 @@
 vim.g.mapleader = ","
-vim.g.maplocalleader = "."
+vim.g.maplocalleader = "'"
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("x", "p", [["_dP]], {
@@ -25,7 +25,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		local bt = vim.bo[bufnr].buftype
 		-- only in regular buffers (no quickfix, no terminal, no help, etc.)
 		if bt == "" then
-			vim.keymap.set("n", "<CR>", "<Esc>o<Esc>", { buffer = bufnr, desc = "Insert blank line below" })
+			vim.keymap.set(
+				"n",
+				"<CR>",
+				"<Esc>o<Esc>",
+				{ buffer = bufnr, desc = "Insert blank line below" }
+			)
 		end
 	end,
 })
@@ -47,7 +52,12 @@ keymap.set("n", "<leader>q", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<C-q>", ":q!<CR>", { desc = "Quit" })
 keymap.set("i", "<C-q>", "<Esc>:q!<CR>", { desc = "Quit" })
 keymap.set("n", "<C-s>", ":<c-u>update<cr>", { desc = "Save file" })
-keymap.set("i", "<C-s>", "<Esc>:update<cr>", { desc = "Save file and exit insert mode" }) -- Insert mode save and exit to normal mode
+keymap.set(
+	"i",
+	"<C-s>",
+	"<Esc>:update<cr>",
+	{ desc = "Save file and exit insert mode" }
+) -- Insert mode save and exit to normal mode
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
@@ -56,18 +66,48 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" })
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
-keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+keymap.set(
+	"n",
+	"<leader>sx",
+	"<cmd>close<CR>",
+	{ desc = "Close current split" }
+) -- close current split window
 
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
-keymap.set("n", "<leader>tn", "<cmd>tabnext<CR>", { desc = "Navigate to next tab" })
-keymap.set("n", "<leader>tt", "<cmd>tabnext<CR>", { desc = "Navigate to next tab" })
-keymap.set("n", "<leader>tN", "<cmd>tabprevious<CR>", { desc = "Navigate to prev tab" })
+keymap.set(
+	"n",
+	"<leader>tn",
+	"<cmd>tabnext<CR>",
+	{ desc = "Navigate to next tab" }
+)
+keymap.set(
+	"n",
+	"<leader>tt",
+	"<cmd>tabnext<CR>",
+	{ desc = "Navigate to next tab" }
+)
+keymap.set(
+	"n",
+	"<leader>tN",
+	"<cmd>tabprevious<CR>",
+	{ desc = "Navigate to prev tab" }
+)
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
 
 keymap.set("n", "X", "<cmd>bd<CR>", { desc = "Close current buffer" }) -- close current buffer
 keymap.set("n", "<leader>n", "<cmd>bnext<CR>", { desc = "Go to next buffer" }) --  go to next buffer
-keymap.set("n", "<leader>N", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" }) --  go to previous buffer
-keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
+keymap.set(
+	"n",
+	"<leader>N",
+	"<cmd>bprevious<CR>",
+	{ desc = "Go to previous buffer" }
+) --  go to previous buffer
+keymap.set(
+	"n",
+	"<leader>tf",
+	"<cmd>tabnew %<CR>",
+	{ desc = "Open current buffer in new tab" }
+) --  move current buffer to new tab
 
 keymap.set(
 	"n",
@@ -76,11 +116,17 @@ keymap.set(
 	{ desc = "[P]Open telescope buffers" }
 )
 
-vim.keymap.set("v", "<leader>cc", "y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>", { noremap = true, silent = true })
+vim.keymap.set(
+	"v",
+	"<leader>cc",
+	"y<esc>oconsole.log('<C-r>\":', <C-r>\");<esc>",
+	{ noremap = true, silent = true }
+)
 
 -- clears all a–z, 0–9 and common special registers, plus search & cmdline
 local function clear_all_registers()
-	local regs = vim.fn.split('abcdefghijklmnopqrstuvwxyz0123456789*+-/#"=', "\\zs")
+	local regs =
+		vim.fn.split('abcdefghijklmnopqrstuvwxyz0123456789*+-/#"=', "\\zs")
 	for _, r in ipairs(regs) do
 		vim.fn.setreg(r, {})
 	end
@@ -90,4 +136,9 @@ local function clear_all_registers()
 end
 
 -- bind <leader>cr to that function
-vim.keymap.set("n", "<leader>cr", clear_all_registers, { desc = "Clear all registers" })
+vim.keymap.set(
+	"n",
+	"<leader>cr",
+	clear_all_registers,
+	{ desc = "Clear all registers" }
+)

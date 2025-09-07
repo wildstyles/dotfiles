@@ -1738,510 +1738,6 @@
                         ]
                     },
                     {
-                        "description": "Hyper Key + 1",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "/opt/homebrew/bin/tmux select-window -t 1"
-                                    }
-                                ],
-                                "description": "Tmux window: 1",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "1",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper",
-                                        "value": 1
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_s",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_w",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_t",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_o",
-                                        "value": 0
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper Key + 2",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "/opt/homebrew/bin/tmux select-window -t 2"
-                                    }
-                                ],
-                                "description": "Tmux window: 2",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "2",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper",
-                                        "value": 1
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_s",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_w",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_t",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_o",
-                                        "value": 0
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper Key + 3",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "/opt/homebrew/bin/tmux select-window -t 3"
-                                    }
-                                ],
-                                "description": "Tmux window: 3",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "3",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper",
-                                        "value": 1
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_s",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_w",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_t",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_o",
-                                        "value": 0
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper Key + 4",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "/opt/homebrew/bin/tmux select-window -t 4"
-                                    }
-                                ],
-                                "description": "Tmux window: 4",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "4",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper",
-                                        "value": 1
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_s",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_w",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_t",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_o",
-                                        "value": 0
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper Key + 5",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "/opt/homebrew/bin/tmux select-window -t 5"
-                                    }
-                                ],
-                                "description": "Tmux window: 5",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "5",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper",
-                                        "value": 1
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_s",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_w",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_t",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_o",
-                                        "value": 0
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper Key + spacebar",
-                        "manipulators": [
-                            {
-                                "to": [
-                                    {
-                                        "shell_command": "open raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
-                                    }
-                                ],
-                                "description": "Open raycast://extensions/stellate/mxstbr-commands/create-notion-todo",
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper",
-                                        "value": 1
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_s",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_n",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_w",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_t",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_o",
-                                        "value": 0
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper Key sublayer \"s\"",
                         "manipulators": [
                             {
@@ -2274,36 +1770,6 @@
                                 "conditions": [
                                     {
                                         "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
                                         "name": "hyper_sublayer_n",
                                         "value": 0
                                     },
@@ -2315,6 +1781,11 @@
                                     {
                                         "type": "variable_if",
                                         "name": "hyper_sublayer_t",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
                                         "value": 0
                                     },
                                     {
@@ -2412,36 +1883,6 @@
                                 "conditions": [
                                     {
                                         "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
                                         "name": "hyper_sublayer_s",
                                         "value": 0
                                     },
@@ -2453,6 +1894,11 @@
                                     {
                                         "type": "variable_if",
                                         "name": "hyper_sublayer_t",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
                                         "value": 0
                                     },
                                     {
@@ -2694,36 +2140,6 @@
                                 "conditions": [
                                     {
                                         "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
                                         "name": "hyper_sublayer_s",
                                         "value": 0
                                     },
@@ -2735,6 +2151,11 @@
                                     {
                                         "type": "variable_if",
                                         "name": "hyper_sublayer_t",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
                                         "value": 0
                                     },
                                     {
@@ -2904,36 +2325,6 @@
                                 "conditions": [
                                     {
                                         "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
                                         "name": "hyper_sublayer_s",
                                         "value": 0
                                     },
@@ -2945,6 +2336,11 @@
                                     {
                                         "type": "variable_if",
                                         "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
                                         "value": 0
                                     },
                                     {
@@ -3034,6 +2430,167 @@
                         ]
                     },
                     {
+                        "description": "Hyper Key sublayer \"e\"",
+                        "manipulators": [
+                            {
+                                "description": "Toggle Hyper sublayer e",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_e",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "hyper_sublayer_e",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_s",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_n",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_w",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_t",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_o",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "~/Projects/karabiner/run-scout.sh local"
+                                    }
+                                ],
+                                "description": "~/Projects/karabiner/run-scout.sh local",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "~/Projects/karabiner/run-scout.sh stage"
+                                    }
+                                ],
+                                "description": "~/Projects/karabiner/run-scout.sh stage",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "~/Projects/karabiner/run-scout.sh qa"
+                                    }
+                                ],
+                                "description": "~/Projects/karabiner/run-scout.sh qa",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "~/Projects/karabiner/run-scout.sh stop"
+                                    }
+                                ],
+                                "description": "~/Projects/karabiner/run-scout.sh stop",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "x",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
+                                        "value": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Hyper Key sublayer \"o\"",
                         "manipulators": [
                             {
@@ -3066,36 +2623,6 @@
                                 "conditions": [
                                     {
                                         "type": "variable_if",
-                                        "name": "hyper_sublayer_1",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_2",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_3",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_4",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_5",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
-                                        "name": "hyper_sublayer_spacebar",
-                                        "value": 0
-                                    },
-                                    {
-                                        "type": "variable_if",
                                         "name": "hyper_sublayer_s",
                                         "value": 0
                                     },
@@ -3112,6 +2639,11 @@
                                     {
                                         "type": "variable_if",
                                         "name": "hyper_sublayer_t",
+                                        "value": 0
+                                    },
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_e",
                                         "value": 0
                                     },
                                     {

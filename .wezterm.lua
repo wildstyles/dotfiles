@@ -26,6 +26,9 @@ config.window_decorations = "RESIZE"
 config.window_background_opacity = 1
 config.macos_window_background_blur = 10
 
+-- shows how to send cmd modifier to nvim. Couldn't find a way how to make it
+-- work with tmux
+-- https://github.com/wezterm/wezterm/issues/3731#issuecomment-1592198263
 config.keys = {
 	{ key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize }, -- +10% :contentReference[oaicite:2]{index=2}
 	{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize }, -- –10%

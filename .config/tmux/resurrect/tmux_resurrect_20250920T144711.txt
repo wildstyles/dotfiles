@@ -1,0 +1,43 @@
+pane	4	1	1	:*	1	MacBookPro	:/Users/ruslanvanzula	1	zsh	:
+pane	5	1	1	:*	1	MacBookPro	:/Users/ruslanvanzula	1	zsh	:
+pane	6	1	1	:*	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula	1	zsh	:
+pane	8	1	1	:*	1	MacBookPro	:/Users/ruslanvanzula/Projects/karabiner	1	zsh	:
+pane	config	1	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Projects/zmk-for-charybdis	1	nvim	:nvim .
+pane	config	2	1	:*	1	:/Users/ruslanvanzula/Projects/karabiner	:/Users/ruslanvanzula/Projects/karabiner	1	nvim	:nvim .
+pane	config	3	0	:	1	:/Users/ruslanvanzula/Desktop/scout	:/Users/ruslanvanzula/Projects/karabiner	1	nvim	:nvim /Users/ruslanvanzula/Projects/karabiner/notes/2025-Sep/2025-09-20-Saturday.md
+pane	config	4	0	:-	1	MacBookPro	:/Users/ruslanvanzula/Projects/karabiner	1	nvim	:nvim /Users/ruslanvanzula/Projects/karabiner/md/todo.md
+pane	config_	1	1	:*	1	MacBookPro	:/Users/ruslanvanzula/Projects/karabiner	1	zsh	:
+pane	scout	1	1	:*	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/globpay	1	nvim	:nvim .
+pane	scout	2	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/scott	1	nvim	:nvim .
+pane	scout	3	0	:-	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/game-server	1	nvim	:nvim .
+pane	scout	4	0	:	1	:/Users/ruslanvanzula/Desktop/scout	:/Users/ruslanvanzula/Desktop/scout/sgg-frontend	1	nvim	:nvim .
+pane	scout	5	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/sgg-services	1	nvim	:nvim .
+pane	scout	6	0	:	1	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/sportyman	1	nvim	:nvim .
+pane	scout-process	1	0	:	1	:/Users/ruslanvanzula/Desktop/scout	:/Users/ruslanvanzula/Desktop/scout/globpay	1	zsh	:
+pane	scout-process	2	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/scott	1	zsh	:
+pane	scout-process	3	1	:*	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/game-server	1	zsh	:
+pane	scout-process	4	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/sgg-frontend	1	zsh	:
+pane	scout-process	5	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/globpay	1	zsh	:
+pane	scout-process	6	0	:-	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/game-server	1	zsh	:
+window	4	1	:zsh	1	:*	b69e,227x61,0,0,1	:
+window	5	1	:zsh	1	:*	b69f,227x61,0,0,2	:
+window	6	1	:zsh	1	:*	b6a0,227x61,0,0,3	:
+window	8	1	:zsh	1	:*	b6a1,227x61,0,0,4	:
+window	config	1	:zmk	0	:	b6a2,227x61,0,0,5	off
+window	config	2	:config	1	:*	b6a3,227x61,0,0,6	off
+window	config	3	:nvim	0	:	b6a4,227x61,0,0,7	:
+window	config	4	:todo	0	:-	db81,227x61,0,0,22	off
+window	config_	1	:zsh	1	:*	b6a6,227x61,0,0,9	:
+window	scout	1	:globpay	1	:*	5b7f,227x61,0,0,10	off
+window	scout	2	:scott	0	:	5b80,227x61,0,0,11	off
+window	scout	3	:game-server	0	:-	5b81,227x61,0,0,12	off
+window	scout	4	:frontend	0	:	5b82,227x61,0,0,13	off
+window	scout	5	:sgg-services	0	:	5b83,227x61,0,0,14	off
+window	scout	6	:sportyman	0	:	5b84,227x61,0,0,15	off
+window	scout-process	1	:globpay	0	:	5b85,227x61,0,0,16	off
+window	scout-process	2	:scott	0	:	5b86,227x61,0,0,17	off
+window	scout-process	3	:game-server	1	:*	5b87,227x61,0,0,18	off
+window	scout-process	4	:frontend	0	:	5b88,227x61,0,0,19	off
+window	scout-process	5	:globpay-jobs	0	:	db7f,227x61,0,0,20	off
+window	scout-process	6	:game-server-rpc	0	:-	db80,227x61,0,0,21	off
+state	config	scout

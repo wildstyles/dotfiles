@@ -157,6 +157,7 @@ const rules: KarabinerRules[] = [
     ],
   },
 
+  // ps aux | grep -i "Applications" | awk '{print $11}' | cut -d '/' -f 3 | sort | uniq
   ...createAltLayer({
     1: app("1Password"),
     // f: app("Finder"),
@@ -172,6 +173,8 @@ const rules: KarabinerRules[] = [
     e: app("DBeaver"),
     d: app("Docker Desktop"),
     y: app("System Settings"),
+    o: app("MongoDB Compass"),
+    a: app("Activity Monitor"),
     b: app("Karabiner-Elements"),
     i: app("Discord"),
     z: app("zoom.us"),
@@ -330,6 +333,7 @@ const rules: KarabinerRules[] = [
       c: tmuxSession("config"),
       l: tmuxSession("scout-process"),
       s: tmuxSession("scout"),
+      r: shell(['open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh'])
     },
     e: {
       l: shell(['~/Projects/karabiner/run-scout.sh local']),  

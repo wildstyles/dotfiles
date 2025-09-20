@@ -1524,6 +1524,50 @@
                         ]
                     },
                     {
+                        "description": "Alt + o",
+                        "manipulators": [
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'MongoDB Compass.app'"
+                                    }
+                                ],
+                                "description": "Open -a 'MongoDB Compass.app'",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Alt + a",
+                        "manipulators": [
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Activity Monitor.app'"
+                                    }
+                                ],
+                                "description": "Open -a 'Activity Monitor.app'",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
                         "description": "Alt + b",
                         "manipulators": [
                             {
@@ -2413,6 +2457,30 @@
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "hyper_sublayer_t",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            {
+                                "to": [
+                                    {
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh"
+                                    }
+                                ],
+                                "description": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh",
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "r",
                                     "modifiers": {
                                         "optional": [
                                             "any"

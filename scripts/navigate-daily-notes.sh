@@ -41,7 +41,7 @@ if ${tmux} list-windows -t ${sesson_name} | grep -q "${window_name}"; then
 
     ${tmux} select-window -t ${sesson_name}:"${window_name}"
 
-    ${tmux} send-keys -t ${session_name}:${window_name} ":edit $todo_file_name" C-m
+    # ${tmux} send-keys -t ${session_name}:${window_name} ":edit $todo_file_name" C-m
 else
     if [ $sesson_name != "$current_session" ]; then
         ${tmux} switch-client -t "$session_name"

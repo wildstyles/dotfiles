@@ -22,7 +22,12 @@ return {
 			["Send request"] = { -- sets global mapping
 				"<CR>",
 				function()
-					require("kulala").run()
+					local filename = vim.fn.expand("%:t") -- Get just the filename
+					local extension = filename:match("^.+(%..+)$") -- Using Lua pattern matching to extract the extension
+
+					if extension:find(".http") then
+						require("kulala").run()
+					end
 				end,
 				mode = { "n", "v" }, -- optional mode, default is n
 				desc = "Send request changed description", -- optional description, otherwise inferred from the key

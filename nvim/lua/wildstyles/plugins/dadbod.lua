@@ -34,6 +34,13 @@ return {
 				"<cmd>tab DBUI<CR>",
 				{ desc = "Open DB" }
 			)
+
+			vim.keymap.set(
+				{ "n", "v" },
+				"<leader>b",
+				"vip<Plug>(DBUI_ExecuteQuery)",
+				{ desc = "Execute query on cursor" }
+			)
 		end,
 	},
 	{

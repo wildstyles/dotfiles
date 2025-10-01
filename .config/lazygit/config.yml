@@ -3,6 +3,7 @@ os:
 git:
   paging:
     colorArg: always
-    pager: delta --dark --paging=never --line-numbers
+    pager: delta --dark --paging=never --line-numbers --side-by-side
 gui:
   showIcons: true
+  changed_files_width: 20

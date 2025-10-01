@@ -28,6 +28,7 @@ return {
 			automatic_enable = false,
 			-- list of servers for mason to install
 			ensure_installed = {
+				-- "js-debug-adapter",
 				"ts_ls",
 				"html",
 				"cssls",
@@ -44,6 +45,7 @@ return {
 
 		mason_tool_installer.setup({
 			ensure_installed = {
+				"js-debug-adapter",
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"isort", -- python formatter

@@ -1,15 +1,24 @@
 #!/bin/bash
 
-SESSION_NAME="scout-process"
+# SESSION_NAME="scout-process"
+SESSION_NAME="scout:processes"
 
 PARAM="$1"
 
-GLOBPAY="$SESSION_NAME:globpay"
-SCOTT="$SESSION_NAME:scott"
-GAME_SERVER="$SESSION_NAME:game-server"
-GLOBPAY_JOBS="$SESSION_NAME:globpay-jobs"
-GAME_SERVER_RPC="$SESSION_NAME:game-server-rpc"
-FRONTEND="$SESSION_NAME:frontend"
+# GLOBPAY="$SESSION_NAME:globpay"
+# SCOTT="$SESSION_NAME:scott"
+# GAME_SERVER="$SESSION_NAME:game-server"
+# GLOBPAY_JOBS="$SESSION_NAME:globpay-jobs"
+# GAME_SERVER_RPC="$SESSION_NAME:game-server-rpc"
+# FRONTEND="$SESSION_NAME:frontend"
+#
+#
+GLOBPAY="$SESSION_NAME.1"
+SCOTT="$SESSION_NAME.3"
+GAME_SERVER="$SESSION_NAME.5"
+GLOBPAY_JOBS="$SESSION_NAME.2"
+GAME_SERVER_RPC="$SESSION_NAME.6"
+FRONTEND="$SESSION_NAME.4"
 
 TMUX_CMD="/opt/homebrew/bin/tmux send-keys -t"
 

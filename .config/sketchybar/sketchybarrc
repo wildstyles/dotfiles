@@ -44,6 +44,7 @@ sketchybar --default icon.font="SF Pro:Semibold:15.0"  \
 
 # -- Left Side Items --
 # source $ITEM_DIR/front_app.sh
+source $ITEM_DIR/timewarrior.sh
 
 # --- Right Side Items ---
 source $ITEM_DIR/calendar.sh

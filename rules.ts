@@ -306,7 +306,11 @@ const rules: KarabinerRules[] = [
   ...createHyperSubLayers({
     s: {
       v: shell(['~/Projects/karabiner/tunnelblick-connect.sh']),
-      x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh'])
+      x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh']),
+    },
+    y: {
+      s: shell(['~/Projects/karabiner/scripts/toggle-time-tracking.sh "Scout"']),
+      t: shell(['~/Projects/karabiner/scripts/toggle-time-tracking.sh "Training"']),
     },
     n: {
       j: open(
@@ -341,7 +345,6 @@ const rules: KarabinerRules[] = [
       a: shell(['~/Projects/karabiner/run-scout.sh qa']),  
       x: shell(['~/Projects/karabiner/run-scout.sh stop']),  
     },
-    // o = "Open" applications
     o: {
       1: app("1Password"),
       f: app("Finder"),

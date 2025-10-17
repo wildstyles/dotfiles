@@ -150,7 +150,7 @@ eval "$(zoxide init zsh)"
 
 alias cd="z"
 
-export EDITOR="code -w"
+export EDITOR="nvim"
 # lazygit config directory
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -164,6 +164,7 @@ function y() {
 }
 
 alias lg="lazygit"
+alias t="~/Projects/karabiner/scripts/translate.sh"
 
 # clear screen + scrollback, but keep your command history
 alias cls='clear && printf "\e[3J"'

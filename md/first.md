@@ -52,6 +52,8 @@ const foo = "bar";
 
 ### List
 
+> [!CAUTION] Nested list prevents folding
+
 - Nest 0 Item 1
   - Nest 1 Item 1
   - Nest 1 Item 2

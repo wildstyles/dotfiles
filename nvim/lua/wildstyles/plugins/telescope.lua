@@ -36,6 +36,16 @@ return {
 					hidden = true, -- show dotfiles
 					no_ignore = true, -- bypass .gitignore/etc
 				},
+				buffers = {
+					mappings = {
+						n = {
+							["D"] = function()
+								print("ClearAllBuffers triggered")
+								vim.api.nvim_command("%bdelete!")
+							end,
+						},
+					},
+				},
 				live_grep = {
 					disable_coordinates = true,
 					mappings = {

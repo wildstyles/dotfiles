@@ -9,10 +9,8 @@
     "link-lazygit": "ln -s ~/Projects/karabiner/.config/lazygit ~/.config/lazygit",
     "link-sketchybar": "ln -s ~/Projects/karabiner/.config/sketchybar ~/.config/sketchybar",
     "link-karabiner": "ln -s ~/Projects/karabiner/.config/karabiner ~/.config/karabiner",
-    "replace-tmux": "cp tmux.conf ~/.config/tmux/tmux.conf",
-    "replace-aerospace": "cp aerospace.toml ~/.config/aerospace/aerospace.toml",
+    "link-wezterm": "ln -s ~/Projects/karabiner/.config/wezterm ~/.config/wezterm",
     "replace-zshrc": "cp .zshrc ~/.zshrc",
-    "replace-wezterm": "cp .wezterm.lua ~/.wezterm.lua",
     "replace-yazi": "cp -R .config/yazi/* ~/.config/yazi"
   }
 }

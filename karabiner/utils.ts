@@ -1,4 +1,4 @@
-import { To, KeyCode, Manipulator, KarabinerRules, From } from "./types";
+import { To, KeyCode, Manipulator, KarabinerRules, From, Conditions } from "./types";
 
 /**
  * Custom way to describe a command in a layer
@@ -98,65 +98,55 @@ export function createHyperSubLayer(
   ];
 }
 
-export const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
-  description: `Remap ${from} to ${to}`,
-  manipulators: [
-    {
-      type: "basic",
-      from,
-      to,
-      conditions: [
-        {
-          type: "frontmost_application_if",
-          bundle_identifiers: ["com.google.Chrome"],
-        },
-        {
-          identifiers: [
-            {
-              product_id: 24926,
-              vendor_id: 7504,
-            },
-          ],
-          type: "device_if",
-        },
-      ],
-    },
-  ],
-});
+export const createSimpleRemap = (from: KeyCode, to: KeyCode) => ({
+  from: { key_code: from },
+  to: [{ key_code: to }]
+})
+
+
+export const laptopCondition: Conditions = {
+  identifiers: [{
+      product_id: 835,
+      vendor_id: 1452,
+    }], 
+  type: "device_if",
+}
+
+export const charibdisCondition: Conditions = {
+  identifiers: [{
+      product_id: 24926,
+      vendor_id: 7504,
+    }],
+  type: "device_if",
+}
+
+export const ukLanguageCondition: Conditions = {
+  input_sources: [{ language: "uk" }],
+  type: "input_source_if",
+}
+
 
 export const createColemakRemap = (
+  from: KeyCode,
   to: KeyCode,
-  from: KeyCode
-): KarabinerRules => ({
-  description: `Remap ${from} to ${to}`,
-  manipulators: [
-    {
-      type: "basic",
-      from: {
-        key_code: from,
-        modifiers: {
-          optional: ["any"],
+): KarabinerRules => {
+  return {
+    description: `Remap ${from} to ${to}`,
+    manipulators: [
+      {
+        type: "basic",
+        from: {
+          key_code: from,
+          modifiers: {
+            optional: ["any"],
+          },
         },
+        to: [{ key_code: to }],
+        conditions: [charibdisCondition, ukLanguageCondition]
       },
-      to: [{ key_code: to }],
-      conditions: [
-        {
-          identifiers: [
-            {
-              product_id: 24926,
-              vendor_id: 7504,
-            },
-          ],
-          type: "device_if",
-        },
-        {
-          input_sources: [{ language: "uk" }],
-          type: "input_source_if",
-        },
-      ],
-    },
-  ],
-});
+    ],
+  }
+};
 
 export const createAltLayer = (subLayers: {
   [key_code in KeyCode]?: HyperKeySublayer | LayerCommand;

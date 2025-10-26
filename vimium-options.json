@@ -1,6 +1,0 @@
-{
-  "keyMappings": "# exit insert mode\nmapkey I <c-[> \n\nmap p passNextKey count=1\nmap <down> scrollDown\nmap <up> scrollUp\nmap <left> previousTab\nmap <right> nextTab\n\nmap n scrollDown\nmap e scrollUp\nmap h goBack\nmap l goForward\nmap <s-left> moveTabLeft\nmap <s-right> moveTabRight\nmap 0 firstTab\nmap $ lastTab",
-  "linkHintCharacters": "arstgmneio",
-  "ignoreKeyboardLayout": true,
-  "settingsVersion": "2.2.1"
-}

@@ -10,7 +10,7 @@
     "tsm": "^2.2.2"
   },
   "scripts": {
-    "link-nvim": "ln -s ~/Projects/karabiner/nvim ~/.config/nvim",
+    "link-nvim": "ln -s ~/Projects/karabiner/.config/nvim ~/.config/nvim",
     "link-tmux": "ln -s ~/Projects/karabiner/.config/tmux/tmux.conf ~/.config/tmux/tmux.conf",
     "link-lazygit": "ln -s ~/Projects/karabiner/.config/lazygit ~/.config/lazygit",
     "link-sketchybar": "ln -s ~/Projects/karabiner/.config/sketchybar ~/.config/sketchybar",

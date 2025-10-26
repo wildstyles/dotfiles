@@ -1,4 +1,7 @@
 node_modules
 
 # ignore all private lua files
-nvim/lua/private/
+.config/nvim/lua/private/
+.config/nvim/lua/db_ui_queries/
+md/*
+dictionary/*

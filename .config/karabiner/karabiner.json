@@ -1209,12 +1209,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
+                                "description": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh",
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -1225,12 +1225,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh",
+                                "description": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -1302,12 +1302,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"" }],
                                 "type": "basic"
                             },
                             {
@@ -1318,12 +1318,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"" }],
                                 "type": "basic"
                             }
                         ]
@@ -1584,12 +1584,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -1600,12 +1600,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
+                                "description": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -1725,12 +1725,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Tmux session: config",
+                                "description": "Tmux session: dotfiles",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
                                 "type": "basic"
                             },
                             {
@@ -1746,7 +1746,7 @@
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout-process" }],
                                 "type": "basic"
                             },
                             {
@@ -1762,7 +1762,7 @@
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
                                 "type": "basic"
                             },
                             {
@@ -1773,12 +1773,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh",
+                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -1850,12 +1850,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh local",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh local" }],
                                 "type": "basic"
                             },
                             {
@@ -1866,12 +1866,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stage",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stage" }],
                                 "type": "basic"
                             },
                             {
@@ -1882,12 +1882,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh qa",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh qa" }],
                                 "type": "basic"
                             },
                             {
@@ -1898,12 +1898,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stop",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stop" }],
                                 "type": "basic"
                             }
                         ]
@@ -2029,7 +2029,7 @@
                                     "key_code": "t",
                                     "modifiers": { "mandatory": ["left_option"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
                                 "type": "basic"
                             }
                         ]
@@ -2164,12 +2164,12 @@
                         "description": "Alt + x",
                         "manipulators": [
                             {
-                                "description": "Tmux session: config",
+                                "description": "Tmux session: dotfiles",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "mandatory": ["left_option"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
                                 "type": "basic"
                             }
                         ]
@@ -2275,12 +2275,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
+                                "description": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh",
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -2291,12 +2291,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh",
+                                "description": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -2368,12 +2368,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"" }],
                                 "type": "basic"
                             },
                             {
@@ -2384,12 +2384,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"" }],
                                 "type": "basic"
                             }
                         ]
@@ -2650,12 +2650,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -2666,12 +2666,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
+                                "description": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -2791,12 +2791,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Tmux session: config",
+                                "description": "Tmux session: dotfiles",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
                                 "type": "basic"
                             },
                             {
@@ -2812,7 +2812,7 @@
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout-process" }],
                                 "type": "basic"
                             },
                             {
@@ -2828,7 +2828,7 @@
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
                                 "type": "basic"
                             },
                             {
@@ -2839,12 +2839,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh",
+                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -2916,12 +2916,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh local",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh local" }],
                                 "type": "basic"
                             },
                             {
@@ -2932,12 +2932,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stage",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stage" }],
                                 "type": "basic"
                             },
                             {
@@ -2948,12 +2948,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh qa",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh qa" }],
                                 "type": "basic"
                             },
                             {
@@ -2964,12 +2964,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stop",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stop" }],
                                 "type": "basic"
                             }
                         ]
@@ -4306,12 +4306,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
+                                "description": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh",
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -4322,12 +4322,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh",
+                                "description": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -4399,12 +4399,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"" }],
                                 "type": "basic"
                             },
                             {
@@ -4415,12 +4415,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"" }],
                                 "type": "basic"
                             }
                         ]
@@ -4681,12 +4681,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -4697,12 +4697,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
+                                "description": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -4822,12 +4822,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Tmux session: config",
+                                "description": "Tmux session: dotfiles",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
                                 "type": "basic"
                             },
                             {
@@ -4843,7 +4843,7 @@
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout-process" }],
                                 "type": "basic"
                             },
                             {
@@ -4859,7 +4859,7 @@
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
                                 "type": "basic"
                             },
                             {
@@ -4870,12 +4870,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh",
+                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -4947,12 +4947,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh local",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh local" }],
                                 "type": "basic"
                             },
                             {
@@ -4963,12 +4963,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stage",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stage" }],
                                 "type": "basic"
                             },
                             {
@@ -4979,12 +4979,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh qa",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh qa" }],
                                 "type": "basic"
                             },
                             {
@@ -4995,12 +4995,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stop",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stop" }],
                                 "type": "basic"
                             }
                         ]
@@ -5126,7 +5126,7 @@
                                     "key_code": "t",
                                     "modifiers": { "mandatory": ["left_option"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
                                 "type": "basic"
                             }
                         ]
@@ -5261,12 +5261,12 @@
                         "description": "Alt + x",
                         "manipulators": [
                             {
-                                "description": "Tmux session: config",
+                                "description": "Tmux session: dotfiles",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "mandatory": ["left_option"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
                                 "type": "basic"
                             }
                         ]
@@ -5372,12 +5372,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
+                                "description": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh",
                                 "from": {
                                     "key_code": "v",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -5388,12 +5388,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh",
+                                "description": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -5465,12 +5465,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Scout\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Scout\"" }],
                                 "type": "basic"
                             },
                             {
@@ -5481,12 +5481,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"",
+                                "description": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/toggle-time-tracking.sh \"Training\"" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/toggle-time-tracking.sh \"Training\"" }],
                                 "type": "basic"
                             }
                         ]
@@ -5747,12 +5747,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh",
                                 "from": {
                                     "key_code": "t",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -5763,12 +5763,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
+                                "description": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-interface-scaling.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -5888,12 +5888,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Tmux session: config",
+                                "description": "Tmux session: dotfiles",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
                                 "type": "basic"
                             },
                             {
@@ -5909,7 +5909,7 @@
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout-process" }],
                                 "type": "basic"
                             },
                             {
@@ -5925,7 +5925,7 @@
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
                                 "type": "basic"
                             },
                             {
@@ -5936,12 +5936,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh",
+                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh",
                                 "from": {
                                     "key_code": "r",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh" }],
+                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -6013,12 +6013,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh local",
                                 "from": {
                                     "key_code": "l",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh local" }],
                                 "type": "basic"
                             },
                             {
@@ -6029,12 +6029,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stage",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stage" }],
                                 "type": "basic"
                             },
                             {
@@ -6045,12 +6045,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh qa",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh qa" }],
                                 "type": "basic"
                             },
                             {
@@ -6061,12 +6061,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
+                                "description": "~/Projects/dotfiles/scripts/run-scout.sh stop",
                                 "from": {
                                     "key_code": "x",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop" }],
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stop" }],
                                 "type": "basic"
                             }
                         ]

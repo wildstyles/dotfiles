@@ -1,6 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/ruslanvanzula/Projects/karabiner
+    - /Users/ruslanvanzula/Projects/dotfiles
     - /Users/ruslanvanzula/Desktop/scout/sgg-frontend
     - /Users/ruslanvanzula/Desktop/scout/globpay
     - /Users/ruslanvanzula/Desktop/scout/game-server
@@ -9,7 +9,6 @@ recentrepos:
     - /Users/ruslanvanzula/Desktop/scout/sportyman
     - /Users/ruslanvanzula/Desktop/scout/sgg-services
     - /Users/ruslanvanzula/desktop/scout/scott
-    - /Users/ruslanvanzula/projects/karabiner
 startuppopupversion: 5
 lastversion: 0.48.0
 customcommandshistory:

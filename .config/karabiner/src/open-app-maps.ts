@@ -22,5 +22,5 @@ export const openAppMaps = createAltLayer({
   b: app("Karabiner-Elements"),
   i: app("Discord"),
   z: app("zoom.us"),
-  x: tmuxSession("config"),
+  x: tmuxSession("dotfiles"),
 })

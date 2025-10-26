@@ -45,12 +45,12 @@ export const hyperkeyMaps = [
 
   ...createHyperSubLayers({
     s: {
-      v: shell(['~/Projects/karabiner/scripts/tunnelblick-connect.sh']),
-      x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh']),
+      v: shell(['~/Projects/dotfiles/scripts/tunnelblick-connect.sh']),
+      x: shell(['~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh']),
     },
     y: {
-      s: shell(['~/Projects/karabiner/scripts/toggle-time-tracking.sh "Scout"']),
-      t: shell(['~/Projects/karabiner/scripts/toggle-time-tracking.sh "Training"']),
+      s: shell(['~/Projects/dotfiles/scripts/toggle-time-tracking.sh "Scout"']),
+      t: shell(['~/Projects/dotfiles/scripts/toggle-time-tracking.sh "Training"']),
     },
     n: {
       j: open(
@@ -67,23 +67,23 @@ export const hyperkeyMaps = [
       o: open("https://olx.ua"),
     },
     w: {
-      t: shell(['~/Projects/karabiner/scripts/adjust-rectangle-padding.sh']),
-      s: shell(['~/Projects/karabiner/scripts/switch-interface-scaling.sh']),
+      t: shell(['~/Projects/dotfiles/scripts/adjust-rectangle-padding.sh']),
+      s: shell(['~/Projects/dotfiles/scripts/switch-interface-scaling.sh']),
       f: rectangle("maximize"),
       m: rectangle("left-half"), // same key where I got left arrow but without layer
        i: rectangle("right-half"),
     },
     t: {
-      c: tmuxSession("config"),
+      c: tmuxSession("dotfiles"),
       l: tmuxSession("scout-process"),
       s: tmuxSession("scout"),
-      r: shell(['open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh'])
+      r: shell(['open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh'])
     },
     e: {
-      l: shell(['~/Projects/karabiner/scripts/run-scout.sh local']),  
-      s: shell(['~/Projects/karabiner/scripts/run-scout.sh stage']),  
-      a: shell(['~/Projects/karabiner/scripts/run-scout.sh qa']),  
-      x: shell(['~/Projects/karabiner/scripts/run-scout.sh stop']),  
+      l: shell(['~/Projects/dotfiles/scripts/run-scout.sh local']),  
+      s: shell(['~/Projects/dotfiles/scripts/run-scout.sh stage']),  
+      a: shell(['~/Projects/dotfiles/scripts/run-scout.sh qa']),  
+      x: shell(['~/Projects/dotfiles/scripts/run-scout.sh stop']),  
     },
   }),
 ]

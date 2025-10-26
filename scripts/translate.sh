@@ -45,7 +45,7 @@ FORALL_OUTPUT=""
 
 CURRENT_MONTH=$(date +%Y-%m-%b)
 CURRENT_DATE=$(date +%Y-%m-%d-%A)
-OUTPUT_FILE="$HOME/Projects/karabiner/dictionary/$CURRENT_MONTH.md"
+OUTPUT_FILE="$HOME/Projects/dotfiles/dictionary/$CURRENT_MONTH.md"
 
 # Find the next available index for the ordered list
 INDEX=$(awk '/^[0-9]+\. / { gsub(/\.$/, "", $1); print $1 }' $OUTPUT_FILE | sort -n | tail -1)

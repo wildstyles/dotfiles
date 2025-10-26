@@ -7,8 +7,8 @@ current_weekday=$(date +"%A")
 current_month_abbr=$(date +"%b")
 
 # Specify below the directory in which you want to create your daily note
-note_dir=~/Projects/karabiner/notes/${current_year}-${current_month_abbr}
-sesson_name=config
+note_dir=~/Projects/dotfiles/notes/${current_year}-${current_month_abbr}
+sesson_name=dotfiles
 window_name=todo
 tmux="/opt/homebrew/bin/tmux"
 
@@ -32,7 +32,7 @@ full_path=${note_dir}/${note_name}.md
 
 current_session=$(${tmux} display-message -p '#S')
 # I will start with just one todo file
-todo_file_name="~/Projects/karabiner/md/todo.md"
+todo_file_name="~/Projects/dotfiles/md/todo.md"
 
 if ${tmux} list-windows -t ${sesson_name} | grep -q "${window_name}"; then
     if [ $sesson_name != "$current_session" ]; then
@@ -47,7 +47,7 @@ else
         ${tmux} switch-client -t "$session_name"
     fi
 
-    cd ~/Projects/karabiner && ${tmux} new-window -n "${window_name}" -t ${sesson_name}: 
+    cd ~/Projects/dotfiles && ${tmux} new-window -n "${window_name}" -t ${sesson_name}: 
 
     ${tmux} send-keys -t ${sesson_name}:${window_name} "nvim $todo_file_name" C-m
 fi

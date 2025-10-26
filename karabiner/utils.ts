@@ -289,7 +289,7 @@ export function tmuxSession(name: string): LayerCommand {
   return {
     to: [
       {
-        shell_command: `open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh ${name}`,
+        shell_command: `open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh ${name}`,
       },
     ],
     description: `Tmux session: ${name}`,

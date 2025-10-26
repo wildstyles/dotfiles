@@ -1652,51 +1652,6 @@
                         ]
                     },
                     {
-                        "description": "To EN holding",
-                        "conditions": [
-                            {
-                                "input_sources": [
-                                    {
-                                        "language": "uk"
-                                    }
-                                ],
-                                "type": "input_source_if"
-                            }
-                        ],
-                        "manipulators": [
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "k"
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "k",
-                                        "halt": true
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "select_input_source": {
-                                            "language": "en"
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "key_code": "k"
-                                        }
-                                    ]
-                                },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 250
-                                }
-                            }
-                        ]
-                    },
-                    {
                         "description": "To UK holding",
                         "manipulators": [
                             {
@@ -1893,10 +1848,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/tunnelblick-connect.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/tunnelblick-connect.sh",
+                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "v",
@@ -2376,10 +2331,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/adjust-rectangle-padding.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "t",
@@ -2400,10 +2355,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/switch-interface-scaling.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/switch-interface-scaling.sh",
+                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -2561,7 +2516,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -2585,7 +2540,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout-process"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process"
                                     }
                                 ],
                                 "description": "Tmux session: scout-process",
@@ -2609,7 +2564,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",
@@ -2722,10 +2677,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh local"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh local",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "l",
@@ -2746,10 +2701,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stage"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stage",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -2770,10 +2725,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh qa"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh qa",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "a",
@@ -2794,10 +2749,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stop"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stop",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "x",
@@ -2999,7 +2954,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",
@@ -3219,7 +3174,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -3347,10 +3302,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/tunnelblick-connect.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/tunnelblick-connect.sh",
+                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "v",
@@ -3830,10 +3785,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/adjust-rectangle-padding.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "t",
@@ -3854,10 +3809,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/switch-interface-scaling.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/switch-interface-scaling.sh",
+                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -4015,7 +3970,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -4039,7 +3994,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout-process"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process"
                                     }
                                 ],
                                 "description": "Tmux session: scout-process",
@@ -4063,7 +4018,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",
@@ -4176,10 +4131,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh local"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh local",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "l",
@@ -4200,10 +4155,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stage"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stage",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -4224,10 +4179,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh qa"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh qa",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "a",
@@ -4248,10 +4203,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stop"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stop",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "x",
@@ -5786,51 +5741,6 @@
                         ]
                     },
                     {
-                        "description": "To EN holding",
-                        "conditions": [
-                            {
-                                "input_sources": [
-                                    {
-                                        "language": "uk"
-                                    }
-                                ],
-                                "type": "input_source_if"
-                            }
-                        ],
-                        "manipulators": [
-                            {
-                                "type": "basic",
-                                "from": {
-                                    "key_code": "k"
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "k",
-                                        "halt": true
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "select_input_source": {
-                                            "language": "en"
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "key_code": "k"
-                                        }
-                                    ]
-                                },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 250,
-                                    "basic.to_if_held_down_threshold_milliseconds": 250
-                                }
-                            }
-                        ]
-                    },
-                    {
                         "description": "To UK holding",
                         "manipulators": [
                             {
@@ -6027,10 +5937,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/tunnelblick-connect.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/tunnelblick-connect.sh",
+                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "v",
@@ -6510,10 +6420,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/adjust-rectangle-padding.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "t",
@@ -6534,10 +6444,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/switch-interface-scaling.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/switch-interface-scaling.sh",
+                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -6695,7 +6605,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -6719,7 +6629,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout-process"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process"
                                     }
                                 ],
                                 "description": "Tmux session: scout-process",
@@ -6743,7 +6653,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",
@@ -6856,10 +6766,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh local"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh local",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "l",
@@ -6880,10 +6790,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stage"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stage",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -6904,10 +6814,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh qa"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh qa",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "a",
@@ -6928,10 +6838,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stop"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stop",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "x",
@@ -7133,7 +7043,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",
@@ -7353,7 +7263,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -7481,10 +7391,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/tunnelblick-connect.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/tunnelblick-connect.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/tunnelblick-connect.sh",
+                                "description": "~/Projects/karabiner/scripts/tunnelblick-connect.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "v",
@@ -7964,10 +7874,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/adjust-rectangle-padding.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/adjust-rectangle-padding.sh",
+                                "description": "~/Projects/karabiner/scripts/adjust-rectangle-padding.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "t",
@@ -7988,10 +7898,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/switch-interface-scaling.sh"
+                                        "shell_command": "~/Projects/karabiner/scripts/switch-interface-scaling.sh"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/switch-interface-scaling.sh",
+                                "description": "~/Projects/karabiner/scripts/switch-interface-scaling.sh",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -8149,7 +8059,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh config"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh config"
                                     }
                                 ],
                                 "description": "Tmux session: config",
@@ -8173,7 +8083,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout-process"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout-process"
                                     }
                                 ],
                                 "description": "Tmux session: scout-process",
@@ -8197,7 +8107,7 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/tmux-switch-session.sh scout"
+                                        "shell_command": "open -a WezTerm.app && ~/Projects/karabiner/scripts/tmux-switch-session.sh scout"
                                     }
                                 ],
                                 "description": "Tmux session: scout",
@@ -8310,10 +8220,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh local"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh local"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh local",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh local",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "l",
@@ -8334,10 +8244,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stage"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stage"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stage",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stage",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "s",
@@ -8358,10 +8268,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh qa"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh qa"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh qa",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh qa",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "a",
@@ -8382,10 +8292,10 @@
                             {
                                 "to": [
                                     {
-                                        "shell_command": "~/Projects/karabiner/run-scout.sh stop"
+                                        "shell_command": "~/Projects/karabiner/scripts/run-scout.sh stop"
                                     }
                                 ],
-                                "description": "~/Projects/karabiner/run-scout.sh stop",
+                                "description": "~/Projects/karabiner/scripts/run-scout.sh stop",
                                 "type": "basic",
                                 "from": {
                                     "key_code": "x",

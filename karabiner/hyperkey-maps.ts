@@ -45,7 +45,7 @@ export const hyperkeyMaps = [
 
   ...createHyperSubLayers({
     s: {
-      v: shell(['~/Projects/karabiner/tunnelblick-connect.sh']),
+      v: shell(['~/Projects/karabiner/scripts/tunnelblick-connect.sh']),
       x: shell(['~/Projects/karabiner/.config/sketchybar/plugins/mic_click.sh']),
     },
     y: {
@@ -67,8 +67,8 @@ export const hyperkeyMaps = [
       o: open("https://olx.ua"),
     },
     w: {
-      t: shell(['~/Projects/karabiner/adjust-rectangle-padding.sh']),
-      s: shell(['~/Projects/karabiner/switch-interface-scaling.sh']),
+      t: shell(['~/Projects/karabiner/scripts/adjust-rectangle-padding.sh']),
+      s: shell(['~/Projects/karabiner/scripts/switch-interface-scaling.sh']),
       f: rectangle("maximize"),
       m: rectangle("left-half"), // same key where I got left arrow but without layer
        i: rectangle("right-half"),
@@ -80,10 +80,10 @@ export const hyperkeyMaps = [
       r: shell(['open -a WezTerm.app && ~/Projects/karabiner/scripts/navigate-daily-notes.sh'])
     },
     e: {
-      l: shell(['~/Projects/karabiner/run-scout.sh local']),  
-      s: shell(['~/Projects/karabiner/run-scout.sh stage']),  
-      a: shell(['~/Projects/karabiner/run-scout.sh qa']),  
-      x: shell(['~/Projects/karabiner/run-scout.sh stop']),  
+      l: shell(['~/Projects/karabiner/scripts/run-scout.sh local']),  
+      s: shell(['~/Projects/karabiner/scripts/run-scout.sh stage']),  
+      a: shell(['~/Projects/karabiner/scripts/run-scout.sh qa']),  
+      x: shell(['~/Projects/karabiner/scripts/run-scout.sh stop']),  
     },
   }),
 ]

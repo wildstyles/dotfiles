@@ -1,0 +1,13 @@
+{
+  "name": "karabiner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/node": "^18.7.19",
+    "prettier": "^2.7.1",
+    "tsm": "^2.2.2"
+  },
+  "scripts": {
+    "build": "tsm ./src/index.ts"
+  }
+}

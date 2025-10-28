@@ -1,4 +1,4 @@
-import { KarabinerRules, From, To } from './types';
+import { KarabinerRules, From, To } from "./types";
 
 const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
   description: `Remap ${from} to ${to}`,
@@ -18,23 +18,22 @@ const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
 });
 
 export const chromeRemaps = [
-  createChromeRemap(
-    { key_code: "i", modifiers: { mandatory: ["control" ] } },
-    [{ key_code: "right_arrow", modifiers: ["command", "option"] }]
-  ),
-  createChromeRemap(
-    { key_code: "m", modifiers: { mandatory: ["control" ] } },
-    [{ key_code: "left_arrow", modifiers: ["command", "option"] }]
-  ),
+  createChromeRemap({ key_code: "i", modifiers: { mandatory: ["control"] } }, [
+    { key_code: "right_arrow", modifiers: ["command", "option"] },
+  ]),
+  createChromeRemap({ key_code: "m", modifiers: { mandatory: ["control"] } }, [
+    { key_code: "left_arrow", modifiers: ["command", "option"] },
+  ]),
   // open bookmarks
   createChromeRemap(
     { key_code: "b", modifiers: { mandatory: ["shift", "command"] } },
-    [{ key_code: "b", modifiers: ["command", "option"] }]
+    [{ key_code: "b", modifiers: ["command", "option"] }],
   ),
   // add bookmark
-  createChromeRemap({ key_code: "b", modifiers: { mandatory: ["control", 'shift'] } }, [
-    { key_code: "d", modifiers: ["command"] },
-  ]),
+  createChromeRemap(
+    { key_code: "b", modifiers: { mandatory: ["control", "shift"] } },
+    [{ key_code: "d", modifiers: ["command"] }],
+  ),
   // open history
   createChromeRemap({ key_code: "h", modifiers: { mandatory: ["command"] } }, [
     { key_code: "y", modifiers: ["command"] },

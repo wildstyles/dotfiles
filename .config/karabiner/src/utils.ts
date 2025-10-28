@@ -1,4 +1,11 @@
-import { To, KeyCode, Manipulator, KarabinerRules, From, Conditions } from "./types";
+import {
+  To,
+  KeyCode,
+  Manipulator,
+  KarabinerRules,
+  From,
+  Conditions,
+} from "./types";
 
 /**
  * Custom way to describe a command in a layer
@@ -21,7 +28,7 @@ type HyperKeySublayer = {
 export function createHyperSubLayer(
   sublayer_key: KeyCode,
   commands: HyperKeySublayer,
-  allSubLayerVariables: string[]
+  allSubLayerVariables: string[],
 ): Manipulator[] {
   const subLayerVariableName = generateSubLayerVariableName(sublayer_key);
 
@@ -60,7 +67,7 @@ export function createHyperSubLayer(
       conditions: [
         ...allSubLayerVariables
           .filter(
-            (subLayerVariable) => subLayerVariable !== subLayerVariableName
+            (subLayerVariable) => subLayerVariable !== subLayerVariableName,
           )
           .map((subLayerVariable) => ({
             type: "variable_if" as const,
@@ -93,38 +100,40 @@ export function createHyperSubLayer(
             value: 1,
           },
         ],
-      })
+      }),
     ),
   ];
 }
 
 export const createSimpleRemap = (from: KeyCode, to: KeyCode) => ({
   from: { key_code: from },
-  to: [{ key_code: to }]
-})
-
+  to: [{ key_code: to }],
+});
 
 export const laptopCondition: Conditions = {
-  identifiers: [{
+  identifiers: [
+    {
       product_id: 835,
       vendor_id: 1452,
-    }], 
+    },
+  ],
   type: "device_if",
-}
+};
 
 export const charibdisCondition: Conditions = {
-  identifiers: [{
+  identifiers: [
+    {
       product_id: 24926,
       vendor_id: 7504,
-    }],
+    },
+  ],
   type: "device_if",
-}
+};
 
 export const ukLanguageCondition: Conditions = {
   input_sources: [{ language: "uk" }],
   type: "input_source_if",
-}
-
+};
 
 export const createColemakRemap = (
   from: KeyCode,
@@ -142,10 +151,10 @@ export const createColemakRemap = (
           },
         },
         to: [{ key_code: to }],
-        conditions: [charibdisCondition, ukLanguageCondition]
+        conditions: [charibdisCondition, ukLanguageCondition],
       },
     ],
-  }
+  };
 };
 
 export const createAltLayer = (subLayers: {
@@ -214,9 +223,9 @@ export function createHyperSubLayers(subLayers: {
           manipulators: createHyperSubLayer(
             key as KeyCode,
             value,
-            allSubLayerVariables
+            allSubLayerVariables,
           ),
-        }
+        },
   );
 }
 

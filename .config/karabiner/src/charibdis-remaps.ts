@@ -1,5 +1,5 @@
-import { KeyCode } from './types'
-import { createColemakRemap  } from "./utils";
+import { KeyCode } from "./types";
+import { createColemakRemap } from "./utils";
 
 export const colemakToQwertyRemap: [KeyCode, KeyCode][] = [
   ["r", "s"],
@@ -10,7 +10,7 @@ export const colemakToQwertyRemap: [KeyCode, KeyCode][] = [
   ["b", "t"],
   ["d", "v"],
   ["v", "b"],
-           
+
   ["j", "y"],
   ["l", "u"],
   ["u", "i"],
@@ -89,15 +89,15 @@ export const charibdisRemaps = [
       },
     ],
   },
-]
+];
 
-export const charibdisSimpleRemaps =[
-            {
-              from: { key_code: "grave_accent_and_tilde" },
-              to: [{ key_code: "non_us_backslash" }],
-            },
-            {
-              from: { key_code: "non_us_backslash" },
-              to: [{ key_code: "grave_accent_and_tilde" }],
-            },
-          ]
+export const charibdisSimpleRemaps = [
+  {
+    from: { key_code: "grave_accent_and_tilde" },
+    to: [{ key_code: "non_us_backslash" }],
+  },
+  {
+    from: { key_code: "non_us_backslash" },
+    to: [{ key_code: "grave_accent_and_tilde" }],
+  },
+];

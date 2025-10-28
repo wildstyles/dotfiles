@@ -214,5 +214,5 @@ export const laptopRemaps = [
 ];
 
 export const laptopSimpleRemaps = simpleRemaps.map(([from, to]) =>
-  createSimpleRemap(from, to)
+  createSimpleRemap(from, to),
 );

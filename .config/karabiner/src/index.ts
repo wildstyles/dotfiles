@@ -1,13 +1,13 @@
 import fs from "fs";
 import { KarabinerRules } from "./types.ts";
-import { chromeRemaps } from './chrome-remaps.ts'
-import { laptopRemaps, laptopSimpleRemaps } from './laptop-remaps.ts'
-import { charibdisRemaps, charibdisSimpleRemaps } from './charibdis-remaps.ts'
+import { chromeRemaps } from "./chrome-remaps.ts";
+import { laptopRemaps, laptopSimpleRemaps } from "./laptop-remaps.ts";
+import { charibdisRemaps, charibdisSimpleRemaps } from "./charibdis-remaps.ts";
 import { qqToEscape } from "./qq-to-escape.ts";
 import { languageSwitches } from "./language-switches.ts";
 import { hyperkeyMaps } from "./hyperkey-maps.ts";
 import { openAppMaps } from "./open-app-maps.ts";
-import { holdingMaps } from './holding-maps.ts'
+import { holdingMaps } from "./holding-maps.ts";
 
 const rules: KarabinerRules[] = [
   qqToEscape,
@@ -18,7 +18,7 @@ const rules: KarabinerRules[] = [
   ...hyperkeyMaps,
   ...openAppMaps,
   ...hyperkeyMaps,
-  ...holdingMaps
+  ...holdingMaps,
 ];
 
 fs.writeFileSync(
@@ -26,7 +26,7 @@ fs.writeFileSync(
   JSON.stringify(
     {
       profiles: [
-{
+        {
           devices: [
             {
               identifiers: {
@@ -43,7 +43,7 @@ fs.writeFileSync(
           complex_modifications: {
             rules,
           },
-        }, 
+        },
 
         {
           devices: [
@@ -67,6 +67,6 @@ fs.writeFileSync(
       ],
     },
     null,
-    4
-  )
+    4,
+  ),
 );

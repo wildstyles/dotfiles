@@ -1,7 +1,6 @@
-import { createAltLayer, app, tmuxSession } from './utils'
+import { createAltLayer, app, tmuxSession } from "./utils";
 
-
-  // ps aux | grep -i "Applications" | awk '{print $11}' | cut -d '/' -f 3 | sort | uniq
+// ps aux | grep -i "Applications" | awk '{print $11}' | cut -d '/' -f 3 | sort | uniq
 export const openAppMaps = createAltLayer({
   1: app("1Password"),
   // f: app("Finder"),
@@ -23,4 +22,4 @@ export const openAppMaps = createAltLayer({
   i: app("Discord"),
   z: app("zoom.us"),
   x: tmuxSession("dotfiles"),
-})
+});

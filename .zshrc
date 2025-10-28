@@ -168,3 +168,8 @@ alias t="~/Projects/dotfiles/scripts/translate.sh"
 
 # clear screen + scrollback, but keep your command history
 alias cls='clear && printf "\e[3J"'
+
+if [ -f ~/Projects/dotfiles/.env ]; then
+  source ~/Projects/dotfiles/.env
+fi
+

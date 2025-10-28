@@ -5,3 +5,4 @@ node_modules
 .config/nvim/lua/db_ui_queries/
 md/*
 dictionary/*
+.env

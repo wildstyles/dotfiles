@@ -3366,6 +3366,7 @@
                 }
             ],
             "name": "Laptop profile",
+            "selected": true,
             "simple_modifications": [
                 {
                     "from": {
@@ -6873,20 +6874,9 @@
                         "vendor_id": 7504
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": false,
-                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Default profile",
-            "selected": true,
             "simple_modifications": [
                 {
                     "from": { "key_code": "grave_accent_and_tilde" },

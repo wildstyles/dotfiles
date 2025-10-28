@@ -7,65 +7,47 @@ return {
 		local conform = require("conform")
 
 		conform.setup({
+			formatters = {
+				kulala = {
+					command = "kulala-fmt",
+					args = { "format", "$FILENAME" },
+					stdin = false,
+				},
+			},
 			formatters_by_ft = {
-				-- javascript = { "prettier" },
-				-- typescript = { "prettier" },
+				http = { "kulala" },
+				lua = { "stylua" },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
-				javascript = { "eslint_d" }, -- <— switched from prettier
-				typescript = { "eslint_d" }, -- <— ditto
-				-- javascriptreact = { "eslint_d" }, -- <— ditto
-				-- typescriptreact = { "eslint_d" }, -- <— ditto
-				svelte = { "prettier" },
-				css = { "prettier" },
-				html = { "prettier" },
 				json = { "prettier" },
-				yaml = { "prettier" },
 				markdown = { "prettier" },
-				graphql = { "prettier" },
-				liquid = { "prettier" },
-				lua = { "stylua" },
-				python = { "isort", "black" },
+				erb = { "htmlbeautifier" },
+				html = { "htmlbeautifier" },
+				bash = { "beautysh" },
+				yaml = { "yamlfix" },
+				toml = { "prettier" },
+				css = { "prettier" },
+				scss = { "prettier" },
+				styl = { "prettier" },
+				sh = { "shellcheck" },
 			},
-			formatters = {
-				eslint_d = { -- <— new formatter block
-					cmd = "eslint_d", -- use the daemon (or "eslint")
-					args = {
-						"--fix-to-stdout",
-						"--stdin-filename",
-						vim.fn.expand("%:p"),
-						"--stdin",
-					},
-					stdin = true,
-				},
-				stylua = {
-					-- specify the CLI binary (optional if it's on your $PATH)
-					cmd = "stylua",
-					-- args: read from stdin (-), tell stylua which file this is:
-					args = {
-						"--indent-width",
-						"2",
-						"--stdin-filepath",
-						vim.fn.expand("%:p"),
-						"-", -- read from stdin
-					},
-					-- let Conform use stdin rather than spawning with filenames:
-					stdin = true,
-				}, -- … other formatter configs …
-			},
-			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
-			},
+			format_on_save = function(bufnr)
+				-- Disable with a global or buffer-local variable
+				if
+					vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat
+				then
+					return
+				end
+
+				return { timeout_ms = 1000, async = false, lsp_fallback = true }
+			end,
 		})
 
-		-- vim.keymap.set({ "n", "v" }, "<leader>mp", function()
-		-- 	conform.format({
-		-- 		lsp_fallback = true,
-		-- 		async = false,
-		-- 		timeout_ms = 1000,
-		-- 	})
-		-- end, { desc = "Format file or range (in visual mode)" })
+		vim.keymap.set("n", "<leader>lt", function()
+			vim.g.disable_autoformat = not vim.g.disable_autoformat
+			vim.b.disable_autoformat = not vim.b.disable_autoformat
+		end, { desc = "Toggle auto-formatting" })
 	end,
 }

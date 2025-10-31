@@ -2,8 +2,17 @@ import { createAltLayer, app, tmuxSession } from "./utils";
 
 // ps aux | grep -i "Applications" | awk '{print $11}' | cut -d '/' -f 3 | sort | uniq
 export const openAppMaps = createAltLayer({
+  // that triggers next instance of app. Forwards to mac's keyboard hotkey
+  slash: {
+    to: [
+      {
+        modifiers: ["shift", "left_option"],
+        key_code: "right_arrow",
+      },
+    ],
+  },
   1: app("1Password"),
-  // f: app("Finder"),
+  f: app("Finder"),
   u: app("Mail"),
   m: app("Telegram"),
   g: app("Google Chrome"),

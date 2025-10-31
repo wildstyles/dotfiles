@@ -24,7 +24,21 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
 config.window_background_opacity = 1
-config.macos_window_background_blur = 10
+config.macos_window_background_blur = 1
+
+local home_dir = os.getenv("HOME")
+config.background = {
+
+	{
+		source = {
+			File = home_dir .. "/Downloads/wezterm_bg.jpg", -- Updated path
+		},
+		opacity = 1,
+		hsb = { brightness = 0.03 },
+		height = "100%",
+		width = "100%",
+	},
+}
 
 -- shows how to send cmd modifier to nvim. Couldn't find a way how to make it
 -- work with tmux

@@ -89,7 +89,7 @@ return {
 					-- crust = "#000000",
 				},
 			},
-			transparent_background = false,
+			transparent_background = true,
 			show_end_of_buffer = false,
 			integration_default = false,
 			integrations = {
@@ -104,7 +104,10 @@ return {
 				gitsigns = true,
 				hop = true,
 				illuminate = { enabled = true },
-				native_lsp = { enabled = true, inlay_hints = { background = true } },
+				native_lsp = {
+					enabled = true,
+					inlay_hints = { background = true },
+				},
 				neogit = true,
 				neotree = true,
 				semantic_tokens = true,
@@ -141,7 +144,10 @@ return {
 						LspInfoBorder = { link = "FloatBorder" },
 						NeoTreeDirectoryIcon = { fg = colors.subtext1 },
 						NeoTreeDirectoryName = { fg = colors.subtext1 },
-						NeoTreeFloatBorder = { bg = colors.mantle, fg = colors.mantle },
+						NeoTreeFloatBorder = {
+							bg = colors.mantle,
+							fg = colors.mantle,
+						},
 						NeoTreeGitConflict = { fg = colors.red },
 						NeoTreeGitDeleted = { fg = colors.red },
 						NeoTreeGitIgnored = { fg = colors.overlay0 },
@@ -152,9 +158,18 @@ return {
 						NeoTreeIndent = { fg = colors.surface1 },
 						NeoTreeNormal = { bg = colors.mantle },
 						NeoTreeNormalNC = { bg = colors.mantle },
-						NeoTreeRootName = { fg = colors.subtext1, style = { "bold" } },
-						NeoTreeTabActive = { fg = colors.text, bg = colors.mantle },
-						NeoTreeTabInactive = { fg = colors.surface2, bg = colors.crust },
+						NeoTreeRootName = {
+							fg = colors.subtext1,
+							style = { "bold" },
+						},
+						NeoTreeTabActive = {
+							fg = colors.text,
+							bg = colors.mantle,
+						},
+						NeoTreeTabInactive = {
+							fg = colors.surface2,
+							bg = colors.crust,
+						},
 						NeoTreeTabSeparatorActive = {
 							fg = colors.mantle,
 							bg = colors.mantle,
@@ -163,7 +178,10 @@ return {
 							fg = colors.crust,
 							bg = colors.crust,
 						},
-						NeoTreeWinSeparator = { fg = colors.surface1, bg = colors.base },
+						NeoTreeWinSeparator = {
+							fg = colors.surface1,
+							bg = colors.base,
+						},
 						NormalFloat = { bg = colors.base },
 						Pmenu = { bg = colors.mantle, fg = "" },
 						-- telescope prompt
@@ -172,14 +190,25 @@ return {
 							bg = "#39fd9c",
 							style = { "bold" },
 						},
-						TelescopePromptCounter = { fg = colors.red, style = { "bold" } },
+						TelescopePromptCounter = {
+							fg = colors.red,
+							style = { "bold" },
+						},
 						TelescopePromptBorder = { bg = colors.base },
 						-- telescope results
-						TelescopeResultsTitle = { link = "TelescopePromptTitle" },
-						TelescopeResultsBorder = { link = "TelescopePromptBorder" },
+						TelescopeResultsTitle = {
+							link = "TelescopePromptTitle",
+						},
+						TelescopeResultsBorder = {
+							link = "TelescopePromptBorder",
+						},
 						-- telescope preview
-						TelescopePreviewTitle = { link = "TelescopePromptTitle" },
-						TelescopePreviewBorder = { link = "TelescopePromptBorder" },
+						TelescopePreviewTitle = {
+							link = "TelescopePromptTitle",
+						},
+						TelescopePreviewBorder = {
+							link = "TelescopePromptBorder",
+						},
 						VertSplit = { bg = colors.base, fg = colors.surface0 },
 						WhichKeyFloat = { bg = colors.mantle },
 						YankHighlight = { bg = colors.surface2 },
@@ -281,9 +310,18 @@ return {
 						TSTitle = { link = "Title" },
 						TSTodo = { link = "Todo" },
 						TSType = { fg = colors.yellow, style = { "bold" } },
-						TSTypeBuiltin = { fg = colors.yellow, style = { "bold" } },
-						TSTypeDefinition = { fg = colors.yellow, style = { "bold" } },
-						TSTypeQualifier = { fg = colors.peach, style = { "bold" } },
+						TSTypeBuiltin = {
+							fg = colors.yellow,
+							style = { "bold" },
+						},
+						TSTypeDefinition = {
+							fg = colors.yellow,
+							style = { "bold" },
+						},
+						TSTypeQualifier = {
+							fg = colors.peach,
+							style = { "bold" },
+						},
 						TSURI = { fg = colors.blue },
 						-- TSVariable = { fg = colors.white },
 						TSVariable = { fg = colors.text },
@@ -325,15 +363,21 @@ return {
 						["@number"] = { link = "TSNumber" },
 						["@operator"] = { link = "TSOperator" },
 						["@parameter"] = { link = "TSParameter" },
-						["@parameter.reference"] = { link = "TSParameterReference" },
+						["@parameter.reference"] = {
+							link = "TSParameterReference",
+						},
 						["@preproc"] = { link = "TSPreProc" },
 						["@property"] = { link = "TSProperty" },
 						["@punctuation.bracket"] = { link = "TSPunctBracket" },
-						["@punctuation.delimiter"] = { link = "TSPunctDelimiter" },
+						["@punctuation.delimiter"] = {
+							link = "TSPunctDelimiter",
+						},
 						["@punctuation.special"] = { link = "TSPunctSpecial" },
 						["@repeat"] = { link = "TSRepeat" },
 						["@storageclass"] = { link = "TSStorageClass" },
-						["@storageclass.lifetime"] = { link = "TSStorageClassLifetime" },
+						["@storageclass.lifetime"] = {
+							link = "TSStorageClassLifetime",
+						},
 						["@strike"] = { link = "TSStrike" },
 						["@string"] = { link = "TSString" },
 						["@string.escape"] = { link = "TSStringEscape" },
@@ -349,7 +393,9 @@ return {
 						["@text.diff.delete"] = { link = "diffRemoved" },
 						["@text.emphasis"] = { link = "TSEmphasis" },
 						["@text.environment"] = { link = "TSEnvironment" },
-						["@text.environment.name"] = { link = "TSEnvironmentName" },
+						["@text.environment.name"] = {
+							link = "TSEnvironmentName",
+						},
 						["@text.literal"] = { link = "TSLiteral" },
 						["@text.math"] = { link = "TSMath" },
 						["@text.note"] = { link = "TSNote" },
@@ -394,7 +440,9 @@ return {
 						["@lsp.type.string"] = { link = "TSString" },
 						["@lsp.type.struct"] = { link = "TSType" },
 						["@lsp.type.type"] = { link = "TSType" },
-						["@lsp.type.typeParameter"] = { link = "TSTypeDefinition" },
+						["@lsp.type.typeParameter"] = {
+							link = "TSTypeDefinition",
+						},
 						["@lsp.type.variable"] = { link = "TSVariable" },
 					}
 				end,

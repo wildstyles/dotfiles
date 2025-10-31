@@ -1,4 +1,5 @@
 -- Plugin to conect and query databases within nvim
+
 return {
 	{
 		"kristijanhusak/vim-dadbod-ui",
@@ -18,11 +19,15 @@ return {
 		},
 		init = function()
 			vim.g.db_ui_use_nerd_fonts = 1
-			vim.g.db_ui_save_location = "~/Projects/dotfiles/nvim/lua/db_ui_queries"
+			vim.g.db_ui_save_location =
+				"~/Projects/dotfiles/nvim/lua/db_ui_queries"
 
 			local ok, dbs = pcall(require, "private.dbs")
 			if not ok then
-				vim.notify("Could not load private DB creds", vim.log.levels.WARN)
+				vim.notify(
+					"Could not load private DB creds",
+					vim.log.levels.WARN
+				)
 				dbs = {}
 			end
 
@@ -53,7 +58,10 @@ return {
 				},
 				-- add vim-dadbod-completion to your completion providers
 				providers = {
-					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+					dadbod = {
+						name = "Dadbod",
+						module = "vim_dadbod_completion.blink",
+					},
 				},
 			},
 		},

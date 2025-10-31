@@ -1583,6 +1583,22 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "~/Projects/dotfiles/scripts/switch-audio-source.sh",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-audio-source.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
                                 "from": {
                                     "key_code": "x",
@@ -2831,6 +2847,22 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "~/Projects/dotfiles/scripts/switch-audio-source.sh",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-audio-source.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -5445,6 +5477,22 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "~/Projects/dotfiles/scripts/switch-audio-source.sh",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-audio-source.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
                                 "from": {
                                     "key_code": "x",
@@ -6693,6 +6741,22 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/scripts/tunnelblick-connect.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "~/Projects/dotfiles/scripts/switch-audio-source.sh",
+                                "from": {
+                                    "key_code": "a",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/switch-audio-source.sh" }],
                                 "type": "basic"
                             },
                             {

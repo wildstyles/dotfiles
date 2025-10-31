@@ -1,3 +1,5 @@
+-- Plugin shows vertical lines for better tabulation overview
+
 return {
 	"lukas-reineke/indent-blankline.nvim",
 	event = { "BufReadPre", "BufNewFile" },

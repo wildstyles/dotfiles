@@ -1,3 +1,5 @@
+-- Plugin which configures initial screen after nvim command
+
 local function dup(value, count)
 	local result = {}
 	for i = 1, count do

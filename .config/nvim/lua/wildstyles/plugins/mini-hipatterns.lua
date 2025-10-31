@@ -1,3 +1,5 @@
+-- Plugin provides Highlighting for colors, keywords
+
 return {
 	"echasnovski/mini.hipatterns",
 	version = "*",

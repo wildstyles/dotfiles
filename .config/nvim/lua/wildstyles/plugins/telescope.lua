@@ -98,13 +98,16 @@ return {
 							print(vim.inspect(prev), "prev")
 
 							if prev then
-								custom_pickers.filters.extension = prev.extension
-								custom_pickers.filters.directories = prev.directories
+								custom_pickers.filters.extension =
+									prev.extension
+								custom_pickers.filters.directories =
+									prev.directories
 								custom_pickers.run_live_grep(prev.query)
 							end
 						end,
 						["<esc>"] = actions.close,
-						["<C-t>"] = actions.send_selected_to_qflist + actions.open_qflist,
+						["<C-t>"] = actions.send_selected_to_qflist
+							+ actions.open_qflist,
 					},
 				},
 			},
@@ -113,7 +116,6 @@ return {
 		telescope.load_extension("fzf")
 		telescope.load_extension("advanced_git_search")
 		telescope.load_extension("undo")
-		telescope.load_extension("neoclip")
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 

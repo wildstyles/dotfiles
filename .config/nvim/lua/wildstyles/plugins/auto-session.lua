@@ -1,3 +1,5 @@
+-- Plugin to save and restore sessions
+
 return {
 	"rmagatti/auto-session",
 	config = function()

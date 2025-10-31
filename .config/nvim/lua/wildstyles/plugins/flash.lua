@@ -1,4 +1,5 @@
 -- Plugin to jump between lines of code
+
 return {
 	"folke/flash.nvim",
 	event = "VeryLazy",

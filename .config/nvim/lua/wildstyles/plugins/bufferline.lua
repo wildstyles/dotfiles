@@ -1,3 +1,5 @@
+-- Plugin for displaying tabs on top
+
 return {
 	"akinsho/bufferline.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },

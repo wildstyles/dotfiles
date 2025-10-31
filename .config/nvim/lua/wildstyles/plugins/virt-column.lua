@@ -7,17 +7,18 @@
 -- It replaces my vim.opt.colorcolumn = "80" configuration
 
 return {
-  "lukas-reineke/virt-column.nvim",
-  opts = {
-    -- char = "|",
-    -- char = "",
-    -- char = "┇",
-    -- char = "∶",
-    -- char = "∷",
-    -- char = "║",
-    -- char = "⋮",
-    -- char = "",
-    char = "󰮾",
-    virtcolumn = "80",
-  },
+	"lukas-reineke/virt-column.nvim",
+	enabled = false,
+	opts = {
+		-- char = "|",
+		-- char = "",
+		-- char = "┇",
+		-- char = "∶",
+		-- char = "∷",
+		-- char = "║",
+		-- char = "⋮",
+		-- char = "",
+		char = "󰮾",
+		virtcolumn = "80",
+	},
 }

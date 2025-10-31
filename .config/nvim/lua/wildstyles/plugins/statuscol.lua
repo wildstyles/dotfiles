@@ -1,3 +1,5 @@
+-- Plugin which allows to customize left status column
+
 return {
 	"luukvbaal/statuscol.nvim",
 	config = function()

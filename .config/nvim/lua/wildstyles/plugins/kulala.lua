@@ -1,3 +1,5 @@
+-- Plugin which allows to send HHTP requests. Alternative to postman
+
 return {
 	"mistweaverco/kulala.nvim",
 	keys = {

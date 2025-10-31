@@ -1,3 +1,5 @@
+-- Plugin helps to work with folds
+
 return {
 	"kevinhwang91/nvim-ufo",
 	dependencies = "kevinhwang91/promise-async",

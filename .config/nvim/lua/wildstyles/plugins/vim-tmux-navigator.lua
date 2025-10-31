@@ -1,3 +1,5 @@
+-- Plugin helps to navigate between nvim and tmux in split
+
 return {
 	"christoomey/vim-tmux-navigator",
 	lazy = true,

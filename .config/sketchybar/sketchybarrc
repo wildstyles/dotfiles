@@ -18,8 +18,8 @@ ITEM_DIR="$CONFIG_DIR/items"
 
 sketchybar --bar position=top     \
                  height=28        \
-                 blur_radius=30   \
-                 color=$BAR_COLOR
+                 blur_radius=0   \
+                 color="$BAR_COLOR"
 
 
 
@@ -29,10 +29,10 @@ sketchybar --bar position=top     \
 # https://felixkratz.github.io/SketchyBar/config/items
 
 sketchybar --default icon.font="SF Pro:Semibold:15.0"  \
-                     icon.color=$WHITE                 \
+                     icon.color="$WHITE"                 \
                      label.font="SF Pro:Semibold:15.0" \
-                     label.color=$WHITE                \
-                     background.color=$ITEM_BG_COLOR       \
+                     label.color="$WHITE"                \
+                     background.color="$ITEM_BG_COLOR"       \
                      background.corner_radius=5            \
                      background.height=20                  \
                      padding_left=5                        \
@@ -44,16 +44,16 @@ sketchybar --default icon.font="SF Pro:Semibold:15.0"  \
 
 # -- Left Side Items --
 # source $ITEM_DIR/front_app.sh
-source $ITEM_DIR/timewarrior.sh
+source "$ITEM_DIR"/timewarrior.sh
 
 # --- Right Side Items ---
-source $ITEM_DIR/calendar.sh
-source $ITEM_DIR/battery.sh
-source $ITEM_DIR/wifi.sh
+source "$ITEM_DIR"/calendar.sh
+source "$ITEM_DIR"/battery.sh
+source "$ITEM_DIR"/wifi.sh
 # source $ITEM_DIR/mic.sh
-source $ITEM_DIR/keyboard.sh
-source $ITEM_DIR/slack.sh
-source $ITEM_DIR/telegram.sh
+source "$ITEM_DIR"/keyboard.sh
+source "$ITEM_DIR"/slack.sh
+source "$ITEM_DIR"/telegram.sh
 
 ##### Finalizing Setup #####
 # The below command is only needed at the end of the initial configuration to

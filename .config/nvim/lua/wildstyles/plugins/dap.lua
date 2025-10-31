@@ -1,5 +1,8 @@
+-- Plugin for debugging with breakpoints
+
 return {
 	"mfussenegger/nvim-dap",
+	enabled = false,
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",

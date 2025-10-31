@@ -1,3 +1,5 @@
+-- Plugin for theming nvim
+
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",

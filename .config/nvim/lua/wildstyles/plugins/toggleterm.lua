@@ -1,3 +1,5 @@
+-- Plugin to invoke float terminal. Might be replaces with tmux native one
+
 return {
 	"akinsho/toggleterm.nvim",
 

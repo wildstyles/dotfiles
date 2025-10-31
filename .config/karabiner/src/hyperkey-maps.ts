@@ -52,6 +52,7 @@ export const hyperkeyMaps = [
   ...createHyperSubLayers({
     s: {
       v: shell(["~/Projects/dotfiles/scripts/tunnelblick-connect.sh"]),
+      a: shell(["~/Projects/dotfiles/scripts/switch-audio-source.sh"]),
       x: shell(["~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh"]),
     },
     y: {

@@ -1,3 +1,5 @@
+-- Plugin for linting
+
 return {
 	"mfussenegger/nvim-lint",
 	event = { "BufReadPre", "BufNewFile" },

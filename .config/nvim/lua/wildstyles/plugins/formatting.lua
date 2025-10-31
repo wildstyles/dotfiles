@@ -1,3 +1,5 @@
+-- Plugin for autoformating on save
+
 return {
 	"stevearc/conform.nvim",
 

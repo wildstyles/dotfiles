@@ -31,7 +31,8 @@ return {
 			yellow = "#FFDA7B",
 			red = "#FF4A4A",
 			fg = "#c3ccdc",
-			bg = "#112638",
+			-- bg = "#112638",
+			bg = "None",
 			inactive_bg = "#2c3043",
 		}
 
@@ -62,7 +63,11 @@ return {
 				c = { bg = colors.bg, fg = colors.fg },
 			},
 			inactive = {
-				a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
+				a = {
+					bg = colors.inactive_bg,
+					fg = colors.semilightgray,
+					gui = "bold",
+				},
 				b = { bg = colors.inactive_bg, fg = colors.semilightgray },
 				c = { bg = colors.inactive_bg, fg = colors.semilightgray },
 			},
@@ -73,6 +78,7 @@ return {
 				theme = my_lualine_theme,
 				component_separators = { right = "", left = "" },
 				section_separators = { left = "", right = "" },
+				globalstatus = true,
 			},
 			sections = {
 				-- these are to remove the defaults
@@ -108,7 +114,7 @@ return {
 				end
 				return name
 			end,
-			color = { fg = colors.fg, bg = colors.bg, gui = "bold" },
+			color = { fg = colors.fg, bg = colors.inactive_bg, gui = "bold" },
 		})
 
 		insert_left({

@@ -32,38 +32,46 @@
 -- }
 -- lua/plugins/treesitter-context.lua
 return {
-  "nvim-treesitter/nvim-treesitter-context",
-  -- load when you open or create a buffer
-  event = { "BufReadPost", "BufNewFile" },
+	"nvim-treesitter/nvim-treesitter-context",
+	-- load when you open or create a buffer
+	event = { "BufReadPost", "BufNewFile" },
 
-  -- initial options for the plugin
-  opts = {
-    mode = "cursor",
-    max_lines = 5,
-    separator = "─",
-  },
+	-- initial options for the plugin
+	opts = {
+		mode = "cursor",
+		max_lines = 5,
+		separator = "─",
+	},
 
-  -- run after opts are applied
-  config = function(_, opts)
-    -- set up the plugin
-    require("treesitter-context").setup(opts)
+	-- run after opts are applied
+	config = function(_, opts)
+		-- set up the plugin
+		require("treesitter-context").setup(opts)
 
-    -- remove the grey bg
-    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
-    -- color the separator and clear its bg
-    vim.api.nvim_set_hl(0, "TreesitterContextSeparator", { fg = "#888888", bg = "NONE" })
-  end,
+		-- remove the grey bg
+		vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
+		-- color the separator and clear its bg
+		vim.api.nvim_set_hl(
+			0,
+			"TreesitterContextSeparator",
+			{ fg = "NONE", bg = "NONE" }
+		)
+	end,
 
-  keys = {
-    {
-      "<leader>ut",
-      function()
-        local tsc = require("treesitter-context")
-        tsc.toggle()
+	keys = {
+		{
+			"<leader>ut",
+			function()
+				local tsc = require("treesitter-context")
+				tsc.toggle()
 
-        vim.notify("Toggle Treesitter Context", vim.log.levels.INFO, { title = "Option" })
-      end,
-      desc = "Toggle Treesitter Context",
-    },
-  },
+				vim.notify(
+					"Toggle Treesitter Context",
+					vim.log.levels.INFO,
+					{ title = "Option" }
+				)
+			end,
+			desc = "Toggle Treesitter Context",
+		},
+	},
 }

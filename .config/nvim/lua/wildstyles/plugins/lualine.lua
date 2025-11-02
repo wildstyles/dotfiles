@@ -114,7 +114,7 @@ return {
 				end
 				return name
 			end,
-			color = { fg = colors.fg, bg = colors.inactive_bg, gui = "bold" },
+			color = { fg = colors.fg, bg = colors.bg, gui = "bold" },
 		})
 
 		insert_left({

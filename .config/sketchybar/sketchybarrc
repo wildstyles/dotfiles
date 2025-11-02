@@ -16,9 +16,10 @@ ITEM_DIR="$CONFIG_DIR/items"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top     \
+sketchybar --bar position=bottom \
                  height=28        \
                  blur_radius=0   \
+                 topmost=window \
                  color="$BAR_COLOR"
 
 
@@ -46,6 +47,7 @@ sketchybar --default icon.font="SF Pro:Semibold:15.0"  \
 # source $ITEM_DIR/front_app.sh
 source "$ITEM_DIR"/timewarrior.sh
 
+source "$ITEM_DIR"/tmux.sh
 # --- Right Side Items ---
 source "$ITEM_DIR"/calendar.sh
 source "$ITEM_DIR"/battery.sh

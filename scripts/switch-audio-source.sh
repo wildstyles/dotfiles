@@ -19,6 +19,9 @@ if [[ "$LG_EXISTS" -gt 0 ]]; then
     elif [[ "$CURRENT_DEVICE" == *"$DEVICE_1"* ]]; then
         /opt/homebrew/bin/SwitchAudioSource -s "$DEVICE_2"
         echo "Switched to: $DEVICE_2"
+    elif [[ "$CURRENT_DEVICE" == *"$DEVICE_3"* ]]; then
+        /opt/homebrew/bin/SwitchAudioSource -s "$DEVICE_2"
+        echo "Switched to: $DEVICE_2"
     else
         /opt/homebrew/bin/SwitchAudioSource -s "$DEVICE_3"
         echo "Switched to: $DEVICE_3"

@@ -65,6 +65,7 @@ export const hyperkeyMaps = [
       p: open("https://gitlab.com/scout-gg/api/globpay"),
       s: open("https://gitlab.com/scout-gg/api/scott"),
       g: open("https://gitlab.com/scout-gg/api/game-server"),
+      m: open("https://gitlab.com/scout-gg/api/sportyman"),
       f: open("https://gitlab.com/scout-gg/frontend/sgg-frontend"),
     },
     n: {

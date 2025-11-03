@@ -122,19 +122,19 @@ return {
 		keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
 		keymap.set(
 			"n",
-			"<leader>ff",
+			"<leader>fF",
 			"<cmd>Telescope find_files<cr>",
 			{ desc = "Fuzzy find files in cwd" }
 		)
 		keymap.set(
 			"n",
-			"<leader>fr",
+			"<leader>fR",
 			"<cmd>Telescope oldfiles<cr>",
 			{ desc = "Fuzzy find recent files" }
 		)
 		keymap.set(
 			"n",
-			"<leader>fs",
+			"<leader>fS",
 			custom_pickers.live_grep,
 			{ desc = "Find string in cwd" }
 		)

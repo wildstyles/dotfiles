@@ -1853,6 +1853,22 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Open https://gitlab.com/scout-gg/api/sportyman",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open https://gitlab.com/scout-gg/api/sportyman" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Open https://gitlab.com/scout-gg/frontend/sgg-frontend",
                                 "from": {
                                     "key_code": "f",
@@ -3117,6 +3133,22 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "open https://gitlab.com/scout-gg/api/game-server" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Open https://gitlab.com/scout-gg/api/sportyman",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open https://gitlab.com/scout-gg/api/sportyman" }],
                                 "type": "basic"
                             },
                             {
@@ -5773,6 +5805,22 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Open https://gitlab.com/scout-gg/api/sportyman",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open https://gitlab.com/scout-gg/api/sportyman" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Open https://gitlab.com/scout-gg/frontend/sgg-frontend",
                                 "from": {
                                     "key_code": "f",
@@ -7037,6 +7085,22 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "open https://gitlab.com/scout-gg/api/game-server" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_l",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Open https://gitlab.com/scout-gg/api/sportyman",
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open https://gitlab.com/scout-gg/api/sportyman" }],
                                 "type": "basic"
                             },
                             {

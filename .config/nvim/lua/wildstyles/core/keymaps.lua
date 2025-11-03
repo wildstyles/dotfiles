@@ -19,12 +19,12 @@ keymap.set("x", "d", '"dd', opts)
 -- 5) paste from register d
 keymap.set("n", "<leader>p", '"dp', opts)
 
-keymap.set(
-	{ "n", "v", "i" },
-	"<M-k>",
-	"<cmd>Telescope keymaps<cr>",
-	{ desc = "[P]Key Maps" }
-)
+-- keymap.set(
+-- 	{ "n", "v", "i" },
+-- 	"<M-k>",
+-- 	"<cmd>Telescope keymaps<cr>",
+-- 	{ desc = "[P]Key Maps" }
+-- )
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	callback = function(args)
@@ -139,7 +139,7 @@ keymap.set(
 
 keymap.set(
 	"n",
-	"h",
+	"H",
 	"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
 	{ desc = "[P]Open telescope buffers" }
 )
@@ -315,10 +315,11 @@ vim.keymap.set("n", "<C-x>", function()
 		updateBufferWithChunk(chunk)
 		vim.notify("Untoggled", vim.log.levels.INFO)
 	elseif has_untoggled_index then
-		chunk[has_untoggled_index] = removeLabel(chunk[has_untoggled_index]):gsub(
-			"`untoggled`",
-			"`" .. label_done .. " " .. timestamp .. "`"
-		)
+		chunk[has_untoggled_index] =
+			removeLabel(chunk[has_untoggled_index]):gsub(
+				"`untoggled`",
+				"`" .. label_done .. " " .. timestamp .. "`"
+			)
 		chunk[1] = bulletToX(chunk[1])
 		chunk[1] = removeLabel(chunk[1])
 		chunk[1] = insertLabelAfterBracket(
@@ -490,11 +491,16 @@ vim.keymap.set("n", "<leader>mb", function()
 	local bold_end = right_text:find("%*%*")
 	local end_row = start_row
 	while
-		not bold_end and end_row < vim.api.nvim_buf_line_count(current_buffer) - 1
+		not bold_end
+		and end_row < vim.api.nvim_buf_line_count(current_buffer) - 1
 	do
 		end_row = end_row + 1
-		local next_line =
-			vim.api.nvim_buf_get_lines(current_buffer, end_row, end_row + 1, false)[1]
+		local next_line = vim.api.nvim_buf_get_lines(
+			current_buffer,
+			end_row,
+			end_row + 1,
+			false
+		)[1]
 		if next_line == "" then
 			break
 		end
@@ -507,8 +513,12 @@ vim.keymap.set("n", "<leader>mb", function()
 	-- Remove '**' markers if found, otherwise bold the word
 	if bold_start and bold_end then
 		-- Extract lines
-		local text_lines =
-			vim.api.nvim_buf_get_lines(current_buffer, start_row, end_row + 1, false)
+		local text_lines = vim.api.nvim_buf_get_lines(
+			current_buffer,
+			start_row,
+			end_row + 1,
+			false
+		)
 		local text = table.concat(text_lines, "\n")
 		-- Calculate positions to correctly remove '**'
 		-- vim.notify("bold_start: " .. bold_start .. ", bold_end: " .. bold_end)
@@ -582,8 +592,12 @@ vim.keymap.set("n", "<leader>md", function()
 		and end_row < vim.api.nvim_buf_line_count(current_buffer) - 1
 	do
 		end_row = end_row + 1
-		local next_line =
-			vim.api.nvim_buf_get_lines(current_buffer, end_row, end_row + 1, false)[1]
+		local next_line = vim.api.nvim_buf_get_lines(
+			current_buffer,
+			end_row,
+			end_row + 1,
+			false
+		)[1]
 		if next_line == "" then
 			break
 		end
@@ -594,8 +608,12 @@ vim.keymap.set("n", "<leader>md", function()
 		bullet_end = col + bullet_end
 	end
 	-- Extract lines
-	local text_lines =
-		vim.api.nvim_buf_get_lines(current_buffer, start_row, end_row + 1, false)
+	local text_lines = vim.api.nvim_buf_get_lines(
+		current_buffer,
+		start_row,
+		end_row + 1,
+		false
+	)
 	local text = table.concat(text_lines, "\n")
 	-- Add bullet point at the start of the text
 	local new_text = "- " .. text
@@ -849,7 +867,8 @@ local function get_github_url_of_current_file()
 		return nil
 	end
 
-	local origin_url = vim.fn.systemlist("git config --get remote.origin.url")[1]
+	local origin_url =
+		vim.fn.systemlist("git config --get remote.origin.url")[1]
 	if not origin_url or origin_url == "" then
 		vim.notify(
 			"Could not determine the origin URL for the GitHub repository",

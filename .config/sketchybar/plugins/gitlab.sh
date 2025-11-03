@@ -27,7 +27,8 @@ if [ "$BUILD_FAILED_COUNT" -eq 0 ]; then
     build_label=""
 else
     build_color="$RED"
-    build_label="$BUILD_FAILED_COUNT"
+    build_label=""
+    # build_label="$BUILD_FAILED_COUNT"
 fi
 
 if [ "$ASSIGNED_COUNT" -eq 0 ]; then
@@ -35,7 +36,8 @@ if [ "$ASSIGNED_COUNT" -eq 0 ]; then
     assigned_label=""
 else
     assigned_color="$YELLOW"
-    assigned_label="$ASSIGNED_COUNT"
+    assigned_label=""
+    # assigned_label="$ASSIGNED_COUNT"
 fi
 
 sketchybar --set gitlab_build icon="􀙅" label="$build_label" icon.color="$build_color"

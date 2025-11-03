@@ -77,7 +77,7 @@ export const hyperkeyMaps = [
       c: open("https://calendar.google.com/calendar/u/1/r"),
       m: open("https://meet.google.com/landing?hs=197&authuser=1"),
       g: open("https://github.com/"),
-      l: open("https://gitlab.com/scout-gg"),
+      l: open("https://gitlab.com/dashboard/todos"),
       y: open("https://youtube.com/"),
       o: open("https://olx.ua"),
     },

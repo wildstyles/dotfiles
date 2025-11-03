@@ -56,6 +56,7 @@ source "$ITEM_DIR"/wifi.sh
 source "$ITEM_DIR"/keyboard.sh
 source "$ITEM_DIR"/slack.sh
 source "$ITEM_DIR"/telegram.sh
+source "$ITEM_DIR"/gitlab.sh
 
 ##### Finalizing Setup #####
 # The below command is only needed at the end of the initial configuration to

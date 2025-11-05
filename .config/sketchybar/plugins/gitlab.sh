@@ -22,25 +22,15 @@ DIRECTLY_ADDRESSED_COUNT=$(curl --silent --location "$GITLAB_URL_DIRECTLY_ADDRES
 ASSIGNED_COUNT=$((REVIEW_REQUESTED_COUNT + DIRECTLY_ADDRESSED_COUNT))
 
 # Set color variables based on counts
-if [ "$BUILD_FAILED_COUNT" -eq 0 ]; then
-    build_color="$WHITE"
-    build_label=""
+if [ "$BUILD_FAILED_COUNT" -gt 0 ]; then
+    color="$RED"
+elif [ "$ASSIGNED_COUNT" -gt 0 ]; then
+    color="$YELLOW"
 else
-    build_color="$RED"
-    build_label=""
-    # build_label="$BUILD_FAILED_COUNT"
+    color="$WHITE"
 fi
 
-if [ "$ASSIGNED_COUNT" -eq 0 ]; then
-    assigned_color="$WHITE"
-    assigned_label=""
-else
-    assigned_color="$YELLOW"
-    assigned_label=""
-    # assigned_label="$ASSIGNED_COUNT"
-fi
+label=""
 
-sketchybar --set gitlab_build icon="􀙅" label="$build_label" icon.color="$build_color"
-
-sketchybar --set gitlab_assigned icon="􀋊" label="$assigned_label" icon.color="$assigned_color"
+sketchybar --set gitlab icon="􀋊" label="$label" icon.color="$color"
 

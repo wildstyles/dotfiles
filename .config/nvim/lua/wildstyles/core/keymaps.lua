@@ -77,8 +77,8 @@ end, { desc = "Replay last request" })
 
 keymap.set("i", "nn", "<ESC>", { desc = "Exit insert mode with nn" })
 keymap.set("n", "<leader>q", ":nohl<CR>", { desc = "Clear search highlights" })
-keymap.set("n", "<C-q>", ":q!<CR>", { desc = "Quit" })
-keymap.set("i", "<C-q>", "<Esc>:q!<CR>", { desc = "Quit" })
+keymap.set("n", "<C-q>", ":qa!<CR>", { desc = "Quit" })
+keymap.set("i", "<C-q>", "<Esc>:qa!<CR>", { desc = "Quit" })
 keymap.set("n", "<C-s>", ":<c-u>update<cr>", { desc = "Save file" })
 keymap.set(
 	"i",

@@ -1,4 +1,4 @@
-import { createAltLayer, app, tmuxSession } from "./utils";
+import { createAltLayer, app, shell, tmuxSession } from "./utils";
 
 // ps aux | grep -i "Applications" | awk '{print $11}' | cut -d '/' -f 3 | sort | uniq
 export const openAppMaps = createAltLayer({
@@ -11,6 +11,7 @@ export const openAppMaps = createAltLayer({
       },
     ],
   },
+  3: shell(["~/Projects/dotfiles/scripts/toggle-karabiner-profile.sh"]),
   1: app("1Password"),
   f: app("Finder"),
   u: app("Mail"),

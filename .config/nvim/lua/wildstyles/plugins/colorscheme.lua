@@ -140,7 +140,7 @@ return {
 						},
 						CmpItemMenu = { fg = colors.surface2 },
 						CursorLineNr = { fg = colors.text },
-						FloatBorder = { bg = colors.base, fg = colors.subtext1 }, -- colors.surface0 }, difficult to see
+						FloatBorder = { bg = "none", fg = colors.subtext1 }, -- colors.surface0 }, difficult to see
 						GitSignsChange = { fg = colors.peach },
 						LineNr = { fg = colors.overlay0 },
 						LspInfoBorder = { link = "FloatBorder" },
@@ -184,7 +184,7 @@ return {
 							fg = colors.surface1,
 							bg = colors.base,
 						},
-						NormalFloat = { bg = colors.base },
+						NormalFloat = { bg = "none" },
 						Pmenu = { bg = colors.mantle, fg = "" },
 						-- telescope prompt
 						TelescopePromptTitle = {
@@ -209,6 +209,7 @@ return {
 							link = "TelescopePromptTitle",
 						},
 						TelescopePreviewBorder = {
+							bg = "none",
 							link = "TelescopePromptBorder",
 						},
 						VertSplit = { bg = colors.base, fg = colors.surface0 },

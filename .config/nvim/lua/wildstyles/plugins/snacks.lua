@@ -57,7 +57,7 @@ return {
 						ignored = true,
 						title = "Live Grep",
 
-						exclude = { "^.git/", "node_modules/" },
+						exclude = { "^.git/", "node_modules/", "build/" },
 						show_empty = true,
 						supports_live = true,
 						layout = "telescope",

@@ -1,0 +1,67 @@
+select p.details->>'dateOfBirth' from profiles p
+order by p.created_at DESC
+limit 10
+
+SELECT *
+FROM users u
+JOIN profiles p ON p.profile_id = u.profile_id
+WHERE p.details->>'dateOfBirth' IS NOT NULL  -- Ensure we have a valid date
+  AND (
+      -- Check if dateOfBirth is a valid Unix timestamp (numeric and positive)
+      (p.details->>'dateOfBirth' ~ '^[0-9]+$' )
+  )
+ORDER BY u.created_at DESC
+LIMIT 1;
+
+
+-- 8796(positive numbers)
+-- SELECT COUNT(*)
+SELECT p.details->>'dateOfBirth', p.created_at, p.profile_id
+FROM profiles p
+WHERE p.details->>'dateOfBirth' IS NOT NULL  -- Ensure we have a valid date
+  AND (p.details->>'dateOfBirth' ~ '^[0-9]+$');
+
+
+-- 10464(iso)
+-- SELECT COUNT(*)
+SELECT p.details->>'dateOfBirth', p.created_at, p.profile_id
+FROM profiles p
+WHERE p.details->>'dateOfBirth' IS NOT NULL  -- Ensure we have a valid date
+  AND (p.details->>'dateOfBirth' ~ '^\d{4}-\d{2}-\d{2}.*$'  -- Check for ISO format YYYY-MM-DD (and optional time)
+      OR p.details->>'dateOfBirth' ~ '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z?$'  -- Optional: full ISO with time
+  );
+-- 29654, 29659, 29129, 29460, 19610, 19482, 19508
+-- SELECT COUNT(*)
+SELECT p.details->>'dateOfBirth', p.created_at, p.profile_id
+FROM profiles p
+WHERE p.details->>'dateOfBirth' IS NOT NULL  -- Ensure we have a valid date
+  AND (p.details->>'dateOfBirth' ~ '^\d{4}-\d{2}-\d{2}T00:00:00\.000Z$');
+
+
+-- 24561(all)
+select count(*) from profiles p
+
+-- 2624(empty/null) + 2677(negative) = 5301(invalid) 
+SELECT p.details->>'dateOfBirth', p.created_at, p.profile_id
+FROM profiles p
+WHERE NOT (
+    (p.details->>'dateOfBirth' IS NOT NULL AND (p.details->>'dateOfBirth' ~ '^[0-9]+$') -- Numeric Date Format
+    OR (
+      p.details->>'dateOfBirth' IS NOT NULL  -- Ensure we have a valid date
+      AND (p.details->>'dateOfBirth' ~ '^\d{4}-\d{2}-\d{2}.*$' OR p.details->>'dateOfBirth' ~ '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z?$')  -- Optional: full ISO with time
+    )
+    OR (p.details->>'dateOfBirth' IS NOT NULL AND (p.details->>'dateOfBirth' ~ '^-[0-9]+$')) -- Numeric Date Format
+  )
+);
+
+
+-- 2677(negative)
+-- SELECT COUNT(*)
+SELECT p.details->>'dateOfBirth', p.created_at, p.profile_id
+FROM profiles p
+WHERE p.details->>'dateOfBirth' IS NOT NULL  -- Ensure we have a valid entry
+  AND p.details->>'dateOfBirth' ~ '^-[0-9]+$';  -- Match only negative numbers
+
+-- 28486, 17996, 2047, 28725, 14780, 1502, 28736
+-- 28751, 29010, 11498, 2191, 2213, 28156, 2613
+-- 3623, 3611, 3679, 2283, 28186, 28223, 2258, 29042, 2259

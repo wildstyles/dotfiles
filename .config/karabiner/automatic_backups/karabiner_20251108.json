@@ -3845,16 +3845,6 @@
                         "vendor_id": 1452
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": false,
-                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Laptop profile",

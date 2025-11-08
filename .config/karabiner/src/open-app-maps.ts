@@ -19,7 +19,7 @@ export const openAppMaps = createAltLayer({
   g: app("Google Chrome"),
   p: app("Postman"),
   v: app("Visual Studio Code"),
-  n: app("Notes"),
+  n: app("Numbers"),
   s: app("Slack"),
   t: tmuxSession("scout"),
   c: app("WezTerm"),

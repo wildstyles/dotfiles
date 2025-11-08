@@ -1,3 +1,103 @@
+-- function -- -t=lua
+-- function -- -g *.{md,ts}
+
+local grep_directory = function()
+	local snacks = require("snacks")
+	local has_fd = vim.fn.executable("fd") == 1
+	local cwd = vim.fn.getcwd()
+
+	local function show_picker(dirs)
+		vim.notify("No directories found", vim.log.levels.WARN)
+		if #dirs == 0 then
+			vim.notify("No directories found", vim.log.levels.WARN)
+			return
+		end
+
+		local items = {}
+		for i, item in ipairs(dirs) do
+			table.insert(items, {
+				idx = i,
+				file = item,
+				text = item,
+			})
+		end
+
+		snacks.picker({
+			confirm = function(picker, item)
+				picker:close()
+				vim.notify(item.file)
+				snacks.picker.grep({
+					title = "Live Grep (" .. item.file .. ")",
+					dirs = { item.file },
+				})
+			end,
+			items = items,
+			format = function(item, _)
+				local file = item.file
+				local ret = {}
+				local a = Snacks.picker.util.align
+				local icon, icon_hl = Snacks.util.icon(file.ft, "directory")
+				ret[#ret + 1] = { a(icon, 3), icon_hl }
+				ret[#ret + 1] = { " " }
+				local path = file:gsub("^" .. vim.pesc(cwd) .. "/", "")
+				ret[#ret + 1] = { a(path, 20), "Directory" }
+
+				return ret
+			end,
+			layout = {
+				preview = false,
+				preset = "vertical",
+			},
+			title = "Grep in directory",
+		})
+	end
+
+	if has_fd then
+		local cmd = {
+			"fd",
+			"--type",
+			"directory",
+			"--hidden",
+			"--no-ignore-vcs",
+			"--exclude",
+			".git",
+			"--exclude",
+			"node_modules",
+		}
+		local dirs = {}
+
+		vim.fn.jobstart(cmd, {
+			on_stdout = function(_, data, _)
+				for _, line in ipairs(data) do
+					if line and line ~= "" then
+						table.insert(dirs, line)
+					end
+				end
+			end,
+			on_exit = function(_, code, _)
+				if code == 0 then
+					show_picker(dirs)
+				else
+					-- Fallback to plenary if fd fails
+					local fallback_dirs =
+						require("plenary.scandir").scan_dir(cwd, {
+							only_dirs = true,
+							respect_gitignore = true,
+						})
+					show_picker(fallback_dirs)
+				end
+			end,
+		})
+	else
+		-- Use plenary if fd is not available
+		local dirs = require("plenary.scandir").scan_dir(cwd, {
+			only_dirs = true,
+			respect_gitignore = true,
+		})
+		show_picker(dirs)
+	end
+end
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -6,6 +106,28 @@ return {
 			-- https://github.com/folke/snacks.nvim/discussions/949
 			{ "<leader>e", false },
 			-- Open git log in vertical view
+			{
+				"<leader>fw",
+				function()
+					Snacks.picker.grep_word()
+				end,
+				desc = "Visual selection or word",
+				mode = { "n", "x" },
+			},
+			{
+				"<leader>n",
+				function()
+					Snacks.picker.notifications()
+				end,
+				desc = "Notification History",
+			},
+			{
+				"<leader>gd",
+				function()
+					Snacks.picker.git_diff()
+				end,
+				desc = "Git Diff (Hunks)",
+			},
 			{
 				"<leader>fl",
 				function()
@@ -46,6 +168,25 @@ return {
 			-- 	end,
 			-- 	desc = "Explorer",
 			-- },
+			{
+				"<leader>fd",
+				grep_directory,
+				desc = "Find directory",
+			},
+			{
+				"<leader>fe",
+				function()
+					Snacks.explorer({
+						layout = { preset = "telescope", preview = true },
+						hidden = true,
+						diagnostics = false,
+						ignored = true,
+						exclude = { "^.git/", "node_modules/", "build/" },
+						-- include = { "hidden" },
+					})
+				end,
+				desc = "File Explorer",
+			},
 			{
 				"<leader>fs",
 				function()
@@ -211,6 +352,11 @@ return {
 					frecency = true,
 				},
 				win = {
+					preview = {
+						keys = {
+							["<C-right>"] = "focus_input",
+						},
+					},
 					input = {
 						keys = {
 							-- to close the picker on ESC instead of going to normal mode,
@@ -225,6 +371,7 @@ return {
 								"preview_scroll_up",
 								mode = { "i", "n" },
 							},
+							["<C-right>"] = { "cycle_win", mode = { "i", "n" } },
 							-- ["H"] = {
 							-- 	"preview_scroll_left",
 							-- 	mode = { "i", "n" },
@@ -291,48 +438,6 @@ return {
 					-- Go 1 dir above and check `sudo du -sh ./* | sort -hr | head -n 5`
 				},
 			},
-			-- 			dashboard = {
-			-- 				enabled = vim.g.scrollback_mode ~= "neobean", -- Disable for scrollback_mode
-			-- 				preset = {
-			-- 					keys = {
-			-- 						-- { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
-			-- 						-- { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
-			-- 						-- { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
-			-- 						-- { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-			-- 						-- {
-			-- 						--   icon = " ",
-			-- 						--   key = "c",
-			-- 						--   desc = "Config",
-			-- 						--   action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
-			-- 						-- },
-			-- 						{
-			-- 							icon = " ",
-			-- 							key = "s",
-			-- 							desc = "Restore Session",
-			-- 							section = "session",
-			-- 						},
-			-- 						-- { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
-			-- 						{
-			-- 							icon = " ",
-			-- 							key = "<esc>",
-			-- 							desc = "Quit",
-			-- 							action = ":qa",
-			-- 						},
-			-- 					},
-			-- 					-- Font Name: ANSI Shadow
-			-- 					-- https://patorjk.com/software/taag
-			-- 					header = [[
-			-- ███╗   ██╗███████╗ ██████╗ ██████╗ ███████╗ █████╗ ███╗   ██╗
-			-- ████╗  ██║██╔════╝██╔═══██╗██╔══██╗██╔════╝██╔══██╗████╗  ██║
-			-- ██╔██╗ ██║█████╗  ██║   ██║██████╔╝█████╗  ███████║██╔██╗ ██║
-			-- ██║╚██╗██║██╔══╝  ██║   ██║██╔══██╗██╔══╝  ██╔══██║██║╚██╗██║
-			-- ██║ ╚████║███████╗╚██████╔╝██████╔╝███████╗██║  ██║██║ ╚████║
-			-- ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═════╝ ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝
-			--
-			-- [Linkarzu.com]
-			--         ]],
-			-- 				},
-			-- 			},
 		},
 	},
 }

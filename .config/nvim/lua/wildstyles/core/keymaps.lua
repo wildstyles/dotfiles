@@ -123,13 +123,13 @@ keymap.set(
 keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close tab" })
 
 keymap.set("n", "X", "<cmd>bd<CR>", { desc = "Close current buffer" }) -- close current buffer
-keymap.set("n", "<leader>n", "<cmd>bnext<CR>", { desc = "Go to next buffer" }) --  go to next buffer
-keymap.set(
-	"n",
-	"<leader>N",
-	"<cmd>bprevious<CR>",
-	{ desc = "Go to previous buffer" }
-) --  go to previous buffer
+-- keymap.set("n", "<leader>n", "<cmd>bnext<CR>", { desc = "Go to next buffer" }) --  go to next buffer
+-- keymap.set(
+-- 	"n",
+-- 	"<leader>N",
+-- 	"<cmd>bprevious<CR>",
+-- 	{ desc = "Go to previous buffer" }
+-- ) --  go to previous buffer
 keymap.set(
 	"n",
 	"<leader>tf",

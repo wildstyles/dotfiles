@@ -102,7 +102,13 @@ return {
 				color_fg
 			)
 		)
-		-- vim.cmd(string.format([[highlight RenderMarkdownCodeInline guifg=%s]], colorInline_bg))
+		vim.cmd(
+			string.format(
+				[[highlight RenderMarkdownCode guifg=%s guibg=%s]],
+				colorInline_bg,
+				color_fg
+			)
+		)
 
 		-- Highlight for the heading and sign icons (symbol on the left)
 		-- I have the sign disabled for now, so this makes no effect
@@ -210,7 +216,9 @@ return {
 		code = {
 			-- if I'm not using yabai, I cannot make the color of the codeblocks
 			-- transparent, so just disabling all rendering 😢
-			style = "none",
+			-- style = "none",
+			style = "language",
+			-- with = "block",
 		},
 	},
 }

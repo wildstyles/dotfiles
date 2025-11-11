@@ -94,13 +94,13 @@ return {
 			},
 		})
 
-		vim.keymap.set("n", "-", function()
-			require("neo-tree.command").execute({
-				toggle = true,
-				reveal = true,
-				position = "float",
-			})
-		end, { desc = "Open file explorer on current file" })
+		-- vim.keymap.set("n", "-", function()
+		-- 	require("neo-tree.command").execute({
+		-- 		toggle = true,
+		-- 		reveal = true,
+		-- 		position = "float",
+		-- 	})
+		-- end, { desc = "Open file explorer on current file" })
 
 		vim.keymap.set("n", "<leader>ee", function()
 			require("neo-tree.command").execute({

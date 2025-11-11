@@ -1,103 +1,28 @@
 -- function -- -t=lua
 -- function -- -g *.{md,ts}
+--
+-- test -- --type ts
+-- test -- -tts
+-- test -- -g=dictionary/**/*.md -g=dictionary/**/*.ts
+--
+--
 
-local grep_directory = function()
-	local snacks = require("snacks")
-	local has_fd = vim.fn.executable("fd") == 1
-	local cwd = vim.fn.getcwd()
-
-	local function show_picker(dirs)
-		vim.notify("No directories found", vim.log.levels.WARN)
-		if #dirs == 0 then
-			vim.notify("No directories found", vim.log.levels.WARN)
-			return
-		end
-
-		local items = {}
-		for i, item in ipairs(dirs) do
-			table.insert(items, {
-				idx = i,
-				file = item,
-				text = item,
-			})
-		end
-
-		snacks.picker({
-			confirm = function(picker, item)
-				picker:close()
-				vim.notify(item.file)
-				snacks.picker.grep({
-					title = "Live Grep (" .. item.file .. ")",
-					dirs = { item.file },
-				})
-			end,
-			items = items,
-			format = function(item, _)
-				local file = item.file
-				local ret = {}
-				local a = Snacks.picker.util.align
-				local icon, icon_hl = Snacks.util.icon(file.ft, "directory")
-				ret[#ret + 1] = { a(icon, 3), icon_hl }
-				ret[#ret + 1] = { " " }
-				local path = file:gsub("^" .. vim.pesc(cwd) .. "/", "")
-				ret[#ret + 1] = { a(path, 20), "Directory" }
-
-				return ret
-			end,
-			layout = {
-				preview = false,
-				preset = "vertical",
-			},
-			title = "Grep in directory",
-		})
-	end
-
-	if has_fd then
-		local cmd = {
-			"fd",
-			"--type",
-			"directory",
-			"--hidden",
-			"--no-ignore-vcs",
-			"--exclude",
-			".git",
-			"--exclude",
-			"node_modules",
-		}
-		local dirs = {}
-
-		vim.fn.jobstart(cmd, {
-			on_stdout = function(_, data, _)
-				for _, line in ipairs(data) do
-					if line and line ~= "" then
-						table.insert(dirs, line)
-					end
-				end
-			end,
-			on_exit = function(_, code, _)
-				if code == 0 then
-					show_picker(dirs)
-				else
-					-- Fallback to plenary if fd fails
-					local fallback_dirs =
-						require("plenary.scandir").scan_dir(cwd, {
-							only_dirs = true,
-							respect_gitignore = true,
-						})
-					show_picker(fallback_dirs)
-				end
-			end,
-		})
-	else
-		-- Use plenary if fd is not available
-		local dirs = require("plenary.scandir").scan_dir(cwd, {
-			only_dirs = true,
-			respect_gitignore = true,
-		})
-		show_picker(dirs)
-	end
+local trim = function(s)
+	return s:gsub("^%s*(.-)%s*$", "%1")
 end
 
+local function splitStringByDelimiter(inputString)
+	-- Use string.match to extract the first part before the delimiter
+	local firstPart = inputString:match("([^%-]+)")
+
+	if firstPart then
+		return trim(firstPart)
+	else
+		return "" -- return an empty string if delimiter is not found
+	end
+end
+-- https://github.com/folke/snacks.nvim/discussions/2374
+-- https://github.com/ruicsh/nvim-config/blob/main/lua/plugins/snacks.picker.lua#L27
 return {
 	{
 		"folke/snacks.nvim",
@@ -109,7 +34,17 @@ return {
 			{
 				"<leader>fw",
 				function()
-					Snacks.picker.grep_word()
+					Snacks.picker.grep({
+						finder = "grep",
+						regex = false,
+						args = { "--word-regexp" },
+						format = "file",
+						search = function(picker)
+							return picker:word()
+						end,
+						live = false,
+						supports_live = true,
+					})
 				end,
 				desc = "Visual selection or word",
 				mode = { "n", "x" },
@@ -159,28 +94,19 @@ return {
 				desc = "Keymaps",
 			},
 			-- TODO: try to replace explorer with Snacks too
-			-- {
-			-- 	"<leader>ke",
-			-- 	function()
-			-- 		Snacks.picker.explorer({
-			-- 			finder = "explorer",
-			-- 		})
-			-- 	end,
-			-- 	desc = "Explorer",
-			-- },
 			{
-				"<leader>fd",
-				grep_directory,
-				desc = "Find directory",
-			},
-			{
-				"<leader>fe",
+				"-",
 				function()
 					Snacks.explorer({
-						layout = { preset = "telescope", preview = true },
+						layout = { preset = "default", preview = true },
 						hidden = true,
 						diagnostics = false,
 						ignored = true,
+						auto_close = true,
+						on_change = function()
+							vim.cmd.norm("$")
+							vim.cmd.norm("zz")
+						end,
 						exclude = { "^.git/", "node_modules/", "build/" },
 						-- include = { "hidden" },
 					})
@@ -197,16 +123,27 @@ return {
 						hidden = true,
 						ignored = true,
 						title = "Live Grep",
-
 						exclude = { "^.git/", "node_modules/", "build/" },
 						show_empty = true,
 						supports_live = true,
 						layout = "telescope",
+						formatters = {
+							input = function()
+								vim.notify("format")
+							end,
+						},
+						on_change = function(picker)
+							vim.notify("input")
+							-- return "t"
+							-- local prev_search =
+							-- 	splitStringByDelimiter(picker.input:get())
+							--
+							-- return prev_search
+						end,
 					})
 				end,
 				desc = "Find String",
 			},
-			-- File picker
 			{
 				"<leader>fr",
 				function()
@@ -219,22 +156,20 @@ return {
 				end,
 				desc = "Recent Files",
 			},
-			-- {
-			-- 	"<leader>fg",
-			-- 	function()
-			-- 		Snacks.picker.search_history({
-			-- 			finder = "vim_history",
-			-- 			name = "search",
-			-- 			format = "text",
-			-- 			preview = "none",
-			-- 			main = { current = true },
-			-- 			layout = { preset = "vscode" },
-			-- 			confirm = "search",
-			-- 			formatters = { text = { ft = "regex" } },
-			-- 		})
-			-- 	end,
-			-- 	desc = "Recent Files",
-			-- },
+			{
+				"<leader>f/",
+				function()
+					Snacks.picker.search_history({
+						finder = "vim_history",
+						format = "text",
+						preview = "none",
+						layout = { preset = "select" },
+						confirm = "search",
+						formatters = { text = { ft = "regex" } },
+					})
+				end,
+				desc = "Search history in file",
+			},
 			{
 				"<leader>ff",
 				function()
@@ -253,7 +188,6 @@ return {
 				end,
 				desc = "Find Files",
 			},
-			-- Navigate my buffers
 			{
 				"h",
 				function()
@@ -277,8 +211,6 @@ return {
 							},
 							list = { keys = { ["d"] = "bufdelete" } },
 						},
-						-- In case you want to override the layout for this keymap
-						-- layout = "ivy",
 					})
 				end,
 				desc = "[P]Snacks picker buffers",
@@ -286,14 +218,253 @@ return {
 		},
 		opts = {
 			picker = {
+				actions = {
+					["multi_grep"] = function(picker)
+						local current = picker.input:get()
+						picker.input:set("", current .. " -- -g=")
+						picker:find({ refresh = true })
+					end,
+					---@param picker snacks.Picker
+					choose_directory = function(picker)
+						local cwd = vim.fn.getcwd()
+						local dirs = {}
+						local cmd = {
+							"fd",
+							"--type",
+							"directory",
+							"--hidden",
+							"--no-ignore-vcs",
+							"--exclude",
+							".git",
+							"--exclude",
+							"node_modules",
+						}
+
+						vim.fn.jobstart(cmd, {
+							on_stdout = function(_, data, _)
+								for _, line in ipairs(data) do
+									if line and line ~= "" then
+										table.insert(dirs, line)
+									end
+								end
+							end,
+							on_exit = function(_, code, _)
+								local items = {}
+								for i, item in ipairs(dirs) do
+									table.insert(items, {
+										idx = i,
+										file = item,
+										text = item,
+									})
+								end
+
+								Snacks.picker.pick({
+									confirm = function(directory_picker, item)
+										local selected =
+											directory_picker:selected()
+										local prev_search =
+											splitStringByDelimiter(
+												picker.input:get()
+											)
+										local search_patterns = ""
+										local title = ""
+
+										if #selected > 0 then
+											for index, element in
+												ipairs(selected)
+											do
+												title = title .. element.file
+												if index < #selected then
+													title = title .. ", "
+												end
+
+												if index == 1 then
+													search_patterns = " -- "
+												end
+
+												search_patterns = search_patterns
+													.. "-g="
+													.. element.file
+													.. "** "
+											end
+										end
+
+										picker.title = title
+										-- TODO: always exclude node_modules etc...
+										picker.input:set(
+											"",
+											prev_search .. search_patterns
+										)
+
+										directory_picker:close()
+										picker:find()
+									end,
+									title = "Grep in directory",
+									-- multi = { "files" },
+									main = { current = true },
+									layout = {
+										preview = false,
+										preset = "vertical",
+									},
+									format = function(item, _)
+										local file = item.file
+										local ret = {}
+										local a = Snacks.picker.util.align
+										local icon, icon_hl = Snacks.util.icon(
+											file.ft,
+											"directory"
+										)
+										ret[#ret + 1] = { a(icon, 3), icon_hl }
+										ret[#ret + 1] = { " " }
+										local path = file:gsub(
+											"^" .. vim.pesc(cwd) .. "/",
+											""
+										)
+										ret[#ret + 1] =
+											{ a(path, 20), "Directory" }
+
+										return ret
+									end,
+									items = items,
+								})
+							end,
+						})
+					end,
+					---@param picker snacks.Picker
+					choose_history = function(picker)
+						local history = picker.history.kv.data
+						local items = {}
+
+						for i = 1, #history do
+							local hist = history[#history + 1 - i]
+							table.insert(items, {
+								idx = i,
+								pattern = hist.pattern,
+								search = hist.search,
+								live = hist.live,
+								text = hist.search .. " " .. hist.pattern,
+							})
+						end
+
+						Snacks.picker.pick({
+							title = "Picker history",
+							items = items,
+							main = { current = true }, -- NOTE: Prevent closing the parent picker
+							layout = { preset = "select" },
+							supports_live = false,
+							transform = function(item)
+								return not (
+									item.pattern == "" and item.search == ""
+								)
+							end,
+							format = function(item)
+								local ico = {
+									live = picker.opts.icons.ui.live,
+									prompt = picker.opts.prompt,
+								}
+								local part1 = item.live and item.pattern
+									or item.search
+								local part2 = item.live and item.search
+									or item.pattern
+								--
+								local text = {}
+								table.insert(text, {
+									item.live and ico.live or "  ",
+									"Special",
+								})
+								table.insert(text, { " " })
+								table.insert(
+									text,
+									{ part1, "SnacksPickerInputSearch" }
+								)
+								if part1 ~= "" and part2 ~= "" then
+									table.insert(text, { " " })
+									table.insert(
+										text,
+										{ ico.prompt, "SnacksPickerPrompt" }
+									)
+								end
+								table.insert(text, { part2 })
+								return text
+							end,
+							confirm = function(history_picker, item)
+								local mode = vim.fn.mode()
+								picker.opts.live = item.live
+								vim.notify(
+									tostring(item.pattern),
+									tostring(item.search)
+								)
+								picker.input:set(item.pattern, item.search)
+								print("Pattern: " .. tostring(item.pattern)) -- Check what item.pattern is
+								print("Search: " .. tostring(item.search)) -- Check what item.search is
+								history_picker:close()
+								if mode == "i" then
+                -- stylua: ignore
+                vim.schedule(function() vim.cmd 'startinsert!' end)
+								end
+							end,
+						})
+					end,
+				},
 				debug = {
 					scores = false, -- show scores in the list
+				},
+				previewers = {
+					diff = {
+						style = "syntax",
+					},
+				},
+				sources = {
+					grep = {
+						preview = function(ctx)
+							local res = Snacks.picker.preview.file(ctx)
+							if ctx.item.file then
+								ctx.picker.preview:set_title(ctx.item.file)
+							end
+							return res
+						end,
+					},
+					files = {
+						preview = function(ctx)
+							local res = Snacks.picker.preview.file(ctx)
+							if ctx.item.file then
+								ctx.picker.preview:set_title(ctx.item.file)
+							end
+							return res
+						end,
+					},
 				},
 				layout = {
 					preset = "telescope",
 					cycle = true,
 				},
 				layouts = {
+					default = {
+						layout = {
+							box = "horizontal",
+							width = 0.95,
+							min_width = 120,
+							height = 0.9,
+							{
+								box = "vertical",
+								border = true,
+								title = "{title} {live} {flags}",
+								{
+									win = "input",
+									height = 1,
+									border = "bottom",
+								},
+								{ win = "list", border = "none" },
+							},
+							{
+								win = "preview",
+								title = "{preview}",
+								border = true,
+								width = 0.65,
+							},
+						},
+					},
+
 					telescope = {
 						layout = {
 							box = "horizontal",
@@ -357,18 +528,42 @@ return {
 							["<C-right>"] = "focus_input",
 						},
 					},
-					input = {
+					list = {
 						keys = {
-							-- to close the picker on ESC instead of going to normal mode,
-							-- add the following keymap to your config
-							["<Esc>"] = { "close", mode = { "n", "i" } },
-							-- I'm used to scrolling like this in LazyGit
 							["<C-d>"] = {
 								"preview_scroll_down",
 								mode = { "i", "n" },
 							},
 							["<C-u>"] = {
 								"preview_scroll_up",
+								mode = { "i", "n" },
+							},
+						},
+					},
+					input = {
+						keys = {
+							["<space><space>"] = {
+								"multi_grep",
+								desc = "Switch to smart",
+								mode = { "n", "i" },
+							},
+							-- to close the picker on ESC instead of going to normal mode,
+							-- add the following keymap to your config
+							["<Esc>"] = { "close", mode = { "n", "i" } },
+							["<C-d>"] = {
+								"preview_scroll_down",
+								mode = { "i", "n" },
+							},
+							["<C-u>"] = {
+								"preview_scroll_up",
+								mode = { "i", "n" },
+							},
+							["<C-h>"] = {
+								"choose_history",
+								mode = { "i", "n" },
+							},
+							["<C-f>"] = {
+								"choose_directory",
 								mode = { "i", "n" },
 							},
 							["<C-right>"] = { "cycle_win", mode = { "i", "n" } },

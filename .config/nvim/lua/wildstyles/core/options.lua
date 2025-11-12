@@ -1,6 +1,7 @@
 -- vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt -- for conciseness
+local api = vim.api
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -45,3 +46,41 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+---------------------------------------------------------------
+-- Autocloses nvim session if it's been inactive for 15 mins----
+----------------------------------------------------------------
+local inactivity_timer
+local inactivity_limit = 15 * 60 * 1000 -- 15 minutes in milliseconds
+
+-- Function to reset the inactivity timer
+_G.reset_inactivity_timer = function()
+	if inactivity_timer then
+		inactivity_timer:stop()
+		inactivity_timer:close()
+	end
+
+	inactivity_timer = vim.loop.new_timer()
+	inactivity_timer:start(
+		inactivity_limit,
+		0,
+		vim.schedule_wrap(function()
+			api.nvim_command("qa!")
+		end)
+	)
+end
+
+-- Function to set up autocommands
+local function setup_autocommands()
+	-- Create a group for custom autocommands
+	api.nvim_command("augroup InactivityAutoQuit")
+	api.nvim_command("autocmd!")
+	-- Reset timer on keypress, mouse click, or cursor movement
+	api.nvim_command(
+		"autocmd CursorHold,CursorMoved,TextChanged * lua _G.reset_inactivity_timer()"
+	)
+	api.nvim_command("augroup END")
+end
+
+setup_autocommands()
+reset_inactivity_timer()

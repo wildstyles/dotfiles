@@ -21,16 +21,15 @@ local function splitStringByDelimiter(inputString)
 		return "" -- return an empty string if delimiter is not found
 	end
 end
+
 -- https://github.com/folke/snacks.nvim/discussions/2374
 -- https://github.com/ruicsh/nvim-config/blob/main/lua/plugins/snacks.picker.lua#L27
+--
 return {
 	{
 		"folke/snacks.nvim",
 		keys = {
-			-- I use this keymap with mini.files, but snacks explorer was taking over
-			-- https://github.com/folke/snacks.nvim/discussions/949
-			{ "<leader>e", false },
-			-- Open git log in vertical view
+
 			{
 				"<leader>fw",
 				function()
@@ -49,20 +48,27 @@ return {
 				desc = "Visual selection or word",
 				mode = { "n", "x" },
 			},
+
 			{
-				"<leader>n",
+				"<leader>fj",
+				function()
+					Snacks.picker.jumps({
+						finder = "vim_jumps",
+						format = "file",
+						main = { current = true },
+					})
+				end,
+				desc = "Find jumps",
+			},
+
+			{
+				"<leader>fn",
 				function()
 					Snacks.picker.notifications()
 				end,
 				desc = "Notification History",
 			},
-			{
-				"<leader>gd",
-				function()
-					Snacks.picker.git_diff()
-				end,
-				desc = "Git Diff (Hunks)",
-			},
+
 			{
 				"<leader>fl",
 				function()
@@ -75,6 +81,7 @@ return {
 				end,
 				desc = "Git Log",
 			},
+
 			{
 				"<leader>fb",
 				function()
@@ -84,6 +91,7 @@ return {
 				end,
 				desc = "Select Branch",
 			},
+
 			{
 				"<M-k>",
 				function()
@@ -93,7 +101,7 @@ return {
 				end,
 				desc = "Keymaps",
 			},
-			-- TODO: try to replace explorer with Snacks too
+
 			{
 				"-",
 				function()
@@ -113,6 +121,53 @@ return {
 				end,
 				desc = "File Explorer",
 			},
+
+			{
+				"<leader>fh",
+				function()
+					Snacks.picker({
+						finder = "git_log",
+						format = "git_log",
+						preview = "git_show",
+						current_file = true,
+						follow = true,
+						confirm = "git_checkout",
+						sort = { fields = { "score:desc", "idx" } },
+					})
+				end,
+				desc = "Git history in file",
+			},
+
+			{
+				"<leader>fg",
+				function()
+					Snacks.picker.git_diff({
+						group = true,
+						finder = "git_diff",
+						format = "git_status",
+						preview = "diff",
+						matcher = { sort_empty = true },
+						sort = { fields = { "score:desc", "file", "idx" } },
+						win = {
+							input = {
+								keys = {
+									["<Tab>"] = {
+										"git_stage",
+										mode = { "n", "i" },
+									},
+									["<c-r>"] = {
+										"git_restore",
+										mode = { "n", "i" },
+										nowait = true,
+									},
+								},
+							},
+						},
+					})
+				end,
+				desc = "Find String",
+			},
+
 			{
 				"<leader>fs",
 				function()
@@ -127,23 +182,11 @@ return {
 						show_empty = true,
 						supports_live = true,
 						layout = "telescope",
-						formatters = {
-							input = function()
-								vim.notify("format")
-							end,
-						},
-						on_change = function(picker)
-							vim.notify("input")
-							-- return "t"
-							-- local prev_search =
-							-- 	splitStringByDelimiter(picker.input:get())
-							--
-							-- return prev_search
-						end,
 					})
 				end,
 				desc = "Find String",
 			},
+
 			{
 				"<leader>fr",
 				function()
@@ -156,6 +199,7 @@ return {
 				end,
 				desc = "Recent Files",
 			},
+
 			{
 				"<leader>f/",
 				function()
@@ -170,6 +214,7 @@ return {
 				end,
 				desc = "Search history in file",
 			},
+
 			{
 				"<leader>ff",
 				function()
@@ -188,11 +233,11 @@ return {
 				end,
 				desc = "Find Files",
 			},
+
 			{
 				"h",
 				function()
 					Snacks.picker.buffers({
-						-- I always want my buffers picker to start in normal mode
 						on_show = function()
 							vim.cmd.stopinsert()
 						end,
@@ -206,6 +251,9 @@ return {
 						win = {
 							input = {
 								keys = {
+									["D"] = function()
+										vim.api.nvim_command("%bdelete!")
+									end,
 									["d"] = "bufdelete",
 								},
 							},

@@ -19,12 +19,72 @@ keymap.set("x", "d", '"dd', opts)
 -- 5) paste from register d
 keymap.set("n", "<leader>p", '"dp', opts)
 
--- keymap.set(
--- 	{ "n", "v", "i" },
--- 	"<M-k>",
--- 	"<cmd>Telescope keymaps<cr>",
--- 	{ desc = "[P]Key Maps" }
--- )
+-- makes <c-u> in insert mode to behave the same as "u" in normal
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-u>",
+	"<C-o>u",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-b>",
+	"<C-o>b",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-e>",
+	"<C-o>e",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-left>",
+	"<C-o>_",
+	{ noremap = true, silent = true }
+)
+
+vim.api.nvim_set_keymap(
+	"i",
+	"<C-right>",
+	"<C-o>$",
+	{ noremap = true, silent = true }
+)
+
+keymap.set("n", "<leader>ya", function()
+	local filename = vim.fn.expand("%:p")
+	vim.fn.setreg("+", filename)
+	print("Copied filename to clipboard: " .. filename)
+end, {
+	desc = "Copy current buffer absolute file path",
+	noremap = true,
+	silent = true,
+})
+
+keymap.set("n", "<leader>yp", function()
+	local root = vim.lsp.buf.list_workspace_folders()[1] or vim.fn.getcwd()
+	local filename = vim.fn.expand("%:p")
+	local relative_path = vim.fn.fnamemodify(filename, ":~:." .. root)
+
+	vim.fn.setreg("+", relative_path) -- Copy relative path to clipboard
+	vim.notify("Copied filename to clipboard: " .. relative_path)
+end, {
+	desc = "Copy current buffer file project path",
+	noremap = true,
+	silent = true,
+})
+
+keymap.set("n", "<leader>yn", function()
+	local filename = vim.fn.expand("%:t")
+
+	vim.fn.setreg("+", filename)
+
+	print("Copied filename to clipboard: " .. filename)
+end, { noremap = true, silent = true, desc = "Copy current buffer file name" })
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 	callback = function(args)

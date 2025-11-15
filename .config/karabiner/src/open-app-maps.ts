@@ -6,7 +6,7 @@ export const openAppMaps = createAltLayer({
   slash: {
     to: [
       {
-        modifiers: ["shift", "left_option"],
+        modifiers: ["shift", "control", "command"],
         key_code: "right_arrow",
       },
     ],
@@ -29,6 +29,7 @@ export const openAppMaps = createAltLayer({
   o: app("MongoDB Compass"),
   a: app("Activity Monitor"),
   b: app("Karabiner-Elements"),
+  k: app("Karabiner-EventViewer"),
   i: app("Discord"),
   z: app("zoom.us"),
   x: tmuxSession("dotfiles"),

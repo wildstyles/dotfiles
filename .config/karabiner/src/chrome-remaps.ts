@@ -17,7 +17,74 @@ const createChromeRemap = (from: From, to: To[]): KarabinerRules => ({
   ],
 });
 
+const createNavigationRemap = (from: From, to: To[]): KarabinerRules => ({
+  description: `Remap ${from} to ${to}`,
+  manipulators: [
+    {
+      type: "basic",
+      from,
+      to,
+      conditions: [
+        {
+          type: "frontmost_application_unless", // This specifies the rule should apply unless the application matches
+          bundle_identifiers: ["^com\\.github\\.wez\\.wezterm$"],
+        },
+      ],
+    },
+  ],
+});
+
+export const remaps: KarabinerRules[] = [
+  createNavigationRemap(
+    { key_code: "b", modifiers: { mandatory: ["control"] } },
+    [
+      {
+        key_code: "left_arrow",
+        modifiers: ["option"],
+      },
+    ]
+  ),
+  createNavigationRemap(
+    { key_code: "b", modifiers: { mandatory: ["control", "shift"] } },
+    [
+      {
+        key_code: "left_arrow",
+        modifiers: ["option", "shift"],
+      },
+    ]
+  ),
+  createNavigationRemap(
+    { key_code: "e", modifiers: { mandatory: ["control"] } },
+    [
+      {
+        key_code: "right_arrow",
+        modifiers: ["option"],
+      },
+    ]
+  ),
+  createNavigationRemap(
+    { key_code: "e", modifiers: { mandatory: ["control", "shift"] } },
+    [
+      {
+        key_code: "right_arrow",
+        modifiers: ["option", "shift"],
+      },
+    ]
+  ),
+
+  createNavigationRemap(
+    { key_code: "w", modifiers: { mandatory: ["control"] } },
+    [
+      {
+        key_code: "delete_or_backspace",
+        modifiers: ["option"],
+      },
+    ]
+  ),
+];
+
 export const chromeRemaps = [
+  ...remaps,
   createChromeRemap({ key_code: "i", modifiers: { mandatory: ["control"] } }, [
     { key_code: "right_arrow", modifiers: ["command", "option"] },
   ]),

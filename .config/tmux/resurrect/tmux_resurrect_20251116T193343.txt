@@ -1,0 +1,42 @@
+pane	dotfiles	1	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Projects/zmk-for-charybdis	1	zsh	:
+pane	dotfiles	2	1	:*	1	:/Users/ruslanvanzula/Projects/karabiner	:/Users/ruslanvanzula/Projects/dotfiles	1	zsh	:
+pane	dotfiles	3	0	:	1	MacBookPro	:/Users/ruslanvanzula/Projects/dotfiles	1	zsh	:
+pane	dotfiles	4	0	:	1	MacBookPro	:/Users/ruslanvanzula/Projects/dotfiles-latest	1	zsh	:
+pane	dotfiles	5	0	:-	1	:/Users/ruslanvanzula/Projects/dotfiles	:/Users/ruslanvanzula	1	zsh	:
+pane	scout	1	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/globpay	1	zsh	:
+pane	scout	2	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/scott	1	zsh	:
+pane	scout	3	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/game-server	1	zsh	:
+pane	scout	4	0	:	1	:/Users/ruslanvanzula/Desktop/scout	:/Users/ruslanvanzula/Desktop/scout/sgg-frontend	1	zsh	:
+pane	scout	5	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/sgg-services	1	zsh	:
+pane	scout	6	0	:-	1	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/sportyman	1	zsh	:
+pane	scout	7	1	:*	1	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/globpay	0	zsh	:
+pane	scout	7	1	:*	2	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/globpay	0	zsh	:
+pane	scout	7	1	:*	3	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/scott	1	zsh	:
+pane	scout	7	1	:*	4	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/sgg-frontend	0	zsh	:
+pane	scout	7	1	:*	5	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/game-server	0	zsh	:
+pane	scout	7	1	:*	6	MacBookPro	:/Users/ruslanvanzula/Desktop/scout/game-server	0	zsh	:
+pane	scout-process	1	0	:	1	:/Users/ruslanvanzula/Desktop/scout	:/Users/ruslanvanzula/Desktop/scout/globpay	1	zsh	:
+pane	scout-process	2	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/scott	1	zsh	:
+pane	scout-process	3	0	:-	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/game-server	1	zsh	:
+pane	scout-process	4	1	:*	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/sgg-frontend	1	zsh	:
+pane	scout-process	5	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/globpay	1	zsh	:
+pane	scout-process	6	0	:	1	Ruslans-MacBook-Pro.local	:/Users/ruslanvanzula/Desktop/scout/game-server	1	zsh	:
+window	dotfiles	1	:zmk	0	:	ba9e,227x62,0,0,1	off
+window	dotfiles	2	:config	1	:*	ba9f,227x62,0,0,2	off
+window	dotfiles	3	:todo	0	:	baa0,227x62,0,0,3	off
+window	dotfiles	4	:linkarzu	0	:	baa1,227x62,0,0,4	off
+window	dotfiles	5	:zsh	0	:-	baa2,227x62,0,0,5	:
+window	scout	1	:globpay	0	:	baa3,227x62,0,0,6	off
+window	scout	2	:scott	0	:	baa4,227x62,0,0,7	off
+window	scout	3	:game-server	0	:	baa5,227x62,0,0,8	off
+window	scout	4	:frontend	0	:	baa6,227x62,0,0,9	off
+window	scout	5	:sgg-services	0	:	5d7f,227x62,0,0,10	off
+window	scout	6	:sportyman	0	:-	5d80,227x62,0,0,11	off
+window	scout	7	:processes	1	:*	8595,227x62,0,0{75x62,0,0[75x31,0,0,12,75x30,0,32,13],75x62,76,0[75x31,76,0,14,75x30,76,32,15],75x62,152,0[75x31,152,0,16,75x30,152,32,17]}	off
+window	scout-process	1	:globpay	0	:	5d87,227x62,0,0,18	off
+window	scout-process	2	:scott	0	:	5d88,227x62,0,0,19	off
+window	scout-process	3	:game-server	0	:-	dd7f,227x62,0,0,20	off
+window	scout-process	4	:frontend	1	:*	dd80,227x62,0,0,21	off
+window	scout-process	5	:globpay-jobs	0	:	dd81,227x62,0,0,22	off
+window	scout-process	6	:game-server-rpc	0	:	dd82,227x62,0,0,23	off
+state	dotfiles	scout

@@ -1682,11 +1682,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -1801,11 +1796,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -1900,11 +1890,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -2051,11 +2036,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -2254,11 +2234,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -2405,11 +2380,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -2510,109 +2480,6 @@
                         ]
                     },
                     {
-                        "description": "Hyper Key sublayer \"p\"",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_y",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_l",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_n",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_e",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Toggle Hyper sublayer p",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh",
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper Key sublayer \"e\"",
                         "manipulators": [
                             {
@@ -2644,11 +2511,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -3138,11 +3000,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -3257,11 +3114,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -3356,11 +3208,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -3507,11 +3354,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -3710,11 +3552,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -3861,11 +3698,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -3966,109 +3798,6 @@
                         ]
                     },
                     {
-                        "description": "Hyper Key sublayer \"p\"",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_y",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_l",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_n",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_e",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Toggle Hyper sublayer p",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh",
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper Key sublayer \"e\"",
                         "manipulators": [
                             {
@@ -4100,11 +3829,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -4265,9 +3989,20 @@
                         "vendor_id": 1452
                     },
                     "manipulate_caps_lock_led": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 24926,
+                        "vendor_id": 7504
+                    },
+                    "ignore": false,
+                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Laptop profile",
+            "selected": true,
             "simple_modifications": [
                 {
                     "from": {
@@ -6094,11 +5829,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -6213,11 +5943,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -6312,11 +6037,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -6463,11 +6183,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -6666,11 +6381,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -6817,11 +6527,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -6922,109 +6627,6 @@
                         ]
                     },
                     {
-                        "description": "Hyper Key sublayer \"p\"",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_y",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_l",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_n",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_e",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Toggle Hyper sublayer p",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh",
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper Key sublayer \"e\"",
                         "manipulators": [
                             {
@@ -7056,11 +6658,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -7550,11 +7147,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -7669,11 +7261,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -7768,11 +7355,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -7919,11 +7501,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -8122,11 +7699,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -8273,11 +7845,6 @@
                                         "value": 0
                                     },
                                     {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
                                         "name": "hyper_sublayer_e",
                                         "type": "variable_if",
                                         "value": 0
@@ -8378,109 +7945,6 @@
                         ]
                     },
                     {
-                        "description": "Hyper Key sublayer \"p\"",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_s",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_y",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_l",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_n",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_w",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_e",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Toggle Hyper sublayer p",
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper_sublayer_p",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh",
-                                "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "hyper_sublayer_p",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h",
-                                "from": {
-                                    "key_code": "s",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Hyper Key sublayer \"e\"",
                         "manipulators": [
                             {
@@ -8512,11 +7976,6 @@
                                     },
                                     {
                                         "name": "hyper_sublayer_t",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "hyper_sublayer_p",
                                         "type": "variable_if",
                                         "value": 0
                                     },
@@ -8690,7 +8149,6 @@
                 }
             ],
             "name": "Default profile",
-            "selected": true,
             "simple_modifications": [
                 {
                     "from": { "key_code": "grave_accent_and_tilde" },

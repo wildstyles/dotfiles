@@ -1,5 +1,6 @@
 os:
   editPreset: "nvim"
+  openLink: open "$(echo "{{link}}" | sed 's/%2F/\//g')"
 git:
   paging:
     colorArg: always
@@ -7,3 +8,4 @@ git:
 gui:
   showIcons: true
   changed_files_width: 20
+  enlargedSideViewLocation: top

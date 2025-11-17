@@ -97,6 +97,14 @@ export const hyperkeyMaps = [
         "open -a WezTerm.app && ~/Projects/dotfiles/scripts/navigate-daily-notes.sh",
       ]),
     },
+    p: {
+      a: shell([
+        "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh",
+      ]),
+      s: shell([
+        "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h",
+      ]),
+    },
     e: {
       l: shell(["~/Projects/dotfiles/scripts/run-scout.sh local"]),
       s: shell(["~/Projects/dotfiles/scripts/run-scout.sh stage"]),

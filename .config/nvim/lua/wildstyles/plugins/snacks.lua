@@ -59,6 +59,13 @@ return {
 				desc = "Goto Implementation",
 			},
 			{
+				"<leader>gg",
+				function()
+					Snacks.lazygit()
+				end,
+				desc = "Open lazygit",
+			},
+			{
 				"<leader>fw",
 				function()
 					Snacks.picker.grep({
@@ -98,12 +105,22 @@ return {
 			},
 
 			{
+				"<leader>fg",
+				function()
+					Snacks.picker.git_status({
+						layout = "vertical",
+					})
+				end,
+				desc = "Find currently changed files",
+			},
+
+			{
 				"<leader>fl",
 				function()
 					Snacks.picker.git_log({
 						finder = "git_log",
 						format = "git_log",
-						preview = "git_show",
+						layout = "vertical",
 						confirm = "git_checkout",
 					})
 				end,
@@ -121,7 +138,7 @@ return {
 			},
 
 			{
-				"<M-k>",
+				"<leader>fk",
 				function()
 					Snacks.picker.keymaps({
 						layout = "vertical",
@@ -156,6 +173,7 @@ return {
 					Snacks.picker({
 						finder = "git_log",
 						format = "git_log",
+						layout = "vertical",
 						preview = "git_show",
 						current_file = true,
 						follow = true,
@@ -164,36 +182,6 @@ return {
 					})
 				end,
 				desc = "Git history in file",
-			},
-
-			{
-				"<leader>fg",
-				function()
-					Snacks.picker.git_diff({
-						group = true,
-						finder = "git_diff",
-						format = "git_status",
-						preview = "diff",
-						matcher = { sort_empty = true },
-						sort = { fields = { "score:desc", "file", "idx" } },
-						win = {
-							input = {
-								keys = {
-									["<Tab>"] = {
-										"git_stage",
-										mode = { "n", "i" },
-									},
-									["<c-r>"] = {
-										"git_restore",
-										mode = { "n", "i" },
-										nowait = true,
-									},
-								},
-							},
-						},
-					})
-				end,
-				desc = "Git changed files",
 			},
 
 			{
@@ -487,7 +475,10 @@ return {
 				},
 				previewers = {
 					diff = {
-						style = "syntax",
+						cmd = {
+							"delta",
+						},
+						style = "terminal",
 					},
 				},
 				sources = {
@@ -589,7 +580,7 @@ return {
 							{
 								win = "preview",
 								title = "{preview}",
-								height = 0.4,
+								height = 0.7,
 								border = "top",
 							},
 						},
@@ -661,10 +652,15 @@ return {
 					},
 				},
 			},
-			-- Folke pointed me to the snacks docs
-			-- https://github.com/LazyVim/LazyVim/discussions/4251#discussioncomment-11198069
-			-- Here's the lazygit snak docs
-			-- https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md
+			lazygit = {
+				theme = {
+					selectedLineBgColor = { bg = "CursorLine" },
+				},
+				win = {
+					width = 0,
+					height = 0,
+				},
+			},
 			notifier = {
 				enabled = true,
 				top_down = false, -- place notifications from top to bottom

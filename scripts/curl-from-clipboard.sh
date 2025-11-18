@@ -65,17 +65,29 @@ fi
 echo -e "$modified_curl" | pbcopy
 
 SESSION="scout"
-WINDOW="posting"
+WINDOW="kulala"
 
 # Select the specific window in the tmux session
 /opt/homebrew/bin/tmux switch-client -t "$SESSION"
 /opt/homebrew/bin/tmux select-window -t "$SESSION:$WINDOW"
 
-/opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "C-c" C-m
-sleep 0.5
-# Send the `posting` command followed by Enter
-/opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "posting" C-m
+CURRENT_COMMAND=$(/opt/homebrew/bin/tmux list-panes -t "$SESSION:$WINDOW" -F "#{pane_id} #{pane_index} #{pane_current_command}")                                       
 
-sleep 0.5
-#
-osascript -e 'tell application "System Events" to keystroke "v" using command down'
+pane_id=$(echo "$CURRENT_COMMAND" | awk '{print $1}')
+pane_command=$(echo "$CURRENT_COMMAND" | awk '{print $3}')
+
+if [ "$pane_command" == "nvim" ]; then
+    /opt/homebrew/bin/tmux send-keys -t "$pane_id" Escape ":qa!" Enter
+    echo "Sent :qa! to the nvim pane"
+else
+    /opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "C-c" C-m
+    echo "No nvim process found in the specified pane"
+fi
+
+sleep 0.2
+
+/opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "n mini-leagues.http" C-m
+
+sleep 0.2
+
+/opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "," "k" "c"

@@ -43,7 +43,7 @@ return {
 					return
 				end
 
-				return { timeout_ms = 1000, async = false, lsp_fallback = true }
+				return { timeout_ms = 1000, async = false, lsp_fallback = false }
 			end,
 		})
 

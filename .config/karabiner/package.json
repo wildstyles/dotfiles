@@ -1,13 +1,14 @@
 {
-  "name": "karabiner",
-  "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {
-    "@types/node": "^18.7.19",
-    "prettier": "^2.7.1",
-    "tsm": "^2.2.2"
-  },
+  "name": "karabiner-config",
+  "description": "karabiner config in karabiner.ts",
   "scripts": {
-    "build": "tsm ./src/index.ts"
+    "build": "tsx src/index.ts",
+    "update": "npm update karabiner.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "karabiner.ts": "latest",
+    "tsx": "^4",
+    "typescript": "^5"
   }
 }

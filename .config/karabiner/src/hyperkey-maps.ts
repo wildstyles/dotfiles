@@ -51,9 +51,22 @@ export const hyperkeyMaps = [
 
   ...createHyperSubLayers({
     s: {
+      to_if_alone: [
+        {
+          shell_command: "open -a 'Slack.app'",
+        },
+      ],
       v: shell(["~/Projects/dotfiles/scripts/tunnelblick-connect.sh"]),
       a: shell(["~/Projects/dotfiles/scripts/switch-audio-source.sh"]),
       x: shell(["~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh"]),
+      y: {
+        //screensot shottrc
+        to: [{ key_code: "2", modifiers: ["command", "shift"] }],
+      },
+      b: {
+        // clipboard history maccy
+        to: [{ key_code: "b", modifiers: ["command", "shift"] }],
+      },
     },
     y: {
       s: shell(['~/Projects/dotfiles/scripts/toggle-time-tracking.sh "Scout"']),

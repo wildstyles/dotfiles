@@ -28,7 +28,7 @@ type HyperKeySublayer = {
 export function createHyperSubLayer(
   sublayer_key: KeyCode,
   commands: HyperKeySublayer,
-  allSubLayerVariables: string[],
+  allSubLayerVariables: string[]
 ): Manipulator[] {
   const subLayerVariableName = generateSubLayerVariableName(sublayer_key);
 
@@ -43,6 +43,7 @@ export function createHyperSubLayer(
           optional: ["any"],
         },
       },
+      ...(!!commands.to_if_alone && { to_if_alone: commands.to_if_alone }),
       to_after_key_up: [
         {
           set_variable: {
@@ -67,7 +68,7 @@ export function createHyperSubLayer(
       conditions: [
         ...allSubLayerVariables
           .filter(
-            (subLayerVariable) => subLayerVariable !== subLayerVariableName,
+            (subLayerVariable) => subLayerVariable !== subLayerVariableName
           )
           .map((subLayerVariable) => ({
             type: "variable_if" as const,
@@ -82,26 +83,28 @@ export function createHyperSubLayer(
       ],
     },
     // Define the individual commands that are meant to trigger in the sublayer
-    ...(Object.keys(commands) as (keyof typeof commands)[]).map(
-      (command_key): Manipulator => ({
-        ...commands[command_key],
-        type: "basic" as const,
-        from: {
-          key_code: command_key,
-          modifiers: {
-            optional: ["any"],
+    ...(Object.keys(commands) as (keyof typeof commands)[])
+      .filter((key) => key !== "to_if_alone")
+      .map(
+        (command_key): Manipulator => ({
+          ...commands[command_key],
+          type: "basic" as const,
+          from: {
+            key_code: command_key,
+            modifiers: {
+              optional: ["any"],
+            },
           },
-        },
-        // Only trigger this command if the variable is 1 (i.e., if Hyper + sublayer is held)
-        conditions: [
-          {
-            type: "variable_if",
-            name: subLayerVariableName,
-            value: 1,
-          },
-        ],
-      }),
-    ),
+          // Only trigger this command if the variable is 1 (i.e., if Hyper + sublayer is held)
+          conditions: [
+            {
+              type: "variable_if",
+              name: subLayerVariableName,
+              value: 1,
+            },
+          ],
+        })
+      ),
   ];
 }
 
@@ -137,7 +140,7 @@ export const ukLanguageCondition: Conditions = {
 
 export const createColemakRemap = (
   from: KeyCode,
-  to: KeyCode,
+  to: KeyCode
 ): KarabinerRules => {
   return {
     description: `Remap ${from} to ${to}`,
@@ -223,9 +226,9 @@ export function createHyperSubLayers(subLayers: {
           manipulators: createHyperSubLayer(
             key as KeyCode,
             value,
-            allSubLayerVariables,
+            allSubLayerVariables
           ),
-        },
+        }
   );
 }
 

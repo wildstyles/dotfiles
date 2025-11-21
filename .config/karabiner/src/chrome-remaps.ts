@@ -88,29 +88,43 @@ export const chromeRemaps = [
   createChromeRemap({ key_code: "i", modifiers: { mandatory: ["control"] } }, [
     { key_code: "right_arrow", modifiers: ["command", "option"] },
   ]),
-  // toggle dark/light mode
-  createChromeRemap({ key_code: "t", modifiers: { mandatory: ["control"] } }, [
-    { key_code: "d", modifiers: ["shift", "option"] },
+  createChromeRemap({ key_code: "x", modifiers: { mandatory: ["control"] } }, [
+    { key_code: "w", modifiers: ["command"] },
   ]),
+  createChromeRemap({ key_code: "t", modifiers: { mandatory: ["control"] } }, [
+    { key_code: "t", modifiers: ["command"] },
+  ]),
+  createChromeRemap({ key_code: "t", modifiers: { mandatory: ["command"] } }, [
+    { key_code: "vk_none" },
+  ]),
+  createChromeRemap({ key_code: "w", modifiers: { mandatory: ["command"] } }, [
+    { key_code: "vk_none" },
+  ]),
+  // toggle dark/light mode
+  createChromeRemap(
+    { key_code: "semicolon", modifiers: { mandatory: ["control"] } },
+    [{ key_code: "d", modifiers: ["shift", "option"] }]
+  ),
   createChromeRemap({ key_code: "m", modifiers: { mandatory: ["control"] } }, [
     { key_code: "left_arrow", modifiers: ["command", "option"] },
   ]),
   // open bookmarks
   createChromeRemap(
-    { key_code: "b", modifiers: { mandatory: ["shift", "command"] } },
+    { key_code: "b", modifiers: { mandatory: ["control", "option", "shift"] } },
     [{ key_code: "b", modifiers: ["command", "option"] }]
   ),
   // add bookmark
   createChromeRemap(
-    { key_code: "b", modifiers: { mandatory: ["control", "shift"] } },
+    { key_code: "b", modifiers: { mandatory: ["control", "option"] } },
     [{ key_code: "d", modifiers: ["command"] }]
   ),
   // open history
-  createChromeRemap({ key_code: "h", modifiers: { mandatory: ["command"] } }, [
+  createChromeRemap({ key_code: "h", modifiers: { mandatory: ["control"] } }, [
     { key_code: "y", modifiers: ["command"] },
   ]),
   // open devtools
-  createChromeRemap({ key_code: "d", modifiers: { mandatory: ["command"] } }, [
-    { key_code: "i", modifiers: ["option", "command"] },
-  ]),
+  createChromeRemap(
+    { key_code: "d", modifiers: { mandatory: ["control", "shift"] } },
+    [{ key_code: "i", modifiers: ["option", "command"] }]
+  ),
 ];

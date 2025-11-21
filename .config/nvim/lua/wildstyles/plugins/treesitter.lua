@@ -23,6 +23,7 @@ return {
 			indent = { enable = true },
 			-- ensure these language parsers are installed
 			ensure_installed = {
+				"devicetree",
 				"json",
 				"javascript",
 				"typescript",

@@ -253,7 +253,101 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "x",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "t",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "semicolon",
                                     "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
@@ -306,7 +400,7 @@
                                 ],
                                 "from": {
                                     "key_code": "b",
-                                    "modifiers": { "mandatory": ["shift", "command"] }
+                                    "modifiers": { "mandatory": ["control", "option", "shift"] }
                                 },
                                 "to": [
                                     {
@@ -332,7 +426,7 @@
                                 ],
                                 "from": {
                                     "key_code": "b",
-                                    "modifiers": { "mandatory": ["control", "shift"] }
+                                    "modifiers": { "mandatory": ["control", "option"] }
                                 },
                                 "to": [
                                     {
@@ -358,7 +452,7 @@
                                 ],
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
                                     {
@@ -384,7 +478,7 @@
                                 ],
                                 "from": {
                                     "key_code": "d",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [
                                     {
@@ -1718,6 +1812,7 @@
                                         }
                                     }
                                 ],
+                                "to_if_alone": [{ "shell_command": "open -a 'Slack.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -1766,6 +1861,46 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -3174,6 +3309,7 @@
                                         }
                                     }
                                 ],
+                                "to_if_alone": [{ "shell_command": "open -a 'Slack.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -3222,6 +3358,46 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -4204,6 +4380,87 @@
                         ]
                     },
                     {
+                        "description": "Clipboard history on holding b",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "b" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "b"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["left_command", "left_shift"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Copy on honding c",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "c" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "c" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "c"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["left_command"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Paste on holding p",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "p" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "p" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "p"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["left_command"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Homerow on holding s",
                         "manipulators": [
                             {
@@ -4265,16 +4522,6 @@
                         "vendor_id": 1452
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": false,
-                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Laptop profile",
@@ -4675,7 +4922,101 @@
                                     }
                                 ],
                                 "from": {
+                                    "key_code": "x",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "w",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
                                     "key_code": "t",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [{ "key_code": "vk_none" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Remap [object Object] to [object Object]",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "semicolon",
                                     "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
@@ -4728,7 +5069,7 @@
                                 ],
                                 "from": {
                                     "key_code": "b",
-                                    "modifiers": { "mandatory": ["shift", "command"] }
+                                    "modifiers": { "mandatory": ["control", "option", "shift"] }
                                 },
                                 "to": [
                                     {
@@ -4754,7 +5095,7 @@
                                 ],
                                 "from": {
                                     "key_code": "b",
-                                    "modifiers": { "mandatory": ["control", "shift"] }
+                                    "modifiers": { "mandatory": ["control", "option"] }
                                 },
                                 "to": [
                                     {
@@ -4780,7 +5121,7 @@
                                 ],
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
                                     {
@@ -4806,7 +5147,7 @@
                                 ],
                                 "from": {
                                     "key_code": "d",
-                                    "modifiers": { "mandatory": ["command"] }
+                                    "modifiers": { "mandatory": ["control", "shift"] }
                                 },
                                 "to": [
                                     {
@@ -6140,6 +6481,7 @@
                                         }
                                     }
                                 ],
+                                "to_if_alone": [{ "shell_command": "open -a 'Slack.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -6188,6 +6530,46 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -7596,6 +7978,7 @@
                                         }
                                     }
                                 ],
+                                "to_if_alone": [{ "shell_command": "open -a 'Slack.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -7644,6 +8027,46 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "2",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "b",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -8621,6 +9044,87 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/scripts/run-scout.sh stop" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Clipboard history on holding b",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "b" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "b" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "b"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["left_command", "left_shift"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Copy on honding c",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "c" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "c" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "c"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "c",
+                                        "modifiers": ["left_command"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Paste on holding p",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "p" },
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 250,
+                                    "basic.to_if_held_down_threshold_milliseconds": 250
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "p" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "p"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "v",
+                                        "modifiers": ["left_command"],
+                                        "repeat": false
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]

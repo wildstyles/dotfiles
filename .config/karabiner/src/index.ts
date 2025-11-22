@@ -7,11 +7,11 @@ import {
   toApp,
   ifApp,
   ifDevice,
-  mapDoubleTap,
   ifInputSource,
   toKey,
   to$,
   writeToProfile,
+  ifVar,
 } from "karabiner.ts";
 
 import { init } from "./simple-remaps.ts";
@@ -107,11 +107,11 @@ const rules = [
   rule("Hold remaps").manipulators([
     map("c")
       .toIfAlone("c", [], { halt: true })
-      // .toDelayedAction({ key_code: "c" }, { key_code: "c" })
+      .toDelayedAction({ key_code: "vk_none" }, { key_code: "c" })
       .toIfHeldDown("c", ["left_command"], { repeat: false }),
     map("p")
       .toIfAlone("p", [], { halt: true })
-      // .toDelayedAction({ key_code: "p" }, { key_code: "p" })
+      .toDelayedAction({ key_code: "vk_none" }, { key_code: "p" })
       .toIfHeldDown("v", ["left_command"], { repeat: false }),
     map("f")
       .toIfAlone("f", [], { halt: true })
@@ -131,8 +131,36 @@ const rules = [
       ),
   ]),
 
-  rule("Double Tap Q").manipulators([
-    mapDoubleTap("q").to("escape").singleTap(toKey("q")),
+  rule("Double tap q to escape").manipulators([
+    map("q", "optionalAny")
+      .condition(ifVar("q pressed", true))
+      .to("escape")
+      .toVar("q pressed", false),
+
+    map("q", "optionalAny")
+      .toVar("q pressed", true)
+      .toDelayedAction(
+        [
+          {
+            key_code: "q",
+            conditions: [
+              { type: "variable_if", name: "q pressed", value: true },
+            ],
+          },
+          { set_variable: { name: "q pressed", value: false } },
+        ],
+        [
+          {
+            key_code: "q",
+            conditions: [
+              { type: "variable_if", name: "q pressed", value: true },
+            ],
+          },
+          {
+            set_variable: { name: "q pressed", value: false },
+          },
+        ],
+      ),
   ]),
 
   rule("Caps Lock > Hyper").manipulators([
@@ -187,8 +215,8 @@ const rules = [
         "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
       ),
       map("v").to$(`${scriptsDir}/tunnelblick-connect.sh`),
-      map("y").to(2, ["command", "shift"]),
-      map("b").to("b", ["command", "shift"]),
+      map("y").to(2, ["command", "shift", "option", "control"]),
+      map("b").to("b", ["command", "shift", "option", "control"]),
     ]),
 
   hyperLayer("y")

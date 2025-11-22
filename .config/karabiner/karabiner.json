@@ -881,6 +881,10 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "c" },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [{ "key_code": "c" }],
+                                    "to_if_invoked": [{ "key_code": "vk_none" }]
+                                },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
@@ -899,6 +903,10 @@
                             },
                             {
                                 "from": { "key_code": "p" },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [{ "key_code": "p" }],
+                                    "to_if_invoked": [{ "key_code": "vk_none" }]
+                                },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
@@ -962,57 +970,78 @@
                         ]
                     },
                     {
-                        "description": "Double Tap Q",
+                        "description": "Double tap q to escape",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "double-tap-q",
+                                        "name": "q pressed",
                                         "type": "variable_if",
-                                        "value": 1
+                                        "value": true
                                     }
                                 ],
-                                "description": "__support__manipulator",
-                                "from": { "key_code": "q" },
-                                "to": [{ "key_code": "escape" }],
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "key_code": "escape" },
+                                    {
+                                        "set_variable": {
+                                            "name": "q pressed",
+                                            "value": false
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "double-tap-q",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "q" },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "double-tap-q",
-                                            "value": 1
+                                            "name": "q pressed",
+                                            "value": true
                                         }
                                     }
                                 ],
                                 "to_delayed_action": {
                                     "to_if_canceled": [
                                         {
+                                            "conditions": [
+                                                {
+                                                    "name": "q pressed",
+                                                    "type": "variable_if",
+                                                    "value": true
+                                                }
+                                            ],
+                                            "key_code": "q"
+                                        },
+                                        {
                                             "set_variable": {
-                                                "name": "double-tap-q",
-                                                "value": 0
+                                                "name": "q pressed",
+                                                "value": false
                                             }
                                         }
                                     ],
                                     "to_if_invoked": [
-                                        { "key_code": "q" },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "name": "q pressed",
+                                                    "type": "variable_if",
+                                                    "value": true
+                                                }
+                                            ],
+                                            "key_code": "q"
+                                        },
                                         {
                                             "set_variable": {
-                                                "name": "double-tap-q",
-                                                "value": 0
+                                                "name": "q pressed",
+                                                "value": false
                                             }
                                         }
                                     ]
@@ -2107,7 +2136,7 @@
                                 "to": [
                                     {
                                         "key_code": "2",
-                                        "modifiers": ["command", "shift"]
+                                        "modifiers": ["command", "shift", "option", "control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -2127,7 +2156,7 @@
                                 "to": [
                                     {
                                         "key_code": "b",
-                                        "modifiers": ["command", "shift"]
+                                        "modifiers": ["command", "shift", "option", "control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -2850,16 +2879,6 @@
                         "vendor_id": 1452
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": false,
-                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Laptop profile",
@@ -3888,6 +3907,10 @@
                         "manipulators": [
                             {
                                 "from": { "key_code": "c" },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [{ "key_code": "c" }],
+                                    "to_if_invoked": [{ "key_code": "vk_none" }]
+                                },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
@@ -3906,6 +3929,10 @@
                             },
                             {
                                 "from": { "key_code": "p" },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [{ "key_code": "p" }],
+                                    "to_if_invoked": [{ "key_code": "vk_none" }]
+                                },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
@@ -3969,57 +3996,78 @@
                         ]
                     },
                     {
-                        "description": "Double Tap Q",
+                        "description": "Double tap q to escape",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
-                                        "name": "double-tap-q",
+                                        "name": "q pressed",
                                         "type": "variable_if",
-                                        "value": 1
+                                        "value": true
                                     }
                                 ],
-                                "description": "__support__manipulator",
-                                "from": { "key_code": "q" },
-                                "to": [{ "key_code": "escape" }],
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    { "key_code": "escape" },
+                                    {
+                                        "set_variable": {
+                                            "name": "q pressed",
+                                            "value": false
+                                        }
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "double-tap-q",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "q" },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 200,
-                                    "basic.to_if_held_down_threshold_milliseconds": 200
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [
                                     {
                                         "set_variable": {
-                                            "name": "double-tap-q",
-                                            "value": 1
+                                            "name": "q pressed",
+                                            "value": true
                                         }
                                     }
                                 ],
                                 "to_delayed_action": {
                                     "to_if_canceled": [
                                         {
+                                            "conditions": [
+                                                {
+                                                    "name": "q pressed",
+                                                    "type": "variable_if",
+                                                    "value": true
+                                                }
+                                            ],
+                                            "key_code": "q"
+                                        },
+                                        {
                                             "set_variable": {
-                                                "name": "double-tap-q",
-                                                "value": 0
+                                                "name": "q pressed",
+                                                "value": false
                                             }
                                         }
                                     ],
                                     "to_if_invoked": [
-                                        { "key_code": "q" },
+                                        {
+                                            "conditions": [
+                                                {
+                                                    "name": "q pressed",
+                                                    "type": "variable_if",
+                                                    "value": true
+                                                }
+                                            ],
+                                            "key_code": "q"
+                                        },
                                         {
                                             "set_variable": {
-                                                "name": "double-tap-q",
-                                                "value": 0
+                                                "name": "q pressed",
+                                                "value": false
                                             }
                                         }
                                     ]
@@ -5114,7 +5162,7 @@
                                 "to": [
                                     {
                                         "key_code": "2",
-                                        "modifiers": ["command", "shift"]
+                                        "modifiers": ["command", "shift", "option", "control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -5134,7 +5182,7 @@
                                 "to": [
                                     {
                                         "key_code": "b",
-                                        "modifiers": ["command", "shift"]
+                                        "modifiers": ["command", "shift", "option", "control"]
                                     }
                                 ],
                                 "type": "basic"

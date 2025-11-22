@@ -197,13 +197,6 @@ keymap.set(
 	{ desc = "Open current buffer in new tab" }
 ) --  move current buffer to new tab
 
-keymap.set(
-	"n",
-	"H",
-	"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
-	{ desc = "[P]Open telescope buffers" }
-)
-
 vim.keymap.set(
 	"v",
 	"<leader>cc",

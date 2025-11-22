@@ -37,7 +37,7 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap(
 	"i",
 	"<C-e>",
-	"<C-o>e",
+	"<C-o>e<Right>",
 	{ noremap = true, silent = true }
 )
 
@@ -115,25 +115,25 @@ vim.api.nvim_create_autocmd("FileType", {
 
 keymap.set("n", "<Space>", "a <Esc>", { desc = "Insert space at cursor" })
 
-keymap.set("n", "kk", function()
-	local tabs = vim.api.nvim_list_tabpages()
-
-	for _, tab in ipairs(tabs) do
-		local windows = vim.api.nvim_tabpage_list_wins(tab)
-
-		for _, win in ipairs(windows) do
-			local bufnr = vim.api.nvim_win_get_buf(win)
-			local bufnr_name = vim.api.nvim_buf_get_name(bufnr)
-
-			if bufnr_name:match("http") then
-				-- Switch to the current tab
-				vim.api.nvim_set_current_tabpage(tab)
-			end
-		end
-	end
-
-	require("kulala").replay()
-end, { desc = "Replay last request" })
+-- keymap.set("n", "kk", function()
+-- 	local tabs = vim.api.nvim_list_tabpages()
+--
+-- 	for _, tab in ipairs(tabs) do
+-- 		local windows = vim.api.nvim_tabpage_list_wins(tab)
+--
+-- 		for _, win in ipairs(windows) do
+-- 			local bufnr = vim.api.nvim_win_get_buf(win)
+-- 			local bufnr_name = vim.api.nvim_buf_get_name(bufnr)
+--
+-- 			if bufnr_name:match("http") then
+-- 				-- Switch to the current tab
+-- 				vim.api.nvim_set_current_tabpage(tab)
+-- 			end
+-- 		end
+-- 	end
+--
+-- 	require("kulala").replay()
+-- end, { desc = "Replay last request" })
 
 keymap.set("i", "nn", "<ESC>", { desc = "Exit insert mode with nn" })
 keymap.set("n", "<leader>q", ":nohl<CR>", { desc = "Clear search highlights" })

@@ -80,17 +80,20 @@ const rules = [
 
   rule("Chrome remaps", ifApp("com.google.Chrome")).manipulators([
     withCondition(ifApp("com.google.Chrome"))([
-      map("w", ["control"]).to("delete_or_backspace", ["option"]),
-      map("b", ["control", "option"]).to("d", ["command"]),
-      map("h", ["control"]).to("y", ["command"]),
-      map("d", ["control", "shift"]).to("i", ["option", "command"]),
-      map("i", ["control"]).to("right_arrow", ["command", "option"]),
-      map("m", ["control"]).to("left_arrow", ["command", "option"]),
-      map("x", ["control"]).to("w", ["command"]),
-      map("t", ["control"]).to("t", ["command"]),
-      map("semicolon", ["control"]).to("d", ["shift", "option"]),
+      map("b", ["control", "option"]).to("d", ["command"]), // add bookmark
+      map("h", ["control"]).to("y", ["command"]), // to history
+      map("d", ["control", "shift"]).to("i", ["option", "command"]), // devtools
+      map("i", ["control"]).to("right_arrow", ["command", "option"]), // to right tab
+      map("m", ["control"]).to("left_arrow", ["command", "option"]), // to left tab
+      map("x", ["control"]).to("w", ["command"]), // close tab
+      map("t", ["control"]).to("t", ["command"]), // new tab
+      map("keypad_plus", ["control"]).to("keypad_plus", ["command"]), // size +
+      map("keypad_hyphen", ["control"]).to("keypad_hyphen", ["command"]), // size -
+      map("semicolon", ["control"]).to("d", ["shift", "option"]), // dark mode
       map("t", ["command"]).toNone(),
       map("w", ["command"]).toNone(),
+      map("keypad_hyphen", ["command"]).toNone(),
+      map("keypad_plus", ["command"]).toNone(),
     ]),
   ]),
 
@@ -105,14 +108,6 @@ const rules = [
   ]),
 
   rule("Hold remaps").manipulators([
-    map("c")
-      .toIfAlone("c", [], { halt: true })
-      .toDelayedAction({ key_code: "vk_none" }, { key_code: "c" })
-      .toIfHeldDown("c", ["left_command"], { repeat: false }),
-    map("p")
-      .toIfAlone("p", [], { halt: true })
-      .toDelayedAction({ key_code: "vk_none" }, { key_code: "p" })
-      .toIfHeldDown("v", ["left_command"], { repeat: false }),
     map("f")
       .toIfAlone("f", [], { halt: true })
       .toDelayedAction({ key_code: "f" }, { key_code: "f" })
@@ -128,38 +123,6 @@ const rules = [
         "s",
         ["left_command", "left_option", "left_shift", "left_control"],
         { repeat: false },
-      ),
-  ]),
-
-  rule("Double tap q to escape").manipulators([
-    map("q", "optionalAny")
-      .condition(ifVar("q pressed", true))
-      .to("escape")
-      .toVar("q pressed", false),
-
-    map("q", "optionalAny")
-      .toVar("q pressed", true)
-      .toDelayedAction(
-        [
-          {
-            key_code: "q",
-            conditions: [
-              { type: "variable_if", name: "q pressed", value: true },
-            ],
-          },
-          { set_variable: { name: "q pressed", value: false } },
-        ],
-        [
-          {
-            key_code: "q",
-            conditions: [
-              { type: "variable_if", name: "q pressed", value: true },
-            ],
-          },
-          {
-            set_variable: { name: "q pressed", value: false },
-          },
-        ],
       ),
   ]),
 
@@ -179,7 +142,7 @@ const rules = [
 
   hyperLayer("f").configKey((v) => v.toIfAlone(toApp("Finder"))),
 
-  hyperLayer("h").configKey((v) => v.toIfAlone(toKey("return_or_enter"))),
+  hyperLayer("u").configKey((v) => v.toIfAlone(toApp("Mail"))),
 
   hyperLayer("m").configKey((v) => v.toIfAlone(toApp("Telegram"))),
 
@@ -237,6 +200,7 @@ const rules = [
   hyperLayer("n")
     .configKey((v) => v.toIfAlone(toApp("Numbers")))
     .manipulators([
+      map("s").to$("open https://google.com"),
       map("j").to$(
         "open https://scoutgaming.atlassian.net/jira/software/c/projects/SGG/boards/359?assignee=712020%3A8f6ea6b1-da5d-4291-a82e-dc862db5a1f0",
       ),

@@ -148,7 +148,7 @@ return {
 			},
 
 			{
-				"H",
+				"-",
 				function()
 					Snacks.explorer({
 						layout = { preset = "default", preview = true },

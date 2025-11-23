@@ -8,10 +8,12 @@ import {
   ifApp,
   ifDevice,
   ifInputSource,
-  toKey,
   to$,
   writeToProfile,
   ifVar,
+  FromKeyCode,
+  toSetVar,
+  BasicManipulatorBuilder,
 } from "karabiner.ts";
 
 import { init } from "./simple-remaps.ts";
@@ -26,6 +28,44 @@ function tmuxSession(name: string) {
   return `open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh ${name}`;
 }
 
+function doubleTapMapping(
+  from: FromKeyCode,
+  to: Parameters<BasicManipulatorBuilder["to"]>,
+  description: string,
+) {
+  const ifVarName = `${from} pressed`;
+
+  return [
+    map(from, "optionalAny")
+      .description(description)
+      .condition(ifVar(ifVarName, true))
+      .to(...to)
+      .toVar(ifVarName, false),
+
+    map(from, "optionalAny")
+      .toVar(ifVarName, true)
+      .condition(ifVar("shift pressed", false))
+      .toDelayedAction(
+        [
+          {
+            key_code: from as any,
+            conditions: [{ type: "variable_if", name: ifVarName, value: true }],
+          },
+          { set_variable: { name: ifVarName, value: false } },
+        ],
+        [
+          {
+            key_code: from as any,
+            conditions: [{ type: "variable_if", name: ifVarName, value: true }],
+          },
+          {
+            set_variable: { name: ifVarName, value: false },
+          },
+        ],
+      ),
+  ];
+}
+
 init();
 
 const rules = [
@@ -36,6 +76,25 @@ const rules = [
     map("z", ["shift", "control", "option"]).toInputSource({
       language: "en",
     }),
+  ]),
+
+  rule("Double tap remaps").manipulators([
+    // I had tried to implement double taps with zmk tap-dance first.
+    // It has some limitations with shift key: https://github.com/zmkfirmware/zmk/issues/1588
+    // I want capitalized letters to be entered immediately.
+    // That's why here is an additional "shift pressed variable"
+    map("left_shift")
+      .toVar("shift pressed", true)
+      .to("left_shift")
+      .toAfterKeyUp(toSetVar("shift pressed", false)),
+    map("right_shift")
+      .toVar("shift pressed", true)
+      .to("right_shift")
+      .toAfterKeyUp(toSetVar("shift pressed", false)),
+
+    ...doubleTapMapping("q", ["escape"], "Double tap q to escape"),
+    ...doubleTapMapping("c", ["c", ["command"]], "Double tap c to copy"),
+    ...doubleTapMapping("v", ["v", ["command"]], "Double tap v to paste"),
   ]),
 
   rule("keypad comma/period to comma/period").manipulators([

@@ -29,311 +29,6 @@
                         ]
                     },
                     {
-                        "description": "Double tap remaps",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "left_shift" },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": true
-                                        }
-                                    },
-                                    { "key_code": "left_shift" }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": { "key_code": "right_shift" },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": true
-                                        }
-                                    },
-                                    { "key_code": "right_shift" }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "q pressed",
-                                        "type": "variable_if",
-                                        "value": true
-                                    }
-                                ],
-                                "description": "Double tap q to escape",
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    { "key_code": "escape" },
-                                    {
-                                        "set_variable": {
-                                            "name": "q pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift pressed",
-                                        "type": "variable_if",
-                                        "value": false
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "q pressed",
-                                            "value": true
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "q pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "q"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "q pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "q pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "q"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "q pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "c pressed",
-                                        "type": "variable_if",
-                                        "value": true
-                                    }
-                                ],
-                                "description": "Double tap c to copy",
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "c",
-                                        "modifiers": ["command"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "c pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift pressed",
-                                        "type": "variable_if",
-                                        "value": false
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "c pressed",
-                                            "value": true
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "c pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "c"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "c pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "c pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "c"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "c pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "v pressed",
-                                        "type": "variable_if",
-                                        "value": true
-                                    }
-                                ],
-                                "description": "Double tap v to paste",
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": ["command"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "v pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift pressed",
-                                        "type": "variable_if",
-                                        "value": false
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "v pressed",
-                                            "value": true
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "v pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "v"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "v pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "v pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "v"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "v pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "keypad comma/period to comma/period",
                         "manipulators": [
                             {
@@ -782,6 +477,33 @@
                     {
                         "description": "Chrome remaps",
                         "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "conditions": [
                                     {
@@ -3321,311 +3043,6 @@
                         ]
                     },
                     {
-                        "description": "Double tap remaps",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "left_shift" },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": true
-                                        }
-                                    },
-                                    { "key_code": "left_shift" }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": { "key_code": "right_shift" },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": true
-                                        }
-                                    },
-                                    { "key_code": "right_shift" }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "q pressed",
-                                        "type": "variable_if",
-                                        "value": true
-                                    }
-                                ],
-                                "description": "Double tap q to escape",
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    { "key_code": "escape" },
-                                    {
-                                        "set_variable": {
-                                            "name": "q pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift pressed",
-                                        "type": "variable_if",
-                                        "value": false
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "q pressed",
-                                            "value": true
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "q pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "q"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "q pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "q pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "q"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "q pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "c pressed",
-                                        "type": "variable_if",
-                                        "value": true
-                                    }
-                                ],
-                                "description": "Double tap c to copy",
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "c",
-                                        "modifiers": ["command"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "c pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift pressed",
-                                        "type": "variable_if",
-                                        "value": false
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "c",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "c pressed",
-                                            "value": true
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "c pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "c"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "c pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "c pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "c"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "c pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "v pressed",
-                                        "type": "variable_if",
-                                        "value": true
-                                    }
-                                ],
-                                "description": "Double tap v to paste",
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": ["command"]
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "v pressed",
-                                            "value": false
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift pressed",
-                                        "type": "variable_if",
-                                        "value": false
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "v pressed",
-                                            "value": true
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "v pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "v"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "v pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ],
-                                    "to_if_invoked": [
-                                        {
-                                            "conditions": [
-                                                {
-                                                    "name": "v pressed",
-                                                    "type": "variable_if",
-                                                    "value": true
-                                                }
-                                            ],
-                                            "key_code": "v"
-                                        },
-                                        {
-                                            "set_variable": {
-                                                "name": "v pressed",
-                                                "value": false
-                                            }
-                                        }
-                                    ]
-                                },
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "keypad comma/period to comma/period",
                         "manipulators": [
                             {
@@ -4074,6 +3491,33 @@
                     {
                         "description": "Chrome remaps",
                         "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "com.google.Chrome"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "w",
+                                    "modifiers": { "mandatory": ["control"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "conditions": [
                                     {

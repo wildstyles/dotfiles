@@ -114,6 +114,11 @@
                                         "value": false
                                     },
                                     {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "first",
                                         "type": "variable_if",
                                         "value": 0
@@ -206,6 +211,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -303,6 +313,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -2499,7 +2514,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "i",
+                                    "key_code": "z",
                                     "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
@@ -4545,6 +4560,11 @@
                                         "value": false
                                     },
                                     {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "first",
                                         "type": "variable_if",
                                         "value": 0
@@ -4637,6 +4657,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -4734,6 +4759,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -6930,7 +6960,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "u",
+                                    "key_code": "z",
                                     "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
@@ -9118,6 +9148,11 @@
                                         "value": false
                                     },
                                     {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "first",
                                         "type": "variable_if",
                                         "value": 0
@@ -9210,6 +9245,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -9307,6 +9347,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -11503,7 +11548,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "u",
+                                    "key_code": "z",
                                     "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
@@ -13570,6 +13615,11 @@
                                         "value": false
                                     },
                                     {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    },
+                                    {
                                         "name": "first",
                                         "type": "variable_if",
                                         "value": 0
@@ -13662,6 +13712,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -13759,6 +13814,11 @@
                                         "name": "shift pressed",
                                         "type": "variable_if",
                                         "value": false
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 0
                                     },
                                     {
                                         "name": "first",
@@ -15955,7 +16015,7 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "i",
+                                    "key_code": "z",
                                     "modifiers": { "mandatory": ["control"] }
                                 },
                                 "to": [
@@ -17882,16 +17942,6 @@
                         "vendor_id": 7504
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": false,
-                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Default profile UK",

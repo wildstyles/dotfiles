@@ -56,6 +56,7 @@ function doubleTapMapping(
       .toVar(ifVarName, true)
       .condition(
         ifVar("shift pressed", false),
+        ifVar("layer-s", 0),
         ifVar("first", 0),
         ifVar("second", 0),
       )
@@ -255,7 +256,7 @@ const generateRules = (lang: "en" | "uk") => [
         "option",
         "shift",
       ]),
-      map(key("u", lang), ["control"]).to("z", ["command"]),
+      map(key("z", lang), ["control"]).to("z", ["command"]),
       map(key("w", lang), ["control"]).to("delete_or_backspace", ["option"]),
     ]),
   ]),

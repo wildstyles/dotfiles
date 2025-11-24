@@ -11,12 +11,15 @@ import {
   to$,
   writeToProfile,
   ifVar,
+  layer,
+  ToEvent,
+  FromAndToKeyCode,
   FromKeyCode,
   toSetVar,
   BasicManipulatorBuilder,
 } from "karabiner.ts";
 
-import { init } from "./simple-remaps.ts";
+import { colemakToQwerty, init } from "./simple-remaps.ts";
 
 const scriptsDir = "~/Projects/dotfiles/scripts";
 
@@ -27,6 +30,13 @@ function rectangle(name: string) {
 function tmuxSession(name: string) {
   return `open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh ${name}`;
 }
+
+const isCharibdisDevice = () =>
+  ifDevice({ product_id: 24926, vendor_id: 7504 });
+const isLaptopDevice = () => ifDevice({ product_id: 835, vendor_id: 1452 });
+
+const isEnInputSource = () => ifInputSource({ language: "en" });
+const isUkInputSource = () => ifInputSource({ language: "uk" });
 
 function doubleTapMapping(
   from: FromKeyCode,
@@ -44,7 +54,11 @@ function doubleTapMapping(
 
     map(from, "optionalAny")
       .toVar(ifVarName, true)
-      .condition(ifVar("shift pressed", false))
+      .condition(
+        ifVar("shift pressed", false),
+        ifVar("first", 0),
+        ifVar("second", 0),
+      )
       .toDelayedAction(
         [
           {
@@ -66,16 +80,82 @@ function doubleTapMapping(
   ];
 }
 
+const layer1Remaps: Partial<Record<FromAndToKeyCode, ToEvent>> = {
+  w: { key_code: "1" },
+  f: { key_code: "2" },
+  p: { key_code: "3" },
+  r: { key_code: "4" },
+  s: { key_code: "5" },
+  t: { key_code: "6" },
+  x: { key_code: "7" },
+  c: { key_code: "8" },
+  d: { key_code: "9" },
+  v: { key_code: "0" },
+  q: { key_code: "non_us_backslash", modifiers: ["shift"] },
+  b: { key_code: "non_us_backslash" },
+  a: { key_code: "tab" },
+  z: { key_code: "hyphen", modifiers: ["shift"] },
+  g: { key_code: "equal_sign" },
+
+  m: { key_code: "left_arrow" },
+  n: { key_code: "down_arrow" },
+  e: { key_code: "up_arrow" },
+  i: { key_code: "right_arrow" },
+  j: { key_code: "quote" },
+  l: { key_code: "9", modifiers: ["shift"] },
+  u: { key_code: "0", modifiers: ["shift"] },
+  y: { key_code: "open_bracket" },
+  o: { key_code: "quote" },
+  k: { key_code: "keypad_hyphen" },
+  h: { key_code: "open_bracket", modifiers: ["shift"] },
+  slash: { key_code: "slash", modifiers: ["shift"] },
+  comma: { key_code: "close_bracket", modifiers: ["shift"] },
+  // period: {},
+  semicolon: { key_code: "close_bracket" },
+};
+
+const layer2Remaps: Partial<Record<FromAndToKeyCode, ToEvent>> = {
+  a: { key_code: "1", modifiers: ["shift"] },
+  r: { key_code: "2", modifiers: ["shift"] },
+  s: { key_code: "3", modifiers: ["shift"] },
+  t: { key_code: "6", modifiers: ["shift"] },
+  g: { key_code: "5", modifiers: ["shift"] },
+
+  m: { key_code: "5", modifiers: ["shift"] },
+  n: { key_code: "7", modifiers: ["shift"] },
+  e: { key_code: "8", modifiers: ["shift"] },
+  i: { key_code: "hyphen", modifiers: ["shift"] },
+  o: { key_code: "4", modifiers: ["shift"] },
+
+  y: { key_code: "backslash", modifiers: ["shift"] },
+  semicolon: { key_code: "backslash" },
+  k: { key_code: "keypad_equal_sign" },
+  h: { key_code: "open_bracket", modifiers: ["shift"] },
+  comma: { key_code: "comma", modifiers: ["shift"] },
+  period: { key_code: "period", modifiers: ["shift"] },
+  slash: { key_code: "slash" },
+};
+
 init();
 
-const rules = [
+const key = (k: FromAndToKeyCode, lang: "en" | "uk"): any => {
+  if (lang === "en" || !colemakToQwerty[k]) return k;
+
+  return colemakToQwerty[k];
+};
+
+const generateRules = (lang: "en" | "uk") => [
   rule("Language remaps").manipulators([
-    map("x", ["shift", "control", "option"]).toInputSource({
-      language: "uk",
-    }),
-    map("z", ["shift", "control", "option"]).toInputSource({
-      language: "en",
-    }),
+    map("x", ["shift", "control", "option"])
+      .to$(`${scriptsDir}/switch-language.sh UK`)
+      .toInputSource({
+        language: "uk",
+      }),
+    map("z", ["shift", "control", "option"])
+      .to$(`${scriptsDir}/switch-language.sh EN`)
+      .toInputSource({
+        language: "en",
+      }),
   ]),
 
   rule("Double tap remaps").manipulators([
@@ -92,9 +172,12 @@ const rules = [
       .to("right_shift")
       .toAfterKeyUp(toSetVar("shift pressed", false)),
 
+    ...(lang === "en"
+      ? doubleTapMapping("v", ["v", ["command"]], "Double tap v to paste")
+      : doubleTapMapping("b", ["v", ["command"]], "Double tap v to paste")),
+
     ...doubleTapMapping("q", ["escape"], "Double tap q to escape"),
     ...doubleTapMapping("c", ["c", ["command"]], "Double tap c to copy"),
-    ...doubleTapMapping("v", ["v", ["command"]], "Double tap v to paste"),
   ]),
 
   rule("keypad comma/period to comma/period").manipulators([
@@ -104,65 +187,76 @@ const rules = [
     map("f1", ["shift", "control", "option"]).to("6", ["shift"]),
   ]),
 
-  rule("Colemak charbdis remap on UK").manipulators([
-    withCondition(
-      ifDevice({ product_id: 24926, vendor_id: 7504 }),
-      ifInputSource({
-        language: "uk",
-      }),
-    )([
-      withMapper({
-        r: "s",
-        s: "d",
-        t: "f",
-        f: "e",
-        p: "r",
-        b: "t",
-        d: "v",
-        v: "b",
-
-        j: "y",
-        l: "u",
-        u: "i",
-        y: "o",
-        semicolon: "p",
-        m: "h",
-        n: "j",
-        e: "k",
-        i: "l",
-        o: "semicolon",
-        k: "n",
-        h: "m",
-      })((k, v) => map(k).to(v as any)),
+  rule("Laptop remaps").manipulators([
+    withCondition(isLaptopDevice())([
+      map("spacebar", "optionalAny")
+        .parameters({ "basic.to_if_held_down_threshold_milliseconds": 0 })
+        .toIfAlone("spacebar", [], { halt: true })
+        .toIfHeldDown("left_control"),
+      map("z", "optionalAny")
+        .parameters({ "basic.to_if_held_down_threshold_milliseconds": 0 })
+        .toIfAlone("z", [], { halt: true })
+        .toIfHeldDown("left_shift"),
+      map("slash", "optionalAny")
+        .parameters({ "basic.to_if_held_down_threshold_milliseconds": 0 })
+        .toIfAlone("slash", [], { halt: true })
+        .toIfHeldDown("left_shift"),
     ]),
   ]),
 
+  layer([key("r", lang), key("i", lang)], "first")
+    .modifiers("??")
+    .condition(isLaptopDevice())
+    .manipulators([
+      withMapper(layer1Remaps)((k, v) => map(key(k, lang)).to(v)),
+    ]),
+
+  layer([key("x", lang), key("period", lang)], "second")
+    .modifiers("??")
+    .condition(isLaptopDevice())
+    .manipulators([
+      withMapper(layer2Remaps)((k, v) => map(key(k, lang)).to(v)),
+      map(key("q", lang)).toConsumerKey("volume_decrement"),
+      map(key("b", lang)).toConsumerKey("volume_increment"),
+      map(key("z", lang)).toConsumerKey("display_brightness_decrement"),
+      map(key("v", lang)).toConsumerKey("display_brightness_increment"),
+    ]),
+
   rule("Chrome remaps", ifApp("com.google.Chrome")).manipulators([
     withCondition(ifApp("com.google.Chrome"))([
-      map("b", ["control", "option"]).to("d", ["command"]), // add bookmark
-      map("h", ["control"]).to("y", ["command"]), // to history
-      map("d", ["control", "shift"]).to("i", ["option", "command"]), // devtools
-      map("i", ["control"]).to("right_arrow", ["command", "option"]), // to right tab
-      map("m", ["control"]).to("left_arrow", ["command", "option"]), // to left tab
-      map("x", ["control"]).to("w", ["command"]), // close tab
-      map("t", ["control"]).to("t", ["command"]), // new tab
-      map("keypad_plus", ["control"]).to("keypad_plus", ["command"]), // size +
-      map("keypad_hyphen", ["control"]).to("keypad_hyphen", ["command"]), // size -
-      map("semicolon", ["control"]).to("d", ["shift", "option"]), // dark mode
-      map("t", ["command"]).toNone(),
-      map("w", ["command"]).toNone(),
-      map("keypad_hyphen", ["command"]).toNone(),
-      map("keypad_plus", ["command"]).toNone(),
+      map(key("b", lang), ["control", "option"]).to("d", ["command"]), // add bookmark
+      map(key("h", lang), ["control"]).to("y", ["command"]), // to history
+      map(key("d", lang), ["control", "shift"]).to("i", ["option", "command"]), // devtools
+      map(key("i", lang), ["control"]).to("right_arrow", ["command", "option"]), // to right tab
+      map(key("m", lang), ["control"]).to("left_arrow", ["command", "option"]), // to left tab
+      map(key("x", lang), ["control"]).to("w", ["command"]), // close tab
+      map(key("t", lang), ["control"]).to("t", ["command"]), // new tab
+      map(key("keypad_plus", lang), ["control"]).to("keypad_plus", ["command"]), // size +
+      map(key("keypad_hyphen", lang), ["control"]).to("keypad_hyphen", [
+        "command",
+      ]), // size -
+      map(key("semicolon", lang), ["control"]).to("d", ["shift", "option"]), // dark mode
+      map(key("t", lang), ["command"]).toNone(),
+      map(key("w", lang), ["command"]).toNone(),
+      map(key("keypad_hyphen", lang), ["command"]).toNone(),
+      map(key("keypad_plus", lang), ["command"]).toNone(),
     ]),
   ]),
 
   rule("Navigation remaps").manipulators([
     withCondition(ifApp("^com\\.github\\.wez\\.wezterm$").unless())([
-      map("b", ["control"]).to("left_arrow", ["option"]),
-      map("b", ["control", "shift"]).to("left_arrow", ["option", "shift"]),
-      map("e", ["control"]).to("right_arrow", ["option"]),
-      map("e", ["control", "shift"]).to("right_arrow", ["option", "shift"]),
-      map("w", ["control"]).to("delete_or_backspace", ["option"]),
+      map(key("b", lang), ["control"]).to("left_arrow", ["option"]),
+      map(key("b", lang), ["control", "shift"]).to("left_arrow", [
+        "option",
+        "shift",
+      ]),
+      map(key("e", lang), ["control"]).to("right_arrow", ["option"]),
+      map(key("e", lang), ["control", "shift"]).to("right_arrow", [
+        "option",
+        "shift",
+      ]),
+      map(key("u", lang), ["control"]).to("z", ["command"]),
+      map(key("w", lang), ["control"]).to("delete_or_backspace", ["option"]),
     ]),
   ]),
 
@@ -199,37 +293,55 @@ const rules = [
 
   hyperLayer(1).configKey((v) => v.toIfAlone(toApp("1Password"))),
 
-  hyperLayer("f").configKey((v) => v.toIfAlone(toApp("Finder"))),
+  hyperLayer(key("f", lang)).configKey((v) => v.toIfAlone(toApp("Finder"))),
 
-  hyperLayer("u").configKey((v) => v.toIfAlone(toApp("Mail"))),
+  hyperLayer(key("u", lang)).configKey((v) => v.toIfAlone(toApp("Mail"))),
 
-  hyperLayer("m").configKey((v) => v.toIfAlone(toApp("Telegram"))),
+  hyperLayer(key("m", lang)).configKey((v) => v.toIfAlone(toApp("Telegram"))),
 
-  hyperLayer("g").configKey((v) => v.toIfAlone(toApp("Google Chrome"))),
+  hyperLayer(key("g", lang)).configKey((v) =>
+    v.toIfAlone(toApp("Google Chrome")),
+  ),
 
-  hyperLayer("v").configKey((v) => v.toIfAlone(toApp("Visual Studio Code"))),
+  hyperLayer(key("v", lang)).configKey((v) =>
+    v.toIfAlone(toApp("Visual Studio Code")),
+  ),
 
-  hyperLayer("c").configKey((v) => v.toIfAlone(toApp("WezTerm"))),
+  hyperLayer(key("c", lang)).configKey((v) => v.toIfAlone(toApp("WezTerm"))),
 
-  hyperLayer("d").configKey((v) => v.toIfAlone(toApp("Docker Desktop"))),
+  hyperLayer(key("d", lang)).configKey((v) =>
+    v.toIfAlone(toApp("Docker Desktop")),
+  ),
 
-  hyperLayer("o").configKey((v) => v.toIfAlone(toApp("MongoDB Compass"))),
+  hyperLayer(key("o", lang)).configKey((v) =>
+    v.toIfAlone(toApp("MongoDB Compass")),
+  ),
 
-  hyperLayer("a").configKey((v) => v.toIfAlone(toApp("Activity Monitor"))),
+  hyperLayer(key("a", lang)).configKey((v) =>
+    v.toIfAlone(toApp("Activity Monitor")),
+  ),
 
-  hyperLayer("b").configKey((v) => v.toIfAlone(toApp("Karabiner-Elements"))),
+  hyperLayer(key("b", lang)).configKey((v) =>
+    v.toIfAlone(toApp("Karabiner-Elements")),
+  ),
 
-  hyperLayer("k").configKey((v) => v.toIfAlone(toApp("Karabiner-EventViewer"))),
+  hyperLayer(key("k", lang)).configKey((v) =>
+    v.toIfAlone(toApp("Karabiner-EventViewer")),
+  ),
 
-  hyperLayer("i").configKey((v) => v.toIfAlone(toApp("Discord"))),
+  hyperLayer(key("i", lang)).configKey((v) => v.toIfAlone(toApp("Discord"))),
 
-  hyperLayer("z").configKey((v) => v.toIfAlone(toApp("zoom.us"))),
+  hyperLayer(key("z", lang)).configKey((v) => v.toIfAlone(toApp("zoom.us"))),
 
-  hyperLayer("t").configKey((v) => v.toIfAlone(to$(tmuxSession("scout")))),
+  hyperLayer(key("t", lang)).configKey((v) =>
+    v.toIfAlone(to$(tmuxSession("scout"))),
+  ),
 
-  hyperLayer("x").configKey((v) => v.toIfAlone(to$(tmuxSession("dotfiles")))),
+  hyperLayer(key("x", lang)).configKey((v) =>
+    v.toIfAlone(to$(tmuxSession("dotfiles"))),
+  ),
 
-  hyperLayer("s")
+  hyperLayer(key("s", lang))
     .configKey((v) => v.toIfAlone(toApp("Slack")))
     .manipulators([
       map("a").to$(`${scriptsDir}/switch-audio-source.sh`),
@@ -241,14 +353,14 @@ const rules = [
       map("b").to("b", ["command", "shift", "option", "control"]),
     ]),
 
-  hyperLayer("y")
+  hyperLayer(key("y", lang))
     .configKey((v) => v.toIfAlone(toApp("System Settings")))
     .manipulators([
       map("s").to$(`${scriptsDir}/toggle-time-tracking.sh "Scout"`),
       map("t").to$(`${scriptsDir}/toggle-time-tracking.sh "Training"`),
     ]),
 
-  hyperLayer("l").manipulators([
+  hyperLayer(key("l", lang)).manipulators([
     map("p").to$("open https://gitlab.com/scout-gg/api/globpay"),
     map("s").to$("open https://gitlab.com/scout-gg/api/scott"),
     map("g").to$("open https://gitlab.com/scout-gg/api/game-server"),
@@ -256,7 +368,7 @@ const rules = [
     map("f").to$("open https://gitlab.com/scout-gg/frontend/sgg-frontend"),
   ]),
 
-  hyperLayer("n")
+  hyperLayer(key("n", lang))
     .configKey((v) => v.toIfAlone(toApp("Numbers")))
     .manipulators([
       map("s").to$("open https://google.com"),
@@ -274,7 +386,7 @@ const rules = [
       map("o").to$("open https://olx.ua"),
     ]),
 
-  hyperLayer("w").manipulators([
+  hyperLayer(key("w", lang)).manipulators([
     map("t").to$(`${scriptsDir}/adjust-rectangle-padding.sh`),
     map("s").to$(`${scriptsDir}/switch-interface-scaling.sh`),
     map("f").to$(rectangle("maximize")),
@@ -282,7 +394,7 @@ const rules = [
     map("i").to$(rectangle("right-half")),
   ]),
 
-  hyperLayer("p")
+  hyperLayer(key("p", lang))
     .configKey((v) => v.toIfAlone(toApp("Postman")))
     .manipulators([
       map("a").to$(
@@ -293,7 +405,7 @@ const rules = [
       ),
     ]),
 
-  hyperLayer("e")
+  hyperLayer(key("e", lang))
     .configKey((v) => v.toIfAlone(toApp("DBeaver")))
     .manipulators([
       map("l").to$(`${scriptsDir}/run-scout.sh local`),
@@ -305,11 +417,11 @@ const rules = [
 
 writeToProfile(
   {
-    name: "Default profile",
+    name: "Default profile EN",
     karabinerJsonPath:
       "/Users/ruslanvanzula/Projects/dotfiles/.config/karabiner/karabiner.json",
   },
-  rules,
+  generateRules("en"),
   {
     "basic.to_if_alone_timeout_milliseconds": 250,
     "basic.to_if_held_down_threshold_milliseconds": 250,
@@ -318,11 +430,37 @@ writeToProfile(
 
 writeToProfile(
   {
-    name: "Laptop profile",
+    name: "Default profile UK",
     karabinerJsonPath:
       "/Users/ruslanvanzula/Projects/dotfiles/.config/karabiner/karabiner.json",
   },
-  rules,
+  generateRules("uk"),
+  {
+    "basic.to_if_alone_timeout_milliseconds": 250,
+    "basic.to_if_held_down_threshold_milliseconds": 250,
+  },
+);
+
+writeToProfile(
+  {
+    name: "Laptop profile EN",
+    karabinerJsonPath:
+      "/Users/ruslanvanzula/Projects/dotfiles/.config/karabiner/karabiner.json",
+  },
+  generateRules("en"),
+  {
+    "basic.to_if_alone_timeout_milliseconds": 250,
+    "basic.to_if_held_down_threshold_milliseconds": 250,
+  },
+);
+
+writeToProfile(
+  {
+    name: "Laptop profile UK",
+    karabinerJsonPath:
+      "/Users/ruslanvanzula/Projects/dotfiles/.config/karabiner/karabiner.json",
+  },
+  generateRules("uk"),
   {
     "basic.to_if_alone_timeout_milliseconds": 250,
     "basic.to_if_held_down_threshold_milliseconds": 250,

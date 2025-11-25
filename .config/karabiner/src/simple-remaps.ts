@@ -1,10 +1,29 @@
-import { KeyCode, FromAndToKeyCode } from "karabiner.ts";
+import {
+  KeyCode,
+  FromAndToKeyCode,
+  ifDevice,
+  ifInputSource,
+} from "karabiner.ts";
 import fs from "node:fs";
 
 export const createSimpleRemap = (from: KeyCode, to: KeyCode) => ({
   from: { key_code: from, modifiers: { optional: ["any"] } },
   to: [{ key_code: to }],
 });
+
+export const key = (k: FromAndToKeyCode, lang: "en" | "uk"): any => {
+  if (lang === "en" || !colemakToQwerty[k]) return k;
+
+  return colemakToQwerty[k];
+};
+
+export const ifCharibdisDevice = () =>
+  ifDevice({ product_id: 24926, vendor_id: 7504 });
+export const ifLaptopDevice = () =>
+  ifDevice({ product_id: 835, vendor_id: 1452 });
+
+export const ifEnInputSource = () => ifInputSource({ language: "en" });
+export const ifUkInputSource = () => ifInputSource({ language: "uk" });
 
 export const qwertyToColemak: Partial<
   Record<FromAndToKeyCode, FromAndToKeyCode>
@@ -57,20 +76,6 @@ const charibdisSimpleEnRemaps = [
   },
 ];
 
-const charibdisSimpleUkRemaps = [
-  {
-    from: { key_code: "grave_accent_and_tilde" },
-    to: [{ key_code: "non_us_backslash" }],
-  },
-  {
-    from: { key_code: "non_us_backslash" },
-    to: [{ key_code: "grave_accent_and_tilde" }],
-  },
-  ...Object.entries(colemakToQwerty).map(([from, to]) =>
-    createSimpleRemap(from as KeyCode, to),
-  ),
-];
-
 export function init() {
   fs.writeFileSync(
     "karabiner.json",
@@ -120,26 +125,9 @@ export function init() {
                 manipulate_caps_lock_led: false,
               },
             ],
-            name: "Default profile EN",
+            name: "Default profile",
             selected: true,
             simple_modifications: charibdisSimpleEnRemaps,
-
-            virtual_hid_keyboard: { keyboard_type_v2: "iso" },
-          },
-
-          {
-            devices: [
-              {
-                identifiers: {
-                  is_keyboard: true,
-                  product_id: 24926,
-                  vendor_id: 7504,
-                },
-                manipulate_caps_lock_led: false,
-              },
-            ],
-            name: "Default profile UK",
-            simple_modifications: charibdisSimpleUkRemaps,
 
             virtual_hid_keyboard: { keyboard_type_v2: "iso" },
           },

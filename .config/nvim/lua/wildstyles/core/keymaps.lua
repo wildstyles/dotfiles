@@ -135,7 +135,7 @@ keymap.set("n", "<Space>", "a <Esc>", { desc = "Insert space at cursor" })
 -- 	require("kulala").replay()
 -- end, { desc = "Replay last request" })
 
-keymap.set("i", "nn", "<ESC>", { desc = "Exit insert mode with nn" })
+-- keymap.set("i", "nn", "<ESC>", { desc = "Exit insert mode with nn" })
 keymap.set("n", "<leader>q", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<C-q>", ":qa!<CR>", { desc = "Quit" })
 keymap.set("i", "<C-q>", "<Esc>:qa!<CR>", { desc = "Quit" })

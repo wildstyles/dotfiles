@@ -1,9 +1,11 @@
 import {
   map,
+  ifVar,
   rule,
   withMapper,
   withCondition,
   layer,
+  simlayer,
   ToEvent,
   FromAndToKeyCode,
 } from "karabiner.ts";
@@ -56,7 +58,6 @@ const layer2Remaps: Partial<Record<FromAndToKeyCode, ToEvent>> = {
   e: { key_code: "8", modifiers: ["shift"] },
   i: { key_code: "hyphen", modifiers: ["shift"] },
   o: { key_code: "4", modifiers: ["shift"] },
-
   y: { key_code: "backslash", modifiers: ["shift"] },
   semicolon: { key_code: "backslash" },
   k: { key_code: "keypad_equal_sign" },
@@ -65,6 +66,16 @@ const layer2Remaps: Partial<Record<FromAndToKeyCode, ToEvent>> = {
   period: { key_code: "period", modifiers: ["shift"] },
   slash: { key_code: "slash" },
 };
+
+const layer1First = Object.fromEntries(
+  Object.entries(layer1Remaps).slice(0, 15),
+);
+const layer1Second = Object.fromEntries(Object.entries(layer1Remaps).slice(15));
+
+const layer2First = Object.fromEntries(
+  Object.entries(layer2Remaps).slice(0, 5),
+);
+const layer2Second = Object.fromEntries(Object.entries(layer2Remaps).slice(5));
 
 export const generateLaptopRules = (lang: "en" | "uk") => [
   rule("Laptop remaps").manipulators([
@@ -84,21 +95,43 @@ export const generateLaptopRules = (lang: "en" | "uk") => [
     ]),
   ]),
 
-  layer([key("r", lang), key("i", lang)], "first")
-    .modifiers("??")
-    .condition(ifLaptopDevice())
-    .manipulators([
-      withMapper(layer1Remaps)((k, v) => map(key(k, lang)).to(v)),
-    ]),
+  // layer([key("r", lang), key("i", lang)], "first")
+  //   .delay(100)
+  //   // .modifiers("??")
+  //   // .condition(ifLaptopDevice(), ifVar("caps", 0))
+  //   .condition(ifLaptopDevice())
+  //   .manipulators([
+  //     withMapper(layer1Remaps as any)((k, v) => map(key(k, lang)).to(v)),
+  //   ]),
 
-  layer([key("x", lang), key("period", lang)], "second")
-    .modifiers("??")
-    .condition(ifLaptopDevice())
-    .manipulators([
-      withMapper(layer2Remaps)((k, v) => map(key(k, lang)).to(v)),
-      map(key("q", lang)).toConsumerKey("volume_decrement"),
-      map(key("b", lang)).toConsumerKey("volume_increment"),
-      map(key("z", lang)).toConsumerKey("display_brightness_decrement"),
-      map(key("v", lang)).toConsumerKey("display_brightness_increment"),
-    ]),
+  // layer(key("i", lang), "first")
+  //   .delay(100)
+  //   .modifiers("??")
+  //   // .condition(ifLaptopDevice(), ifVar("caps", 0))
+  //   .condition(ifLaptopDevice())
+  //   .manipulators([
+  //     withMapper(layer1First as any)((k, v) => map(key(k, lang)).to(v)),
+  //   ]),
+
+  // layer([key("x", lang), key("period", lang)], "second")
+  //   .delay(100)
+  //   // .modifiers("??")
+  //   // .condition(ifLaptopDevice(), ifVar("caps", 0))
+  //   .condition(ifLaptopDevice())
+  //   .manipulators([
+  //     withMapper(layer2Remaps as any)((k, v) => map(key(k, lang)).to(v)),
+  //   ]),
+
+  // layer(key("period", lang), "second")
+  //   .delay(100)
+  //   .modifiers("??")
+  //   .condition(ifLaptopDevice())
+  //   // .condition(ifLaptopDevice(), ifVar("caps", 0))
+  //   .manipulators([
+  //     withMapper(layer2First as any)((k, v) => map(key(k, lang)).to(v)),
+  //     map(key("q", lang)).toConsumerKey("volume_decrement"),
+  //     map(key("b", lang)).toConsumerKey("volume_increment"),
+  //     map(key("z", lang)).toConsumerKey("display_brightness_decrement"),
+  //     map(key("v", lang)).toConsumerKey("display_brightness_increment"),
+  //   ]),
 ];

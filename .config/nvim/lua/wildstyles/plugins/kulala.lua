@@ -25,18 +25,35 @@ local function scroll_to_end_of_file()
 	vim.api.nvim_win_set_cursor(0, { total_lines + #lines_to_add, 0 })
 end
 
-local function print_http_spec(spec, curl)
+local function filter_headers(headers, allowed_headers)
+	if not allowed_headers then
+		return headers
+	end
+
+	local function is_allowed_header(header_key)
+		for _, allowed_key in ipairs(allowed_headers) do
+			if header_key == allowed_key then
+				return true
+			end
+		end
+		return false
+	end
+
+	return vim.tbl_filter(is_allowed_header, headers)
+end
+
+local function print_http_spec(spec, curl, allowed_headers)
 	local lines = {}
 
 	table.insert(lines, "### " .. curl)
 	table.insert(lines, " ")
 
-	local url = spec.method .. " " .. spec.url
-	url = spec.http_version ~= "" and url .. " " .. spec.http_version or url
+	local url = spec.method .. " " .. spec.url .. " " .. "HTTP/1.1"
+	-- url = spec.http_version ~= "" and url .. " " .. spec.http_versio or url
 
 	table.insert(lines, url)
 
-	local headers = vim.tbl_keys(spec.headers)
+	local headers = filter_headers(vim.tbl_keys(spec.headers), allowed_headers)
 	table.sort(headers)
 
 	vim.iter(headers):each(function(header)
@@ -56,6 +73,17 @@ local function print_http_spec(spec, curl)
 
 	scroll_to_end_of_file()
 	vim.api.nvim_put(lines, "l", false, false)
+end
+
+local function paste_from_curl(allowed_headers)
+	local CURL_PARSER = require("kulala.parser.curl")
+	local clipboard = vim.fn.getreg("+")
+	local spec, curl = CURL_PARSER.parse(clipboard)
+
+	print_http_spec(spec, curl, allowed_headers)
+	vim.cmd("normal! zz")
+	vim.cmd("update")
+	vim.cmd("normal! 2j")
 end
 
 return {
@@ -86,19 +114,23 @@ return {
 				end,
 				ft = { "http", "rest" },
 			},
+			["Paste from curl stripped"] = {
+				"p",
+				function()
+					paste_from_curl({
+						"accept",
+						"authorization",
+						"content-type",
+					})
+				end,
+				ft = { "http", "rest" },
+			},
 			["Paste from curl"] = {
 				"c",
 				function()
-					local CURL_PARSER = require("kulala.parser.curl")
-					local clipboard = vim.fn.getreg("+")
-					local spec, curl = CURL_PARSER.parse(clipboard)
-
-					print_http_spec(spec, curl)
-					vim.cmd("normal! zz")
+					paste_from_curl()
 				end,
-				-- mode = { "n", "v" }, -- optional mode, default is n
 				ft = { "http", "rest" },
-				desc = "Send request changed description", -- optional description, otherwise inferred from the key
 			},
 			["Send request"] = { -- sets global mapping
 				"<CR>",

@@ -20,6 +20,7 @@ import {
   key,
   colemakToQwerty,
   init,
+  ifEnInputSource,
 } from "./simple-remaps.ts";
 import { generateLaptopRules } from "./laptop-remaps.ts";
 
@@ -115,22 +116,47 @@ const generateRules = (lang: "en" | "uk") => [
   rule("keypad comma/period to comma/period").manipulators([
     map("keypad_comma").to("comma"),
     map("keypad_period").to("period"),
-    map("f2", ["shift", "control", "option"]).to("7", ["shift"]),
-    map("f1", ["shift", "control", "option"]).to("6", ["shift"]),
+    map("f2", ["shift", "control", "option"])
+      .condition(ifUkInputSource())
+      .to("7", ["shift"]),
+    map("f1", ["shift", "control", "option"])
+      .condition(ifUkInputSource())
+      .to("6", ["shift"]),
+
+    map("f2", ["shift", "control", "option"])
+      .condition(ifEnInputSource())
+      .to("comma", ["shift"]),
+    map("f1", ["shift", "control", "option"])
+      .condition(ifEnInputSource())
+      .to("period", ["shift"]),
   ]),
 
   rule("Slack remaps", ifApp("com.tinyspeck.slackmacgap")).manipulators([
     map(key("k", lang), ["control"]).to("k", ["command"]),
     map(key("k", lang), ["control", "shift"]).to("k", ["shift", "command"]), // dm messages
-    map(key("f", lang), ["control"]).to("a", ["command", "shift"]), // unread
+    map(key("u", lang), ["control"]).to("a", ["command", "shift"]), // unread
+
     map(key("a", lang), ["control"]).to("m", ["command", "shift"]), //activity
-    map(key("u", lang), ["control"]).to("o", ["command"]), //upload
-    map(key("t", lang), ["control"]).to("t", ["command", "command"]), //threads view
+    map(key("keypad_plus", lang), ["control"]).to("o", ["command"]), //upload
+    map(key("t", lang), ["control"]).to("t", ["command", "shift"]), //threads view
     map(key("semicolon", lang), ["control"]).to("f6"), //next section
     map(key("semicolon", lang), ["control", "shift"]).to("f6", ["shift"]), // prev section
 
-    map(key("down_arrow", lang), ["control"]).to("down_arrow", ["option"]), // down channel dm
-    map(key("up_arrow", lang), ["control"]).to("up_arrow", ["option"]), //up channel dm
+    map(key("z", lang), ["control"]).to("z", ["command"]), // undo/ unsend
+    map(key("slash", lang), ["control"]).to("backslash", ["command", "shift"]), //emoji
+
+    map(key("l", lang), ["control"]).to("u", ["command", "shift"]), //link selected
+
+    map(key("down_arrow", lang), ["control"]).to("down_arrow", [
+      "option",
+      "shift",
+    ]), // prev unread dm
+    map(key("up_arrow", lang), ["control"]).to("up_arrow", ["option", "shift"]), // next unread dm
+    map(key("i", lang), ["control"]).to("open_bracket", ["command"]), // back on history
+    map(key("o", lang), ["control"]).to("close_bracket", ["command"]), // forward on history
+
+    // map(key("down_arrow", lang), ["control"]).to("down_arrow", ["option"]), // down channel dm
+    // map(key("up_arrow", lang), ["control"]).to("up_arrow", ["option"]), //up channel dm
   ]),
 
   rule("Chrome remaps", ifApp("com.google.Chrome")).manipulators([
@@ -141,6 +167,9 @@ const generateRules = (lang: "en" | "uk") => [
     map(key("m", lang), ["control"]).to("left_arrow", ["command", "option"]), // to left tab
     map(key("x", lang), ["control"]).to("w", ["command"]), // close tab
     map(key("t", lang), ["control"]).to("t", ["command"]), // new tab
+    map(key("r", lang), ["control"]).to("r", ["command"]), // reload
+    // map(key("right_arrow", lang), ["control"]).to("close_bracket", ["command"]), // prev devtools tab
+    // map(key("left_arrow", lang), ["control"]).to("open_bracket", ["command"]), // next devtools tab
     map(key("keypad_plus", lang), ["control"]).to("keypad_plus", ["command"]), // size +
     map(key("keypad_hyphen", lang), ["control"]).to("keypad_hyphen", [
       "command",
@@ -186,6 +215,14 @@ const generateRules = (lang: "en" | "uk") => [
         ["left_command", "left_option", "left_shift", "left_control"],
         { repeat: false },
       ),
+    map("c")
+      .toIfAlone("c", [], { halt: true })
+      .toDelayedAction({ key_code: "vk_none" }, { key_code: "c" })
+      .toIfHeldDown("c", ["left_command"], { repeat: false }),
+    map("v")
+      .toIfAlone("v", [], { halt: true })
+      .toDelayedAction({ key_code: "vk_none" }, { key_code: "v" })
+      .toIfHeldDown("v", ["left_command"], { repeat: false }),
   ]),
 
   rule("Caps Lock > Hyper").manipulators([
@@ -212,7 +249,7 @@ const generateRules = (lang: "en" | "uk") => [
     v.toIfAlone(toApp("Google Chrome")),
   ),
 
-  hyperLayer("c").configKey((v) => v.toIfAlone("c", ["command"])),
+  hyperLayer("c").configKey((v) => v.toIfAlone(toApp("kitty"))),
 
   hyperLayer("v").configKey((v) => v.toIfAlone("v", ["command"])),
 

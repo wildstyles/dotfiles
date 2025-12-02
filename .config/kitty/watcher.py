@@ -17,10 +17,10 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
-def invoke_shell_script_with_session(session):
+def invoke_shell_script_with_session(session, tab_id):
     # Assuming 'sketchybar' command is operational and within the PATH
     try:
-        result = subprocess.run(['/opt/homebrew/bin/sketchybar', '--trigger', 'kitty_event', f'SESSION={session}'], capture_output=True, text=True, check=True)
+        result = subprocess.run(['/opt/homebrew/bin/sketchybar', '--trigger', 'kitty_event', f'SESSION={session}', f'TAB={tab_id}'], capture_output=True, text=True, check=True)
         # logging.debug('its okay')
         print("STDOUT:", result.stdout)  # Check standard output
         print("STDERR:", result.stderr)  # Check standard error
@@ -43,4 +43,4 @@ def on_tab_bar_dirty(boss: Boss, window: Window, data: dict[str, Any]) -> None:
     # logging.debug(json.dumps(boss.all_tabs, indent=2))
 
     session = boss.active_session if hasattr(boss, 'active_session') else ''
-    invoke_shell_script_with_session(session)
+    invoke_shell_script_with_session(session, boss.active_tab.id)

@@ -10,7 +10,8 @@ return {
 		local lines = vim.o.lines
 
 		require("toggleterm").setup({
-			open_mapping = [[<c-_>]],
+			-- open_mapping = [[<c-_>]],
+			open_mapping = [[<c-/>]],
 			direction = "float",
 			float_opts = {
 				width = cols - 4,

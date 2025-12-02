@@ -1,21 +1,29 @@
 
-# # Create a new OS window
-# # Any definitions specified before the first new_os_window will apply to first OS window.
-# new_os_window
-# # Set the --class for the new OS window
-# os_window_class mywindow
-# # Change the OS window state to normal, fullscreen, maximized or minimized
-# os_window_state normal
+new_tab zmk
+layout splits
+enabled_layouts splits,stack
+set_layout_state {"pairs": {"one": 13}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 13, "window_ids": [13]}]}}
+cd /Users/ruslanvanzula/Projects/zmk-for-charybdis
 
-# This defines how new windows (split panes will be open)
-# https://sw.kovidgoyal.net/kitty/layouts/#arrange-windows
-layout tall
-
-cd ~/Projects/dotfiles
-
-# How to get the title from within kitty:
-# kitten @ ls | jq -r '.[] | select(.is_focused) | .tabs[] | select(.is_focused) | .windows[] | select(.is_focused) | .title'
-launch --title "dotfiles"
-# launch --title "dotfiles" /bin/zsh -i -c 'v'
+launch 'kitty-unserialize-data={"id": 13}'
 focus
-focus_os_window
+
+new_tab dotfiles
+layout splits
+enabled_layouts splits,stack
+set_layout_state {"pairs": {"one": 14}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 14, "window_ids": [14]}]}}
+cd /Users/ruslanvanzula/Projects/dotfiles
+
+launch 'kitty-unserialize-data={"id": 14}' --title=dotfiles
+focus
+
+new_tab linkarzu
+layout splits
+enabled_layouts splits,stack
+set_layout_state {"pairs": {"one": 15}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 15, "window_ids": [15]}]}}
+cd /Users/ruslanvanzula/Projects/dotfiles-latest
+
+launch 'kitty-unserialize-data={"id": 15}'
+focus
+
+focus_tab 8

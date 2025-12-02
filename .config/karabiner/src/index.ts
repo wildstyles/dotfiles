@@ -182,7 +182,10 @@ const generateRules = (lang: "en" | "uk") => [
   ]),
 
   rule("Navigation remaps").manipulators([
-    withCondition(ifApp("^com\\.github\\.wez\\.wezterm$").unless())([
+    withCondition(
+      ifApp("^com\\.github\\.wez\\.wezterm$").unless(),
+      ifApp("^net\\.kovidgoyal\\.kitty$").unless(),
+    )([
       map(key("b", lang), ["control"]).to("left_arrow", ["option"]),
       map(key("b", lang), ["control", "shift"]).to("left_arrow", [
         "option",
@@ -277,12 +280,20 @@ const generateRules = (lang: "en" | "uk") => [
 
   hyperLayer(key("z", lang)).configKey((v) => v.toIfAlone(toApp("zoom.us"))),
 
-  hyperLayer(key("t", lang)).configKey((v) =>
-    v.toIfAlone(to$(tmuxSession("scout"))),
-  ),
+  // hyperLayer(key("t", lang)).configKey((v) =>
+  //   v.toIfAlone(to$(tmuxSession("scout"))),
+  // ),
+
+  // hyperLayer(key("x", lang)).configKey((v) =>
+  //   v.toIfAlone(to$(tmuxSession("dotfiles"))),
+  // ),
 
   hyperLayer(key("x", lang)).configKey((v) =>
-    v.toIfAlone(to$(tmuxSession("dotfiles"))),
+    v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh dotfiles`)),
+  ),
+
+  hyperLayer(key("t", lang)).configKey((v) =>
+    v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh scout`)),
   ),
 
   hyperLayer(key("s", lang))

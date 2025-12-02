@@ -1381,6 +1381,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -1400,6 +1406,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1423,6 +1435,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -1444,6 +1462,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -1463,6 +1487,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -1484,6 +1514,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -2418,59 +2454,6 @@
                         ]
                     },
                     {
-                        "description": "Layer - layer-f",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "layer-f",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    },
-                                    {
-                                        "name": "__layer",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "f",
-                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "layer-f",
-                                            "value": 1
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "layer-f",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Layer - layer-x",
                         "manipulators": [
                             {
@@ -2518,7 +2501,60 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh dotfiles" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Layer - layer-f",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-f",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-f",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-f",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh scout" }],
                                 "type": "basic"
                             }
                         ]
@@ -4793,6 +4829,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -4812,6 +4854,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -4835,6 +4883,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -4856,6 +4910,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -4875,6 +4935,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -4896,6 +4962,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -5882,59 +5954,6 @@
                         ]
                     },
                     {
-                        "description": "Layer - layer-t",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "layer-t",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    },
-                                    {
-                                        "name": "__layer",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "layer-t",
-                                            "value": 1
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "layer-t",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Layer - layer-x",
                         "manipulators": [
                             {
@@ -5982,7 +6001,60 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh dotfiles" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Layer - layer-t",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-t",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-t",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-t",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh scout" }],
                                 "type": "basic"
                             }
                         ]
@@ -8409,6 +8481,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -8428,6 +8506,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -8451,6 +8535,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -8472,6 +8562,12 @@
                                             "^com\\.github\\.wez\\.wezterm$"
                                         ],
                                         "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
+                                        ],
+                                        "type": "frontmost_application_unless"
                                     }
                                 ],
                                 "from": {
@@ -8491,6 +8587,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -8512,6 +8614,12 @@
                                     {
                                         "bundle_identifiers": [
                                             "^com\\.github\\.wez\\.wezterm$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    },
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -9498,59 +9606,6 @@
                         ]
                     },
                     {
-                        "description": "Layer - layer-t",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "layer-t",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    },
-                                    {
-                                        "name": "__layer",
-                                        "type": "variable_unless",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "t",
-                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "layer-t",
-                                            "value": 1
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "layer-t",
-                                            "value": 0
-                                        }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "__layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh scout" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Layer - layer-x",
                         "manipulators": [
                             {
@@ -9598,7 +9653,60 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/tmux-switch-session.sh dotfiles" }],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh dotfiles" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Layer - layer-t",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-t",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-t",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-t",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh scout" }],
                                 "type": "basic"
                             }
                         ]

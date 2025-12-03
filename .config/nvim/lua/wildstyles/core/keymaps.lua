@@ -2,6 +2,8 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = "'"
 local keymap = vim.keymap -- for conciseness
 
+vim.g.scrollback = vim.env.SCROLLBACK or "disabled"
+
 keymap.set("x", "p", [["_dP]], {
 	noremap = true,
 	silent = true,
@@ -223,6 +225,10 @@ vim.keymap.set(
 	clear_all_registers,
 	{ desc = "Clear all registers" }
 )
+
+-- I have <C-i> mapped to next tab in terminal. This remap exists
+-- to avoid conflict
+vim.keymap.set("n", "<C-S-i>", "<C-i>")
 
 -- If there is no `untoggled` or `done` label on an item, mark it as done
 -- and move it to the "## completed tasks" markdown heading in the same file, if

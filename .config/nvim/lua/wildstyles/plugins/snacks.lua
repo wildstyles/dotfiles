@@ -28,6 +28,7 @@ end
 return {
 	{
 		"folke/snacks.nvim",
+		enabled = vim.g.scrollback ~= "enabled",
 		keys = {
 			{
 				"gd",
@@ -214,6 +215,25 @@ return {
 					})
 				end,
 				desc = "Recent Files",
+			},
+
+			{
+				"<leader>fc",
+				function()
+					Snacks.picker.grep_word({
+						finder = "grep",
+						format = "file",
+						live = true,
+						hidden = true,
+						ignored = true,
+						title = "Live Grep",
+						exclude = { "^.git/", "node_modules/", "build/" },
+						show_empty = true,
+						supports_live = true,
+						layout = "telescope",
+					})
+				end,
+				desc = "Grep word under cursor",
 			},
 
 			{

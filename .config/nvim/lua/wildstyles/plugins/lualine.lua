@@ -1,6 +1,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	enabled = vim.g.scrollback ~= "enabled",
 	config = function()
 		local lualine = require("lualine")
 

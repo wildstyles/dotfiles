@@ -140,6 +140,9 @@ return {
 						},
 						CmpItemMenu = { fg = colors.surface2 },
 						CursorLineNr = { fg = colors.text },
+						-- it's possible to make cursorline transparent with kitty only if
+						-- it's hardcoded value
+						CursorLine = { bg = "#393939" },
 						FloatBorder = { bg = "none", fg = colors.subtext1 }, -- colors.surface0 }, difficult to see
 						GitSignsChange = { fg = colors.peach },
 						LineNr = { fg = colors.overlay0 },

@@ -19,9 +19,11 @@ fi
 # defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 0
 # defaults write com.knollsoft.Rectangle screenEdgeGapBottom -int $new
 
-
 defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 0
-defaults write com.knollsoft.Rectangle screenEdgeGapBottom -int 28
+defaults write com.knollsoft.Rectangle screenEdgeGapBottom -int 0
+
+# defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 0
+# defaults write com.knollsoft.Rectangle screenEdgeGapBottom -int 28
 
 # defaults write com.knollsoft.Rectangle screenEdgeGapTop -int 28
 # defaults write com.knollsoft.Rectangle screenEdgeGapBottom -int 0

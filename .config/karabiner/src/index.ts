@@ -283,7 +283,7 @@ const generateRules = (lang: "en" | "uk") => [
   // hyperLayer(key("t", lang)).configKey((v) =>
   //   v.toIfAlone(to$(tmuxSession("scout"))),
   // ),
-
+  //
   // hyperLayer(key("x", lang)).configKey((v) =>
   //   v.toIfAlone(to$(tmuxSession("dotfiles"))),
   // ),

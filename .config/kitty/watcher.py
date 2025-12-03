@@ -3,11 +3,9 @@ from typing import Any
 from kitty.boss import Boss
 from kitty.window import Window
 import logging
-
-import os
 import subprocess
-import json
-import pprint
+import datetime
+from time import time
 
 # Set up logging
 LOG_FILE_PATH = '/Users/ruslanvanzula/Projects/dotfiles/.config/kitty/logfile.log'  # Update this path
@@ -20,27 +18,25 @@ logging.basicConfig(
 def invoke_shell_script_with_session(session, tab_id):
     # Assuming 'sketchybar' command is operational and within the PATH
     try:
-        result = subprocess.run(['/opt/homebrew/bin/sketchybar', '--trigger', 'kitty_event', f'SESSION={session}', f'TAB={tab_id}'], capture_output=True, text=True, check=True)
-        # logging.debug('its okay')
-        print("STDOUT:", result.stdout)  # Check standard output
-        print("STDERR:", result.stderr)  # Check standard error
+        result = subprocess.run(
+            ['/opt/homebrew/bin/sketchybar', '--trigger', 'kitty_event', f'SESSION={session}', f'TAB={tab_id}'],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        # logging.debug('Shell script output: STDOUT: %s, STDERR: %s', result.stdout, result.stderr)
         return result
     except subprocess.CalledProcessError as e:
-        print(f"An error occurred: {e}")
+        logging.error(f"An error occurred: {e}")
     except FileNotFoundError:
-        logging.debug('not found')
-        print("Sketchybar command not found. Ensure it is installed and in your PATH.")
-
+        logging.error('Sketchybar command not found. Ensure it is installed and in your PATH.')
 
 def on_tab_bar_dirty(boss: Boss, window: Window, data: dict[str, Any]) -> None:
-    # Assuming there's a valid `boss` object with `active_session`
-    # print(json.dumps(boss, indent=2))
-    for tab in boss.all_tabs:
-        logging.debug(tab)
+    milliseconds = int(time() * 1000)
 
-    # logging.debug(list(boss.all_tabs()))
-    # logging.debug(boss.prev_tab)
-    # logging.debug(json.dumps(boss.all_tabs, indent=2))
+    logging.debug("milliseconds: %s", milliseconds)
+    logging.debug("Active tab ID: %s", boss.active_tab.id)
 
     session = boss.active_session if hasattr(boss, 'active_session') else ''
     invoke_shell_script_with_session(session, boss.active_tab.id)
+

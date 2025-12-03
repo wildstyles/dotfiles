@@ -17,10 +17,12 @@ fi
 
 DOTFILES_SESSION="dotfiles"
 SCOUT_SESSION="scout"
-focused_app="$(osascript -e 'tell application "System Events" 
-    get name of application processes whose frontmost is true
-end tell'
-)"
+# focused_app="$(osascript -e 'tell application "System Events" 
+#     get name of application processes whose frontmost is true
+# end tell'
+# )"
+
+focused_app="kitty"
 
 sock="$(ls /tmp/kitty-* 2>/dev/null | head -n1)"
 
@@ -40,7 +42,8 @@ SCOUT_TABS=$(
 )
 
 ALL_TABS=$(jq -s 'add' <<< "$DOTFILES_TABS $SCOUT_TABS")
-active_tab_id=$(echo "$ALL_TABS" | jq -r '.[] | select(.is_active == true) | .id')
+active_tab_id=$TAB
+# active_tab_id=$(echo "$ALL_TABS" | jq -r '.[] | select(.is_active == true) | .id')
 TABS_LENGTH=$(echo "$ALL_TABS" | jq 'length')
 
 if [[ "$PREV_TAB_LENGTH" != "$TABS_LENGTH" ]]; then
@@ -86,6 +89,8 @@ if [ "$focused_app" = "kitty" ]; then
     sketchybar --set "/kitty.window.$SESSION.*/" \
       label.color="$WHITE" \
       background.color="$ITEM_BG_COLOR"
+
+    sleep 0.1
 
     sketchybar --set kitty.window."$SESSION"."$active_tab_id" \
       label.color="$BAR_COLOR" \

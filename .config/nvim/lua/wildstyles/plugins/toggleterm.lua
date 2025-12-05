@@ -5,6 +5,8 @@ return {
 
 	version = "*",
 
+	enabled = false,
+
 	config = function()
 		local cols = vim.o.columns
 		local lines = vim.o.lines

@@ -2,28 +2,37 @@
 new_tab zmk
 layout splits
 enabled_layouts splits,stack
-set_layout_state {"pairs": {"one": 13}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 13, "window_ids": [13]}]}}
+set_layout_state {"pairs": {"one": 1}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 1, "window_ids": [1]}]}}
 cd /Users/ruslanvanzula/Projects/zmk-for-charybdis
 
-launch 'kitty-unserialize-data={"id": 13}'
+launch 'kitty-unserialize-data={"id": 1}'
 focus
 
 new_tab dotfiles
 layout splits
 enabled_layouts splits,stack
-set_layout_state {"pairs": {"one": 14}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 14, "window_ids": [14]}]}}
+set_layout_state {"pairs": {"one": 2}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 2, "window_ids": [2]}]}}
 cd /Users/ruslanvanzula/Projects/dotfiles
 
-launch 'kitty-unserialize-data={"id": 14}' --title=dotfiles
+launch 'kitty-unserialize-data={"id": 2}' --title=dotfiles
 focus
 
 new_tab linkarzu
 layout splits
 enabled_layouts splits,stack
-set_layout_state {"pairs": {"one": 15}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 15, "window_ids": [15]}]}}
+set_layout_state {"pairs": {"one": 3}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [], "window_groups": [{"id": 3, "window_ids": [3]}]}}
 cd /Users/ruslanvanzula/Projects/dotfiles-latest
 
-launch 'kitty-unserialize-data={"id": 15}'
+launch 'kitty-unserialize-data={"id": 3}'
 focus
 
-focus_tab 8
+new_tab http
+layout splits
+enabled_layouts splits,stack
+set_layout_state {"pairs": {"one": 15}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [15], "window_groups": [{"id": 15, "window_ids": [16]}]}}
+cd /Users/ruslanvanzula/Projects/kulala-http
+
+launch 'kitty-unserialize-data={"id": 16}'
+focus
+
+focus_tab 9

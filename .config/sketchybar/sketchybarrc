@@ -61,7 +61,8 @@ source "$ITEM_DIR"/telegram.sh
 source "$ITEM_DIR"/gitlab.sh
 
 sketchybar --add bracket spaces calendar  gitlab     \
-           --set         spaces background.color="$BAR_COLOR_TRANPARENT" \
+           --set         spaces background.color="$BAR_COLOR" \
+                          background.corner_radius=5 \
                                 background.height=25
 
 ##### Finalizing Setup #####

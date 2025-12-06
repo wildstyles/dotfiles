@@ -354,6 +354,15 @@ const generateRules = (lang?: "en" | "uk") => [
     map("i").to$(rectangle("right-half")),
   ]),
 
+  hyperLayer(key("j", lang))
+    .configKey((v) =>
+      v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh json`)),
+    )
+    .manipulators([
+      map("m").to$(`${scriptsDir}/minify-json.sh`),
+      map("a").to$(`open -a Kitty.app && ${scriptsDir}/json-from-clipboard.sh`),
+    ]),
+
   hyperLayer(key("p", lang))
     .configKey((v) =>
       v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh http`)),

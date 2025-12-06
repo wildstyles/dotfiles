@@ -1,0 +1,13 @@
+cd ~/Projects/kulala-http
+
+# launch --title "json"
+
+# new_tab complex tab
+layout splits
+# First window, set a user variable on it so we can focus it later
+launch --title "json" --var window=first
+# Create the second column by splitting the first window vertically
+launch --location=vsplit
+# Create the third window in the second column by splitting the second window horizontally
+focus_matching_window var:window=first
+

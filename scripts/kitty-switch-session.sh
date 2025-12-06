@@ -1,12 +1,24 @@
-
 #!/usr/bin/env bash
 
-# Switch to a kitty session by name or path
-
 set -euo pipefail
-session="$1"
 
-sock="$(ls /tmp/kitty-* 2>/dev/null | head -n1)"
+# Assign default values if not provided
+# session="$1"
+session="${1:-}"
+tab="${2:-}"
+
+# Locate the first available Kitty socket
+sock=$(ls /tmp/kitty-* 2>/dev/null | head -n1)
+
+# Check if we found a socket, otherwise exit
+if [[ -z "$sock" ]]; then
+    echo "No Kitty instance found."
+    exit 1
+fi
+
 /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action goto_session "$session"
 
-/opt/homebrew/bin/sketchybar --trigger kitty_event SESSION="$1" 
+if [[ -n "$tab" ]]; then
+    /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" focus-tab --match title:"$tab"
+fi
+

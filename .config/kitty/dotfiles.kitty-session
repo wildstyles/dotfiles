@@ -26,13 +26,4 @@ cd /Users/ruslanvanzula/Projects/dotfiles-latest
 launch 'kitty-unserialize-data={"id": 3}'
 focus
 
-new_tab http
-layout splits
-enabled_layouts splits,stack
-set_layout_state {"pairs": {"one": 15}, "opts": {"default_axis_is_horizontal": true}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [15], "window_groups": [{"id": 15, "window_ids": [16]}]}}
-cd /Users/ruslanvanzula/Projects/kulala-http
-
-launch 'kitty-unserialize-data={"id": 16}'
-focus
-
-focus_tab 9
+focus_tab 1

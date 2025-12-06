@@ -11,8 +11,8 @@ export const createSimpleRemap = (from: KeyCode, to: KeyCode) => ({
   to: [{ key_code: to }],
 });
 
-export const key = (k: FromAndToKeyCode, lang: "en" | "uk"): any => {
-  if (lang === "en" || !colemakToQwerty[k]) return k;
+export const key = (k: FromAndToKeyCode, lang?: "en" | "uk"): any => {
+  if (!lang || lang === "en" || !colemakToQwerty[k]) return k;
 
   return colemakToQwerty[k];
 };

@@ -77,7 +77,7 @@ const layer2First = Object.fromEntries(
 );
 const layer2Second = Object.fromEntries(Object.entries(layer2Remaps).slice(5));
 
-export const generateLaptopRules = (lang: "en" | "uk") => [
+export const generateLaptopRules = (lang?: "en" | "uk") => [
   rule("Laptop remaps").manipulators([
     withCondition(ifLaptopDevice())([
       map("spacebar", "optionalAny")

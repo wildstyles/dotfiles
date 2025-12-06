@@ -37,33 +37,31 @@ fi
 
 echo -e "$modified_curl" | pbcopy
 
-SESSION="scout"
-WINDOW="kulala"
+/Users/ruslanvanzula/Projects/dotfiles/scripts/kitty-switch-session.sh http
 
-/opt/homebrew/bin/tmux switch-client -t "$SESSION"
-/opt/homebrew/bin/tmux select-window -t "$SESSION:$WINDOW"
+sock=$(ls /tmp/kitty-* 2>/dev/null | head -n1)
 
-CURRENT_COMMAND=$(/opt/homebrew/bin/tmux list-panes -t "$SESSION:$WINDOW" -F "#{pane_id} #{pane_index} #{pane_current_command}")                                       
-
-pane_id=$(echo "$CURRENT_COMMAND" | awk '{print $1}')
-pane_command=$(echo "$CURRENT_COMMAND" | awk '{print $3}')
-
-if [ "$pane_command" == "nvim" ]; then
-    /opt/homebrew/bin/tmux send-keys -t "$pane_id" Escape ":qa!" Enter
-    echo "Sent :qa! to the nvim pane"
-else
-    /opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "C-c" C-m
-    echo "No nvim process found in the specified pane"
+# Check if we found a socket, otherwise exit
+if [[ -z "$sock" ]]; then
+    echo "No Kitty instance found."
+    exit 1
 fi
 
-sleep 0.2
+/Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key ctrl+q
 
-/opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "n mini-leagues.http" C-m
+sleep 0.5
+
+/Applications/kitty.app/Contents/MacOS/kitten @ --to "unix:${sock}" send-text n mini-leagues.http 
+/Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key enter
 
 sleep 0.2
 
 if $strip_headers; then
-  /opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "," "k" "p"
+  /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key ,
+  /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key k
+  /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key p
 else
-  /opt/homebrew/bin/tmux send-keys -t "$SESSION:$WINDOW" "," "k" "c"
+  /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key ,
+  /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key k
+  /Applications/kitty.app/Contents/MacOS/kitty @ --to "unix:${sock}" action send_key c
 fi

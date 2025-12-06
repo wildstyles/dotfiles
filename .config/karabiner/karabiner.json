@@ -279,7 +279,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "r" },
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "s" }],
                                 "type": "basic"
                             },
@@ -299,7 +302,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "s" },
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "d" }],
                                 "type": "basic"
                             },
@@ -319,7 +325,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "t" },
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "f" }],
                                 "type": "basic"
                             },
@@ -339,7 +348,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "f" },
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "e" }],
                                 "type": "basic"
                             },
@@ -359,7 +371,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "p" },
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "r" }],
                                 "type": "basic"
                             },
@@ -379,7 +394,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "b" },
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "t" }],
                                 "type": "basic"
                             },
@@ -399,7 +417,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "d" },
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "v" }],
                                 "type": "basic"
                             },
@@ -419,7 +440,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "v" },
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "b" }],
                                 "type": "basic"
                             },
@@ -439,7 +463,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "j" },
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "y" }],
                                 "type": "basic"
                             },
@@ -459,7 +486,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "l" },
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "u" }],
                                 "type": "basic"
                             },
@@ -479,7 +509,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "u" },
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "i" }],
                                 "type": "basic"
                             },
@@ -499,7 +532,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "y" },
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "o" }],
                                 "type": "basic"
                             },
@@ -519,7 +555,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "semicolon" },
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "p" }],
                                 "type": "basic"
                             },
@@ -539,7 +578,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "m" },
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "h" }],
                                 "type": "basic"
                             },
@@ -559,7 +601,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "n" },
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "j" }],
                                 "type": "basic"
                             },
@@ -579,7 +624,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "e" },
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "k" }],
                                 "type": "basic"
                             },
@@ -599,7 +647,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "i" },
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "l" }],
                                 "type": "basic"
                             },
@@ -619,7 +670,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "o" },
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "semicolon" }],
                                 "type": "basic"
                             },
@@ -639,7 +693,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "k" },
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "n" }],
                                 "type": "basic"
                             },
@@ -659,7 +716,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "h" },
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "m" }],
                                 "type": "basic"
                             }
@@ -3285,7 +3345,22 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [{ "shell_command": "open -a \"Postman\".app" }],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh http" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-r",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open -a \"Postman\".app" }],
                                 "type": "basic"
                             },
                             {
@@ -3300,7 +3375,7 @@
                                     "key_code": "a",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
+                                "to": [{ "shell_command": "open -a Kitty.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -3315,7 +3390,7 @@
                                     "key_code": "s",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
+                                "to": [{ "shell_command": "open -a Kitty.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
                                 "type": "basic"
                             }
                         ]
@@ -3727,7 +3802,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "r" },
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "s" }],
                                 "type": "basic"
                             },
@@ -3747,7 +3825,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "s" },
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "d" }],
                                 "type": "basic"
                             },
@@ -3767,7 +3848,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "t" },
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "f" }],
                                 "type": "basic"
                             },
@@ -3787,7 +3871,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "f" },
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "e" }],
                                 "type": "basic"
                             },
@@ -3807,7 +3894,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "p" },
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "r" }],
                                 "type": "basic"
                             },
@@ -3827,7 +3917,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "b" },
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "t" }],
                                 "type": "basic"
                             },
@@ -3847,7 +3940,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "d" },
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "v" }],
                                 "type": "basic"
                             },
@@ -3867,7 +3963,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "v" },
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "b" }],
                                 "type": "basic"
                             },
@@ -3887,7 +3986,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "j" },
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "y" }],
                                 "type": "basic"
                             },
@@ -3907,7 +4009,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "l" },
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "u" }],
                                 "type": "basic"
                             },
@@ -3927,7 +4032,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "u" },
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "i" }],
                                 "type": "basic"
                             },
@@ -3947,7 +4055,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "y" },
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "o" }],
                                 "type": "basic"
                             },
@@ -3967,7 +4078,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "semicolon" },
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "p" }],
                                 "type": "basic"
                             },
@@ -3987,7 +4101,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "m" },
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "h" }],
                                 "type": "basic"
                             },
@@ -4007,7 +4124,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "n" },
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "j" }],
                                 "type": "basic"
                             },
@@ -4027,7 +4147,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "e" },
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "k" }],
                                 "type": "basic"
                             },
@@ -4047,7 +4170,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "i" },
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "l" }],
                                 "type": "basic"
                             },
@@ -4067,7 +4193,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "o" },
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "semicolon" }],
                                 "type": "basic"
                             },
@@ -4087,7 +4216,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "k" },
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "n" }],
                                 "type": "basic"
                             },
@@ -4107,7 +4239,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "h" },
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "m" }],
                                 "type": "basic"
                             }
@@ -6785,7 +6920,22 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [{ "shell_command": "open -a \"Postman\".app" }],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh http" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-p",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open -a \"Postman\".app" }],
                                 "type": "basic"
                             },
                             {
@@ -6800,7 +6950,7 @@
                                     "key_code": "a",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
+                                "to": [{ "shell_command": "open -a Kitty.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -6815,7 +6965,7 @@
                                     "key_code": "s",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
+                                "to": [{ "shell_command": "open -a Kitty.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
                                 "type": "basic"
                             }
                         ]
@@ -6943,16 +7093,6 @@
                         "vendor_id": 1452
                     },
                     "manipulate_caps_lock_led": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 24926,
-                        "vendor_id": 7504
-                    },
-                    "ignore": false,
-                    "treat_as_built_in_keyboard": true
                 }
             ],
             "name": "Laptop profile EN",
@@ -7379,7 +7519,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "r" },
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "s" }],
                                 "type": "basic"
                             },
@@ -7399,7 +7542,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "s" },
+                                "from": {
+                                    "key_code": "s",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "d" }],
                                 "type": "basic"
                             },
@@ -7419,7 +7565,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "t" },
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "f" }],
                                 "type": "basic"
                             },
@@ -7439,7 +7588,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "f" },
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "e" }],
                                 "type": "basic"
                             },
@@ -7459,7 +7611,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "p" },
+                                "from": {
+                                    "key_code": "p",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "r" }],
                                 "type": "basic"
                             },
@@ -7479,7 +7634,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "b" },
+                                "from": {
+                                    "key_code": "b",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "t" }],
                                 "type": "basic"
                             },
@@ -7499,7 +7657,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "d" },
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "v" }],
                                 "type": "basic"
                             },
@@ -7519,7 +7680,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "v" },
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "b" }],
                                 "type": "basic"
                             },
@@ -7539,7 +7703,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "j" },
+                                "from": {
+                                    "key_code": "j",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "y" }],
                                 "type": "basic"
                             },
@@ -7559,7 +7726,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "l" },
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "u" }],
                                 "type": "basic"
                             },
@@ -7579,7 +7749,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "u" },
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "i" }],
                                 "type": "basic"
                             },
@@ -7599,7 +7772,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "y" },
+                                "from": {
+                                    "key_code": "y",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "o" }],
                                 "type": "basic"
                             },
@@ -7619,7 +7795,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "semicolon" },
+                                "from": {
+                                    "key_code": "semicolon",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "p" }],
                                 "type": "basic"
                             },
@@ -7639,7 +7818,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "m" },
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "h" }],
                                 "type": "basic"
                             },
@@ -7659,7 +7841,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "n" },
+                                "from": {
+                                    "key_code": "n",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "j" }],
                                 "type": "basic"
                             },
@@ -7679,7 +7864,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "e" },
+                                "from": {
+                                    "key_code": "e",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "k" }],
                                 "type": "basic"
                             },
@@ -7699,7 +7887,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "i" },
+                                "from": {
+                                    "key_code": "i",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "l" }],
                                 "type": "basic"
                             },
@@ -7719,7 +7910,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "o" },
+                                "from": {
+                                    "key_code": "o",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "semicolon" }],
                                 "type": "basic"
                             },
@@ -7739,7 +7933,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "k" },
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "n" }],
                                 "type": "basic"
                             },
@@ -7759,7 +7956,10 @@
                                         "type": "input_source_if"
                                     }
                                 ],
-                                "from": { "key_code": "h" },
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "optional": ["any"] }
+                                },
                                 "to": [{ "key_code": "m" }],
                                 "type": "basic"
                             }
@@ -10437,7 +10637,22 @@
                                         }
                                     }
                                 ],
-                                "to_if_alone": [{ "shell_command": "open -a \"Postman\".app" }],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh http" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-p",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open -a \"Postman\".app" }],
                                 "type": "basic"
                             },
                             {
@@ -10452,7 +10667,7 @@
                                     "key_code": "a",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
+                                "to": [{ "shell_command": "open -a Kitty.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh" }],
                                 "type": "basic"
                             },
                             {
@@ -10467,7 +10682,7 @@
                                     "key_code": "s",
                                     "modifiers": { "mandatory": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open -a WezTerm.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
+                                "to": [{ "shell_command": "open -a Kitty.app && ~/Projects/dotfiles/scripts/curl-from-clipboard.sh -r -h" }],
                                 "type": "basic"
                             }
                         ]

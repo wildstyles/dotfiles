@@ -77,7 +77,7 @@ function doubleTapMapping(
   ];
 }
 
-const generateRules = (lang: "en" | "uk") => [
+const generateRules = (lang?: "en" | "uk") => [
   ...generateLaptopRules(lang),
 
   rule("Language remaps").manipulators([
@@ -110,7 +110,11 @@ const generateRules = (lang: "en" | "uk") => [
     withCondition(
       ifCharibdisDevice(),
       ifUkInputSource(),
-    )([withMapper(colemakToQwerty)((k, v) => map(k as any).to(v as any))]),
+    )([
+      withMapper(colemakToQwerty)((k, v) =>
+        map(k as any, "optionalAny").to(v as any),
+      ),
+    ]),
   ]),
 
   rule("keypad comma/period to comma/period").manipulators([
@@ -351,13 +355,14 @@ const generateRules = (lang: "en" | "uk") => [
   ]),
 
   hyperLayer(key("p", lang))
-    .configKey((v) => v.toIfAlone(toApp("Postman")))
+    .configKey((v) =>
+      v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh http`)),
+    )
     .manipulators([
-      map("a").to$(
-        `open -a WezTerm.app && ${scriptsDir}/curl-from-clipboard.sh`,
-      ),
+      map("m").toApp("Postman"),
+      map("a").to$(`open -a Kitty.app && ${scriptsDir}/curl-from-clipboard.sh`),
       map("s").to$(
-        `open -a WezTerm.app && ${scriptsDir}/curl-from-clipboard.sh -r -h`,
+        `open -a Kitty.app && ${scriptsDir}/curl-from-clipboard.sh -r -h`,
       ),
     ]),
 
@@ -379,7 +384,7 @@ writeToProfile(
     karabinerJsonPath:
       "/Users/ruslanvanzula/Projects/dotfiles/.config/karabiner/karabiner.json",
   },
-  generateRules("en"),
+  generateRules(),
   {
     "basic.to_if_alone_timeout_milliseconds": 250,
     "basic.to_if_held_down_threshold_milliseconds": 250,

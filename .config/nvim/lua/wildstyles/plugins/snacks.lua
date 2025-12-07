@@ -39,6 +39,9 @@ end
 
 local is_git_item = function(item, git_nodes)
 	return vim.iter(git_nodes):any(function(node)
+		if node.dir_status then
+			return vim.fs.relpath(node.path, item.file) ~= nil
+		end
 		return vim.fs.relpath(item.file, node.path) ~= nil
 	end)
 end

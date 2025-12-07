@@ -25,6 +25,24 @@ end
 -- https://github.com/folke/snacks.nvim/discussions/2374
 -- https://github.com/ruicsh/nvim-config/blob/main/lua/plugins/snacks.picker.lua#L27
 --
+
+local get_git_nodes = function(root_path)
+	local Tree = require("snacks.explorer.tree")
+	local nodes = {}
+	Tree:walk(Tree:find(root_path), function(node)
+		if node.status then
+			table.insert(nodes, node)
+		end
+	end)
+	return nodes
+end
+
+local is_git_item = function(item, git_nodes)
+	return vim.iter(git_nodes):any(function(node)
+		return vim.fs.relpath(item.file, node.path) ~= nil
+	end)
+end
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -116,6 +134,35 @@ return {
 			},
 
 			{
+				"<leader>fd",
+				function()
+					-- https://github.com/folke/snacks.nvim/discussions/2602
+					Snacks.explorer({
+						layout = { preset = "default", preview = true },
+						finder = function(opts, ctx)
+							---@diagnostic disable-next-line: inject-field
+							ctx.picker.git_nodes = get_git_nodes(ctx.filter.cwd)
+
+							return require("snacks.picker.source.explorer").explorer(
+								opts,
+								ctx
+							)
+						end,
+						transform = function(item, ctx)
+							---@diagnostic disable-next-line: undefined-field
+							return is_git_item(item, ctx.picker.git_nodes)
+						end,
+						hidden = true,
+						diagnostics = false,
+						auto_close = true,
+						exclude = { "^.git/", "node_modules/", "build/" },
+						include = { "hidden" },
+					})
+				end,
+				desc = "Find currently changed files(difference)",
+			},
+
+			{
 				"<leader>fl",
 				function()
 					Snacks.picker.git_log({
@@ -158,7 +205,7 @@ return {
 						ignored = true,
 						auto_close = true,
 						on_change = function()
-							vim.cmd.norm("$")
+							-- vim.cmd.norm("$")
 							vim.cmd.norm("zz")
 						end,
 						exclude = { "^.git/", "node_modules/", "build/" },
@@ -502,6 +549,70 @@ return {
 					},
 				},
 				sources = {
+					explorer = {
+						actions = {
+							-- https://github.com/folke/snacks.nvim/discussions/2111#discussioncomment-14004953
+							explorer_paste = function(picker, item) --[[Override]]
+								local Tree = require("snacks.explorer.tree")
+								local files = vim.split(
+									vim.fn.getreg(vim.v.register or "+") or "",
+									"\n",
+									{ plain = true }
+								)
+								files = vim.tbl_filter(function(file)
+									-- NOTE: Use `vim.uv.fs_stat` instead of `vim.fn.filereadable`
+									return file ~= ""
+										and vim.uv.fs_stat(file) ~= nil
+								end, files)
+								if #files == 0 then
+									return Snacks.notify.warn(
+										("The `%s` register does not contain any files"):format(
+											vim.v.register or "+"
+										)
+									)
+								end
+								local dir = picker:dir()
+								-- NOTE: Prefer parent when directory is closed
+								if item.dir and not item.open then
+									dir = vim.fs.dirname(dir)
+								end
+								-- NOTE: Replace `Snacks.picker.util.copy`
+								for _, file in ipairs(files) do
+									-- BUG: Prevent pasting inside itself
+									if file == dir then
+										Snacks.notify.warn(
+											string.format(
+												"Skip recursive copy: %s",
+												file
+											)
+										)
+									else
+										local dst = vim.fs.joinpath(
+											dir,
+											vim.fn.fnamemodify(file, ":t")
+										)
+										local dst_unique = dst
+										local count = 0
+										while vim.uv.fs_stat(dst_unique) do
+											count = count + 1
+											dst_unique = string.format(
+												"%s (copy %d)",
+												dst,
+												count
+											)
+										end
+										Snacks.picker.util.copy_path(
+											file,
+											dst_unique
+										)
+									end
+								end
+								Tree:refresh(dir)
+								Tree:open(dir)
+								picker:update({ target = dir })
+							end,
+						},
+					},
 					grep = {
 						preview = function(ctx)
 							local res = Snacks.picker.preview.file(ctx)

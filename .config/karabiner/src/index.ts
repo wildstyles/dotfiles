@@ -17,6 +17,7 @@ import {
 import {
   ifUkInputSource,
   ifCharibdisDevice,
+  ifLaptopDevice,
   key,
   colemakToQwerty,
   init,
@@ -296,9 +297,15 @@ const generateRules = (lang?: "en" | "uk") => [
     v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh dotfiles`)),
   ),
 
-  hyperLayer(key("t", lang)).configKey((v) =>
-    v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh scout`)),
+  hyperLayer(key("h", lang)).configKey((v) =>
+    v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh home`)),
   ),
+
+  hyperLayer(key("t", lang))
+    .configKey((v) =>
+      v.toIfAlone(to$(`${scriptsDir}/kitty-switch-session.sh scout`)),
+    )
+    .manipulators([map("c").to$(`${scriptsDir}/clone-repo.sh`)]),
 
   hyperLayer(key("s", lang))
     .configKey((v) => v.toIfAlone(toApp("Slack")))
@@ -307,6 +314,18 @@ const generateRules = (lang?: "en" | "uk") => [
       map("x").to$(
         "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh",
       ),
+      withCondition(ifLaptopDevice())([
+        map("u")
+          .toInputSource({ language: "uk" })
+          .to$(
+            "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile UK'",
+          ),
+        map("k")
+          .toInputSource({ language: "en" })
+          .to$(
+            "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile EN'",
+          ),
+      ]),
       map("v").to$(`${scriptsDir}/tunnelblick-connect.sh`),
       map("y").to(2, ["command", "shift", "option", "control"]),
       map("b").to("b", ["command", "shift", "option", "control"]),

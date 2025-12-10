@@ -2567,6 +2567,59 @@
                         ]
                     },
                     {
+                        "description": "Layer - layer-m",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-m",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "m",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-m",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-m",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh home" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Layer - layer-f",
                         "manipulators": [
                             {
@@ -2615,6 +2668,21 @@
                                     }
                                 ],
                                 "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh scout" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-f",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/clone-repo.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -2698,6 +2766,60 @@
                                     "modifiers": { "mandatory": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 835,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "name": "layer-d",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [
+                                    { "select_input_source": { "language": "uk" } },
+                                    { "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile UK'" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 835,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "name": "layer-d",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [
+                                    { "select_input_source": { "language": "en" } },
+                                    { "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile EN'" }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -6225,6 +6347,59 @@
                         ]
                     },
                     {
+                        "description": "Layer - layer-h",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-h",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-h",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-h",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh home" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Layer - layer-t",
                         "manipulators": [
                             {
@@ -6273,6 +6448,21 @@
                                     }
                                 ],
                                 "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh scout" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-t",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/clone-repo.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -6356,6 +6546,60 @@
                                     "modifiers": { "mandatory": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 835,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [
+                                    { "select_input_source": { "language": "uk" } },
+                                    { "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile UK'" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 835,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [
+                                    { "select_input_source": { "language": "en" } },
+                                    { "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile EN'" }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -10025,6 +10269,59 @@
                         ]
                     },
                     {
+                        "description": "Layer - layer-h",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-h",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    },
+                                    {
+                                        "name": "__layer",
+                                        "type": "variable_unless",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["command", "option", "control", "shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-h",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "layer-h",
+                                            "value": 0
+                                        }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "__layer",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh home" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Layer - layer-t",
                         "manipulators": [
                             {
@@ -10073,6 +10370,21 @@
                                     }
                                 ],
                                 "to_if_alone": [{ "shell_command": "~/Projects/dotfiles/scripts/kitty-switch-session.sh scout" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "layer-t",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "c",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [{ "shell_command": "~/Projects/dotfiles/scripts/clone-repo.sh" }],
                                 "type": "basic"
                             }
                         ]
@@ -10156,6 +10468,60 @@
                                     "modifiers": { "mandatory": ["any"] }
                                 },
                                 "to": [{ "shell_command": "~/Projects/dotfiles/.config/sketchybar/plugins/mic_click.sh" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 835,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [
+                                    { "select_input_source": { "language": "uk" } },
+                                    { "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile UK'" }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "product_id": 835,
+                                                "vendor_id": 1452
+                                            }
+                                        ],
+                                        "type": "device_if"
+                                    },
+                                    {
+                                        "name": "layer-s",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": { "mandatory": ["any"] }
+                                },
+                                "to": [
+                                    { "select_input_source": { "language": "en" } },
+                                    { "shell_command": "'/Library/Application Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli' --select-profile 'Laptop profile EN'" }
+                                ],
                                 "type": "basic"
                             },
                             {

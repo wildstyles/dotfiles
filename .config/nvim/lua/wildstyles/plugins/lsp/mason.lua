@@ -40,6 +40,8 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d",
+				"markdownlint-cli2",
+				"markdown-toc",
 				"shellcheck",
 				"yamlfix",
 				"htmlbeautifier",

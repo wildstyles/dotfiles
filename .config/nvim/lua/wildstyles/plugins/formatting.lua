@@ -15,6 +15,15 @@ return {
 					args = { "format", "$FILENAME" },
 					stdin = false,
 				},
+				-- relies on global prettierrc file which autobreaks lines for md files
+				-- might be useful someday
+				my_prettier = {
+					inherit = "prettier",
+					append_args = {
+						"--config",
+						"/Users/ruslanvanzula/Projects/dotfiles/.prettierrc.yaml",
+					},
+				},
 			},
 			formatters_by_ft = {
 				http = { "kulala" },

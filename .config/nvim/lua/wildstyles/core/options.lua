@@ -5,10 +5,11 @@ local api = vim.api
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
-opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+-- shows absolute line number on cursor line (when relative number is on)
+opt.number = true
 vim.opt.signcolumn = "no"
 vim.opt.numberwidth = 1
--- opt.statuscolumn = "%=%{v:relnum?v:relnum:v:lnum} %s" -- moves git line status after linenumber
+
 -- tabs & indentation
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
@@ -16,8 +17,10 @@ opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
-opt.wrap = false
+opt.wrap = true
 opt.textwidth = 80
+-- Wrap at word boundaries rather than in the middle of a word
+opt.linebreak = true
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -31,7 +34,8 @@ opt.cursorline = true -- highlight the current cursor line
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+-- colorschemes that can be light or dark will be made dark
+opt.background = "dark"
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
 -- backspace

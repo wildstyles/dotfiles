@@ -138,8 +138,10 @@ const generateRules = (lang?: "en" | "uk") => [
 
   rule("Slack remaps", ifApp("com.tinyspeck.slackmacgap")).manipulators([
     map(key("k", lang), ["control"]).to("k", ["command"]),
-    map(key("k", lang), ["control", "shift"]).to("k", ["shift", "command"]), // dm messages
-    map(key("u", lang), ["control"]).to("a", ["command", "shift"]), // unread
+    // dm messages
+    map(key("k", lang), ["control", "shift"]).to("k", ["shift", "command"]),
+    // unread
+    map(key("u", lang), ["control"]).to("a", ["command", "shift"]),
 
     map(key("a", lang), ["control"]).to("m", ["command", "shift"]), //activity
     map(key("keypad_plus", lang), ["control"]).to("o", ["command"]), //upload
@@ -156,8 +158,10 @@ const generateRules = (lang?: "en" | "uk") => [
       "option",
       "shift",
     ]), // prev unread dm
-    map(key("up_arrow", lang), ["control"]).to("up_arrow", ["option", "shift"]), // next unread dm
-    map(key("i", lang), ["control"]).to("open_bracket", ["command"]), // back on history
+    // next unread dm
+    map(key("up_arrow", lang), ["control"]).to("up_arrow", ["option", "shift"]),
+    // back on history
+    map(key("i", lang), ["control"]).to("open_bracket", ["command"]),
     map(key("o", lang), ["control"]).to("close_bracket", ["command"]), // forward on history
 
     // map(key("down_arrow", lang), ["control"]).to("down_arrow", ["option"]), // down channel dm

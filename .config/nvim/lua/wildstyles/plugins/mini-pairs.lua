@@ -1,21 +1,26 @@
 -- Plugin autoadds pair for brackets, paranthesis
-
+--
+-- https://github.com/nvim-mini/mini.nvim/discussions/1691
+-- https://github.com/nvim-mini/mini.nvim/discussions/2030
 return {
 	"echasnovski/mini.pairs",
 	event = "VeryLazy",
 	opts = {
-		modes = { insert = true, command = true, terminal = false },
-		-- skip autopair when next character is one of these
-		skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
-		-- skip autopair when the cursor is inside these treesitter nodes
-		skip_ts = { "string" },
-		-- skip autopair when next character is closing pair
-		-- and there are more closing pairs than opening pairs
-		skip_unbalanced = true,
-		-- better deal with markdown code blocks
-		markdown = true,
+		modes = { insert = true, command = false, terminal = false },
 		mappings = {
-			["`"] = false,
+			["("] = { neigh_pattern = "[^\\][%s>)%]},:]" },
+			["["] = { neigh_pattern = "[^\\][%s>)%]},:]" },
+			["{"] = { neigh_pattern = "[^\\][%s>)%]},:]" },
+			['"'] = { neigh_pattern = "[%s<(%[{][%s>)%]},:]" },
+			["'"] = { neigh_pattern = "[%s<(%[{][%s>)%]},:]" },
+			["`"] = { neigh_pattern = "[%s<(%[{][%s>)%]},:]" },
+			["<"] = {
+				action = "open",
+				pair = "<>",
+				neigh_pattern = "[\r%w\"'`].",
+				register = { cr = false },
+			},
+			[">"] = { action = "close", pair = "<>", register = { cr = false } },
 		},
 	},
 }

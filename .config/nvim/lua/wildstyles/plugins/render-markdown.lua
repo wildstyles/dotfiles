@@ -195,6 +195,7 @@ return {
 		},
 		heading = {
 			sign = false,
+			-- width = "block",
 			icons = { "󰎤 ", "󰎧 ", "󰎪 ", "󰎭 ", "󰎱 ", "󰎳 " },
 			backgrounds = {
 				"Headline1Bg",

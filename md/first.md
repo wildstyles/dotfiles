@@ -20,7 +20,7 @@ const foo = "bar";
 
 ### Links
 
-- ![Image](test.png)
+- ![image](https://user-images.githubusercontent.com/17450586/210392573-57c0ad1c-5db0-4f2a-9119-608bd2398494.png)
 - [Markdown File](test.md)
 - [Python File](test.py)
 - [Website](https://test.com)

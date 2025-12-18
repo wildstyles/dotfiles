@@ -1,5 +1,7 @@
 -- Plugin for theming nvim
 
+local theme_colors = require("config.colors")
+
 return {
 	"catppuccin/nvim",
 	name = "catppuccin",
@@ -13,82 +15,44 @@ return {
 				dark = "mocha",
 			},
 			color_overrides = {
-				mocha = {
-					white = "#FFFFFF",
-					rosewater = "#FB4834",
-					flamingo = "#FB4834",
-					red = "#FB4834",
-					maroon = "#FB4834",
-					pink = "#d3859b",
-					mauve = "#d3859b",
-					peach = "#e78a4e",
-					yellow = "#FBBD2E",
-					darkblue = "#82aaff",
-					green = "#8dc07c",
-					teal = "#B9BB25",
-					sky = "#99c792",
-					sapphire = "#99c792",
-					blue = "#8dbba3",
-					lavender = "#8dbba3",
-					text = "#f1e4c2",
-					subtext2 = "#c5b4a1",
-					subtext1 = "#d5c4a1",
-					subtext0 = "#bdae93",
-					overlay2 = "#a89984",
-					overlay1 = "#928374",
-					overlay0 = "#595959",
-					surface2 = "#4d4d4d",
-					surface1 = "#404040",
-					surface0 = "#292929",
-					base = "#1d2224",
-					mantle = "#1d2224",
-					crust = "#1f2223",
-				},
 				frappe = {
-					white = "#FFFFFF",
-					rosewater = "#eb7a73", -- const, return, await, class, private
-					flamingo = "#eb7a73",
-					red = "#eb7a73",
-					maroon = "#eb7a73",
+					white = theme_colors["color_white"],
 
-					pink = "#e396a4",
-					mauve = "#e396a4", -- from, import, this @
+					red = theme_colors["color_red"], -- const, return, await, class, private
+					rosewater = theme_colors["color_red"],
+					flamingo = theme_colors["color_red"],
+					maroon = theme_colors["color_red"],
 
-					peach = "#e89a5e",
-					yellow = "#ffcb6b",
-					darkblue = "#82aaff",
+					pink = theme_colors["color_pink"], -- from, import, this @
+					mauve = theme_colors["color_pink"], -- from, import, this @
 
-					-- yellow = "#E7B84C",
-					green = "#7cb66a",
+					peach = theme_colors["color_orange"],
+					yellow = theme_colors["color_yellow"],
 
-					-- teal = "#000000",
-					-- sky = "#000000",
-					-- sapphire = "#000000",
-					teal = "#99c792",
-					sky = "#99c792",
-					sapphire = "#99c792",
-					blue = "#82aaff",
-					lavender = "#82aaff",
-					-- blue = "#8dbba3",
-					-- lavender = "#8dbba3",
-					text = "#f1e4c2",
-					-- text = "#FFFFFF",
+					blue = theme_colors["color_blue"],
+					darkblue = theme_colors["color_blue"],
+					lavender = theme_colors["color_blue"],
 
-					subtext1 = "#e5d5b1",
-					subtext0 = "#c5bda3",
-					overlay2 = "#b8a994",
-					overlay1 = "#a39284",
-					overlay0 = "#656565",
-					surface2 = "#5d5d5d",
-					surface1 = "#505050",
-					surface0 = "#393939",
+					green = theme_colors["color_green"],
 
-					base = "#1d2224",
-					mantle = "#1d2224",
-					crust = "#1f2223",
-					-- base = "#000000",
-					-- mantle = "#000000",
-					-- crust = "#000000",
+					sapphire = theme_colors["color_sapphire"],
+					teal = theme_colors["color_sapphire"],
+					sky = theme_colors["color_sapphire"],
+
+					text = theme_colors["color_beige"],
+
+					subtext1 = theme_colors["color_beige1"],
+					subtext0 = theme_colors["color_olive"],
+					overlay2 = theme_colors["color_beige2"],
+					overlay1 = theme_colors["color_brown"],
+					overlay0 = theme_colors["color_grey1"],
+					surface2 = theme_colors["color_grey2"],
+					surface1 = theme_colors["color_grey"],
+					surface0 = theme_colors["color_dark_grey"],
+
+					base = theme_colors["color_dark_grey1"],
+					mantle = theme_colors["color_dark_grey1"],
+					crust = theme_colors["color_dark_grey2"],
 				},
 			},
 			transparent_background = true,
@@ -121,11 +85,9 @@ return {
 			highlight_overrides = {
 				all = function(colors)
 					return {
-						-- FlashLabel = { },
-						-- FlashBackdrop = {},
 						FlashCurrent = {
 							bold = true,
-							fg = colors.rosewater,
+							fg = colors.red,
 						},
 						FlashMatch = {
 							fg = colors.yellow,
@@ -145,7 +107,7 @@ return {
 						CursorLine = { bg = "#393939" },
 						FloatBorder = { bg = "none", fg = colors.subtext1 }, -- colors.surface0 }, difficult to see
 						GitSignsChange = { fg = colors.peach },
-						LineNr = { fg = colors.overlay0 },
+						LineNr = { fg = colors.surface1 },
 						LspInfoBorder = { link = "FloatBorder" },
 						NeoTreeDirectoryIcon = { fg = colors.subtext1 },
 						NeoTreeDirectoryName = { fg = colors.subtext1 },
@@ -155,7 +117,7 @@ return {
 						},
 						NeoTreeGitConflict = { fg = colors.red },
 						NeoTreeGitDeleted = { fg = colors.red },
-						NeoTreeGitIgnored = { fg = colors.overlay0 },
+						NeoTreeGitIgnored = { fg = colors.surface1 },
 						NeoTreeGitModified = { fg = colors.peach },
 						NeoTreeGitStaged = { fg = colors.green },
 						NeoTreeGitUnstaged = { fg = colors.red },
@@ -185,53 +147,27 @@ return {
 						},
 						NeoTreeWinSeparator = {
 							fg = colors.surface1,
-							bg = colors.base,
+							bg = colors.mantle,
 						},
 						NormalFloat = { bg = "none" },
 						Pmenu = { bg = colors.mantle, fg = "" },
-						-- telescope prompt
-						TelescopePromptTitle = {
-							fg = colors.mantle,
-							bg = "#39fd9c",
-							style = { "bold" },
-						},
-						TelescopePromptCounter = {
-							fg = colors.red,
-							style = { "bold" },
-						},
-						TelescopePromptBorder = { bg = colors.base },
-						-- telescope results
-						TelescopeResultsTitle = {
-							link = "TelescopePromptTitle",
-						},
-						TelescopeResultsBorder = {
-							link = "TelescopePromptBorder",
-						},
-						-- telescope preview
-						TelescopePreviewTitle = {
-							link = "TelescopePromptTitle",
-						},
-						TelescopePreviewBorder = {
-							bg = "none",
-							link = "TelescopePromptBorder",
-						},
-						VertSplit = { bg = colors.base, fg = colors.surface0 },
+						VertSplit = { bg = colors.mantle, fg = colors.surface0 },
 						WhichKeyFloat = { bg = colors.mantle },
 						YankHighlight = { bg = colors.surface2 },
 						FidgetTask = { fg = colors.subtext2 },
 						FidgetTitle = { fg = colors.peach },
 
 						IblIndent = { fg = colors.surface0 },
-						IblScope = { fg = colors.overlay0 },
+						IblScope = { fg = colors.surface1 },
 
-						Boolean = { fg = colors.mauve },
-						Number = { fg = colors.mauve },
-						Float = { fg = colors.mauve },
+						Boolean = { fg = colors.pink },
+						Number = { fg = colors.pink },
+						Float = { fg = colors.pink },
 
-						PreProc = { fg = colors.mauve },
-						PreCondit = { fg = colors.mauve },
-						Include = { fg = colors.mauve },
-						Define = { fg = colors.mauve },
+						PreProc = { fg = colors.pink },
+						PreCondit = { fg = colors.pink },
+						Include = { fg = colors.pink },
+						Define = { fg = colors.pink },
 						Conditional = { fg = colors.red },
 						Repeat = { fg = colors.red },
 						Keyword = { fg = colors.red },
@@ -252,17 +188,17 @@ return {
 						Function = { fg = colors.blue, style = { "bold" } },
 						Delimiter = { fg = colors.subtext2 },
 						Ignore = { fg = colors.subtext2 },
-						Macro = { fg = colors.teal },
+						Macro = { fg = colors.sapphire },
 
-						TSAnnotation = { fg = colors.mauve },
-						TSAttribute = { fg = colors.mauve },
-						TSBoolean = { fg = colors.mauve },
-						TSCharacter = { fg = colors.teal },
+						TSAnnotation = { fg = colors.pink },
+						TSAttribute = { fg = colors.pink },
+						TSBoolean = { fg = colors.pink },
+						TSCharacter = { fg = colors.sapphire },
 						TSCharacterSpecial = { link = "SpecialChar" },
 						TSComment = { link = "Comment" },
 						TSConditional = { fg = colors.red },
-						TSConstBuiltin = { fg = colors.mauve },
-						TSConstMacro = { fg = colors.mauve },
+						TSConstBuiltin = { fg = colors.pink },
+						TSConstMacro = { fg = colors.pink },
 						TSConstant = { fg = colors.text },
 						TSConstructor = { fg = colors.green },
 						TSDebug = { link = "Debug" },
@@ -272,7 +208,7 @@ return {
 						TSError = { link = "Error" },
 						TSException = { fg = colors.red },
 						TSField = { fg = colors.white },
-						TSFloat = { fg = colors.mauve },
+						TSFloat = { fg = colors.pink },
 						TSFuncBuiltin = { fg = colors.green },
 						TSFuncMacro = { fg = colors.green },
 						TSFunction = { fg = colors.green },
@@ -289,7 +225,7 @@ return {
 						TSMethodCall = { fg = colors.green },
 						TSNamespace = { fg = colors.yellow },
 						TSNone = { fg = colors.text },
-						TSNumber = { fg = colors.mauve },
+						TSNumber = { fg = colors.pink },
 						-- TSOperator = { fg = colors.sapphire },
 						TSOperator = { fg = colors.peach },
 						TSParameter = { fg = colors.text },
@@ -303,7 +239,7 @@ return {
 						TSStorageClass = { fg = colors.peach },
 						TSStorageClassLifetime = { fg = colors.peach },
 						TSStrike = { fg = colors.subtext2 },
-						TSString = { fg = colors.teal },
+						TSString = { fg = colors.sapphire },
 						TSStringEscape = { fg = colors.green },
 						TSStringRegex = { fg = colors.green },
 						TSStringSpecial = { link = "SpecialChar" },
@@ -331,7 +267,7 @@ return {
 						TSURI = { fg = colors.blue },
 						-- TSVariable = { fg = colors.white },
 						TSVariable = { fg = colors.text },
-						TSVariableBuiltin = { fg = colors.mauve },
+						TSVariableBuiltin = { fg = colors.pink },
 
 						["@annotation"] = { link = "TSAnnotation" },
 						["@attribute"] = { link = "TSAttribute" },
@@ -466,44 +402,3 @@ return {
 		vim.api.nvim_command("colorscheme catppuccin-frappe")
 	end,
 }
-
--- return {
--- 	{
--- 		"folke/tokyonight.nvim",
--- 		priority = 1000, -- make sure to load this before all the other start plugins
--- 		config = function()
--- 			local bg = "#011628"
--- 			local bg_dark = "#011423"
--- 			local bg_highlight = "#143652"
--- 			local bg_search = "#0A64AC"
--- 			local bg_visual = "#275378"
--- 			local fg = "#CBE0F0"
--- 			local fg_dark = "#B4D0E9"
--- 			local fg_gutter = "#627E97"
--- 			local border = "#547998"
---
--- 			require("tokyonight").setup({
--- 				style = "night",
--- 				on_colors = function(colors)
--- 					colors.bg = bg
--- 					colors.bg_dark = bg_dark
--- 					colors.bg_float = bg_dark
--- 					colors.bg_highlight = bg_highlight
--- 					colors.bg_popup = bg_dark
--- 					colors.bg_search = bg_search
--- 					colors.bg_sidebar = bg_dark
--- 					colors.bg_statusline = bg_dark
--- 					colors.bg_visual = bg_visual
--- 					colors.border = border
--- 					colors.fg = fg
--- 					colors.fg_dark = fg_dark
--- 					colors.fg_float = fg
--- 					colors.fg_gutter = fg_gutter
--- 					colors.fg_sidebar = fg_dark
--- 				end,
--- 			})
--- 			-- load the colorscheme here
--- 			vim.cmd([[colorscheme tokyonight]])
--- 		end,
--- 	},
--- }

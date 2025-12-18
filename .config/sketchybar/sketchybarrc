@@ -34,7 +34,6 @@ sketchybar --default icon.font="SF Pro:Semibold:15.0"  \
                      icon.color="$WHITE"                 \
                      label.font="mononoki:bold:15.0" \
                      label.color="$WHITE"                \
-                     background.color="$ITEM_BG_COLOR"       \
                      background.height=20                  \
                      padding_left=5                        \
                      margin_right=0                        \

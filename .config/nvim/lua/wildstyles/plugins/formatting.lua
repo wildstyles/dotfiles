@@ -28,7 +28,8 @@ return {
 			formatters_by_ft = {
 				http = { "kulala" },
 				lua = { "stylua" },
-				javascript = { "eslint", "prettier" },
+				-- javascript = { "eslint_d", "prettier", stop_after_first = true },
+				javascript = { "prettier" },
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },

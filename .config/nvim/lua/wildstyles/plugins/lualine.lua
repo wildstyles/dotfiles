@@ -1,3 +1,5 @@
+local theme_colors = require("config.colors")
+
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -26,35 +28,36 @@ return {
 		}
 
 		local colors = {
-			blue = "#65D1FF",
-			green = "#3EFFDC",
-			violet = "#FF61EF",
-			yellow = "#FFDA7B",
-			red = "#FF4A4A",
-			fg = "#c3ccdc",
-			-- bg = "#112638",
+			blue = theme_colors["color_blue"],
+			green = theme_colors["color_green"],
+			pink = theme_colors["color_pink"],
+			yellow = theme_colors["color_yellow1"],
+			red = theme_colors["color_red"],
+			fg = theme_colors["color_white1"],
+			grey = theme_colors["color_dark_grey2"],
+			inactive_bg = theme_colors["color_dark_grey"],
 			bg = "None",
-			inactive_bg = "#2c3043",
 		}
 
 		local my_lualine_theme = {
 			normal = {
-				a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+				a = { bg = colors.yellow, fg = colors.grey, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.fg },
 				c = { bg = colors.bg, fg = colors.fg },
 			},
 			insert = {
-				a = { bg = colors.green, fg = colors.bg, gui = "bold" },
+				a = { bg = colors.green, fg = colors.grey, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.fg },
 				c = { bg = colors.bg, fg = colors.fg },
 			},
 			visual = {
-				a = { bg = colors.violet, fg = colors.bg, gui = "bold" },
+				a = { bg = colors.blue, fg = colors.bg, gui = "bold" },
+
 				b = { bg = colors.bg, fg = colors.fg },
 				c = { bg = colors.bg, fg = colors.fg },
 			},
 			command = {
-				a = { bg = colors.yellow, fg = colors.bg, gui = "bold" },
+				a = { bg = colors.yellow, fg = colors.grey, gui = "bold" },
 				b = { bg = colors.bg, fg = colors.fg },
 				c = { bg = colors.bg, fg = colors.fg },
 			},
@@ -148,7 +151,7 @@ return {
 			diagnostics_color = {
 				color_error = { fg = colors.red },
 				color_warn = { fg = colors.yellow },
-				color_info = { fg = colors.violet },
+				color_info = { fg = colors.blue },
 			},
 		})
 

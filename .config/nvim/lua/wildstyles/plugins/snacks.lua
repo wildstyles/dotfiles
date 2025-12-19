@@ -788,6 +788,9 @@ return {
 			},
 			lazygit = {
 				theme = {
+					-- should be taken from highlight group.
+					-- plain hex colors throw errors
+					cherryPickedCommitFgColor = { fg = "TSProperty" },
 					selectedLineBgColor = { bg = "CursorLine" },
 				},
 				win = {

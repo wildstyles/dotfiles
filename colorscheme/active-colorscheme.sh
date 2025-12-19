@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 color_white="#FFFFFF"
+color_white1="#D8DEE9"
 
 color_red="#eb7a73"
 
@@ -8,6 +9,8 @@ color_pink="#e396a4"
 color_orange="#e89a5e"
 
 color_yellow="#ffcb6b"
+color_yellow1="#eed49f"
+
 color_blue="#82aaff"
 
 color_green="#7cb66a"

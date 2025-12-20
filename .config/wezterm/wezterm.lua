@@ -49,36 +49,5 @@ config.keys = {
 	{ key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize }, -- back to 12.0pt
 }
 
--- my coolnight colorscheme:
--- config.colors = {
--- 	foreground = "#CBE0F0",
--- 	background = "#011423",
--- 	cursor_bg = "#47FF9C",
--- 	cursor_border = "#47FF9C",
--- 	cursor_fg = "#011423",
--- 	selection_bg = "#033259",
--- 	selection_fg = "#CBE0F0",
--- 	ansi = {
--- 		"#1a3a5e",
--- 		"#ea4d44",
--- 		"#88fbd2",
--- 		"#fcf392",
--- 		"#3674f0",
--- 		"#be94e4",
--- 		"#ec69cf",
--- 		"#75f9a9",
--- 	},
--- 	brights = {
--- 		"#214969",
--- 		"#E52E2E",
--- 		"#44FFB1",
--- 		"#FFE073",
--- 		"#A277FF",
--- 		"#a277ff",
--- 		"#24EAF7",
--- 		"#24EAF7",
--- 	},
--- }
---
 -- and finally, return the configuration to wezterm
 return config

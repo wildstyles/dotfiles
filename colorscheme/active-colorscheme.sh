@@ -2,8 +2,10 @@
 
 color_white="#FFFFFF"
 color_white1="#D8DEE9"
+color_white2="#F5F5DC"
 
 color_red="#eb7a73"
+color_red1="#ff007c"
 
 color_pink="#e396a4"
 color_orange="#e89a5e"
@@ -12,6 +14,7 @@ color_yellow="#ffcb6b"
 color_yellow1="#eed49f"
 
 color_blue="#82aaff"
+color_blue1="#9cc4ff"
 
 color_green="#7cb66a"
 color_sapphire="#99c792"
@@ -30,5 +33,19 @@ color_dark_grey="#393939"
 color_dark_grey1="#1d2224"
 color_dark_grey2="#1f2223"
 
+color_purple="#e1acff"
+color_purple1="#c792ea"
+
+color_cyan="#89ddff"
+color_cyan1="#a3f7ff"
+
+color_black="#1c1b17"
+
 color_brown="#a39284"
 
+color_headline_1="#82aafa"
+color_headline_2="#eed49a"
+color_headline_3="#99c79a"
+color_headline_4="#e396aa"
+color_headline_5="#eb7a7a"
+color_headline_6="#e1acfa"

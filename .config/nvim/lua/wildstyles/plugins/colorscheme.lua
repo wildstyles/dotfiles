@@ -17,14 +17,20 @@ return {
 			color_overrides = {
 				frappe = {
 					white = theme_colors["color_white"],
+					white1 = theme_colors["color_white2"],
+
+					black = theme_colors["color_black"],
 
 					red = theme_colors["color_red"], -- const, return, await, class, private
 					rosewater = theme_colors["color_red"],
 					flamingo = theme_colors["color_red"],
 					maroon = theme_colors["color_red"],
+					red1 = theme_colors["color_red1"],
 
 					pink = theme_colors["color_pink"], -- from, import, this @
 					mauve = theme_colors["color_pink"], -- from, import, this @
+
+					purple = theme_colors["color_purple1"],
 
 					peach = theme_colors["color_orange"],
 					yellow = theme_colors["color_yellow"],
@@ -85,6 +91,36 @@ return {
 			highlight_overrides = {
 				all = function(colors)
 					return {
+						Headline1Bg = {
+							fg = colors.white1,
+							bg = "#82aafa",
+							bold = true,
+						},
+						Headline2Bg = {
+							fg = colors.white1,
+							bg = "#eed49a",
+							bold = true,
+						},
+						Headline3Bg = {
+							fg = colors.white1,
+							bg = "#99c79a",
+							bold = true,
+						},
+						Headline4Bg = {
+							fg = colors.white1,
+							bg = "#e396aa",
+							bold = true,
+						},
+						Headline5Bg = {
+							fg = colors.white1,
+							bg = "#eb7a7a",
+							bold = true,
+						},
+						Headline6Bg = {
+							fg = colors.white1,
+							bg = "#e1acfa",
+							bold = true,
+						},
 						FlashCurrent = {
 							bold = true,
 							fg = colors.red,
@@ -93,12 +129,12 @@ return {
 							fg = colors.yellow,
 						},
 						FlashBackdrop = {
-							fg = "#545c7e",
+							fg = colors.surface1,
 						},
 						FlashLabel = {
-							bg = "#ff007c",
+							bg = colors.red1,
 							bold = true,
-							fg = "#c8d3f5",
+							fg = colors.white1,
 						},
 						CmpItemMenu = { fg = colors.surface2 },
 						CursorLineNr = { fg = colors.text },
@@ -386,14 +422,6 @@ return {
 							link = "TSTypeDefinition",
 						},
 						["@lsp.type.variable"] = { link = "TSVariable" },
-					}
-				end,
-				latte = function(colors)
-					return {
-						IblIndent = { fg = colors.mantle },
-						IblScope = { fg = colors.surface1 },
-
-						LineNr = { fg = colors.surface1 },
 					}
 				end,
 			},

@@ -10,6 +10,7 @@ return {
 				"tailwindcss",
 				"svelte",
 				"lua_ls",
+				"jsonls",
 				"graphql",
 				"emmet_ls",
 				"prismals",

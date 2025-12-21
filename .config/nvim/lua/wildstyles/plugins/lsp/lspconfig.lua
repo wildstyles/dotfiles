@@ -3,6 +3,7 @@ return {
 	event = { "BufReadPre", "BufNewFile" },
 	enabled = true,
 	dependencies = {
+		{ "b0o/schemastore.nvim" },
 		{ "saghen/blink.cmp" },
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
@@ -30,6 +31,15 @@ return {
 				opts.desc = "Restart LSP"
 				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 			end,
+		})
+
+		lspconfig["jsonls"].setup({
+			settings = {
+				json = {
+					schemas = require("schemastore").json.schemas(),
+					validate = { enable = true },
+				},
+			},
 		})
 
 		lspconfig["html"].setup({
